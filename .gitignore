@@ -1,0 +1,62 @@
+# WordPress Core Files
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/xmlrpc.php
+/readme.html
+/license.txt
+
+# WordPress Configuration
+wp-config.php
+wp-config-sample.php
+.htaccess
+.htaccess.bk
+
+# WordPress Content (excluding our custom theme)
+/wp-content/plugins/
+/wp-content/mu-plugins/
+/wp-content/themes/astra/
+/wp-content/themes/twenty*/
+/wp-content/upgrade/
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/backup*/
+/wp-content/*.php
+/wp-content/*.dat
+
+# Composer
+/vendor/
+composer.lock
+
+# Database
+*.sql
+*.sql.gz
+
+# Logs
+*.log
+error_log
+debug.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+/tmp/
+*.tmp
+*.cache
+
+# Private files
+.private/
+
+# LiteSpeed Cache
+/wp-content/litespeed/

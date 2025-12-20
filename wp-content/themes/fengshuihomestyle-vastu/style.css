@@ -1,0 +1,475 @@
+/*
+Theme Name: Feng Shui Homestyle Vastu
+Theme URI: https://fengshuihomestylevastu.com
+Description: A 2025 "Digital Zen" pioneer-level website for Feng Shui Homestyle Vastu by Sanjay Jain - blending ancient Vastu Shastra with modern precision. Scientific Vastu: Harmony without Demolition.
+Author: Sanjay Jain
+Author URI: https://fengshuihomestylevastu.com
+Template: astra
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: fengshuihomestyle-vastu
+*/
+
+/* ========================================
+   Digital Zen Design System - 2025
+   ======================================== */
+
+/* 
+ * Google Fonts are loaded via wp_enqueue_style in functions.php for better performance
+ * Font preconnection tags are added in the header via wp_head hook
+ */
+
+/* ========================================
+   CSS Custom Properties - Biophilic Color System
+   ======================================== */
+:root {
+    /* Primary Colors */
+    --color-warm-sand: #F5EAE1;
+    --color-sage-green: #648E7B;
+    --color-deep-indigo: #2E2B59;
+    
+    /* Extended Palette */
+    --color-earth-brown: #8B7355;
+    --color-soft-cream: #FFF8F0;
+    --color-zen-white: #FFFFFF;
+    --color-shadow: rgba(46, 43, 89, 0.1);
+    
+    /* Typography */
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Lato', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    
+    /* Transitions */
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-deep-indigo);
+    background-color: var(--color-warm-sand);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-deep-indigo);
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+a {
+    color: var(--color-sage-green);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+a:hover {
+    color: var(--color-deep-indigo);
+}
+
+/* ========================================
+   Hero Section - The Energy Foyer
+   ======================================== */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+.hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(245, 234, 225, 0.85) 0%, rgba(100, 142, 123, 0.75) 100%);
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-headline {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--color-deep-indigo);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.hero-subheadline {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--color-earth-brown);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* ========================================
+   CTA Buttons
+   ======================================== */
+.cta-primary {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background-color: var(--color-deep-indigo);
+    color: var(--color-zen-white);
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px rgba(46, 43, 89, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-primary:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-primary:hover:before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(46, 43, 89, 0.4);
+}
+
+.cta-sticky {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: pulse 2s infinite;
+}
+
+/* ========================================
+   Trust Markers
+   ======================================== */
+.trust-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: 700;
+    color: var(--color-deep-indigo);
+}
+
+.trust-icon {
+    font-size: 1.5rem;
+    color: var(--color-sage-green);
+}
+
+/* ========================================
+   Glassmorphism Cards
+   ======================================== */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: var(--spacing-lg);
+    box-shadow: 0 8px 32px rgba(46, 43, 89, 0.1);
+    transition: var(--transition-base);
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(46, 43, 89, 0.15);
+}
+
+/* ========================================
+   Methodology Section
+   ======================================== */
+.methodology-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--color-soft-cream);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.methodology-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.energy-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: var(--spacing-lg) auto;
+    padding: var(--spacing-lg);
+    background: var(--color-zen-white);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(46, 43, 89, 0.1);
+}
+
+/* ========================================
+   Service Tabs
+   ======================================== */
+.services-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: linear-gradient(180deg, var(--color-warm-sand) 0%, var(--color-soft-cream) 100%);
+}
+
+.service-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 1rem 2rem;
+    background: var(--color-zen-white);
+    border: 2px solid var(--color-sage-green);
+    color: var(--color-sage-green);
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.tab-button:hover,
+.tab-button.active {
+    background: var(--color-sage-green);
+    color: var(--color-zen-white);
+    transform: scale(1.05);
+}
+
+.tab-content {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.service-card {
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: var(--color-sage-green);
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-description {
+    color: var(--color-earth-brown);
+    line-height: 1.6;
+}
+
+/* ========================================
+   Mobile-First & Thumb Zone Design
+   ======================================== */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: var(--spacing-md) var(--spacing-sm);
+        min-height: 90vh;
+    }
+    
+    .trust-strip {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .service-tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .tab-button {
+        width: 100%;
+    }
+    
+    .cta-sticky {
+        bottom: 10px;
+        right: 50%;
+        transform: translateX(50%);
+        width: 90%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+/* ========================================
+   Animations & Micro-interactions
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(46, 43, 89, 0.3);
+    }
+    50% {
+        box-shadow: 0 15px 40px rgba(46, 43, 89, 0.5);
+    }
+}
+
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-effect:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(100, 142, 123, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:hover:after {
+    width: 300px;
+    height: 300px;
+}
+
+/* ========================================
+   Performance Optimizations
+   ======================================== */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
