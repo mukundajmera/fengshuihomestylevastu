@@ -27,43 +27,43 @@ get_header();
             <div class="hero-content">
                 <h1 class="hero-headline">Harmonize Your Space, Transform Your Life.</h1>
                 <p class="hero-subheadline">
-                    Expert Vastu & Feng Shui guidance to solve health, wealth, and relationship challenges. 100% Remote. No Demolition. 25+ years of mastery.
+                    Experience Scientific Vastu & Feng Shui that solves Health, Wealth, and Relationship challenges—without breaking a single brick. Over 25 years of mastery brought to your doorstep via 100% Remote Consultations.
                 </p>
                 
-                <a href="https://wa.me/919810143516?text=Hello!%20I%20would%20like%20to%20book%20a%20Vastu%20consultation" 
+                <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                    class="cta-primary ripple-effect" 
                    target="_blank" 
                    rel="noopener noreferrer">
-                    📱 Book WhatsApp Consultation
+                    📱 Chat with Sanjay Jain on WhatsApp
                 </a>
             </div>
         </section>
 
         <!-- RESIDENTIAL SOLUTIONS - Interactive Grid -->
         <section class="residential-solutions-section">
-            <h2 class="section-title">Residential Solutions</h2>
+            <h2 class="section-title">Life Solutions</h2>
             <p class="section-subtitle">Transform every space in your home into a sanctuary of harmony and prosperity</p>
             
             <div class="residential-grid">
                 <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-image-wrapper">
                         <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/vibrant-kitchen.jpg' ); ?>" 
-                             alt="Health & Vitality - Clean vibrant kitchen" 
+                             alt="Family Wellness & Vitality - Clean vibrant kitchen" 
                              class="card-image" 
                              loading="lazy">
                         <div class="card-overlay"></div>
                     </div>
                     <div class="card-content">
-                        <div class="service-icon">💚</div>
-                        <h3 class="service-title">Health & Vitality</h3>
+                        <div class="service-icon">❤️</div>
+                        <h3 class="service-title">Family Wellness & Vitality</h3>
                         <p class="service-description">
-                            Fix energy blocks affecting family wellness. Create a vibrant kitchen and living spaces that promote health and vitality.
+                            Is your family facing frequent health issues? We align your Kitchen and North-East zones to balance the Fire and Water elements, restoring the natural energy of wellness in your home.
                         </p>
-                        <a href="https://wa.me/919810143516?text=I%20want%20to%20improve%20health%20and%20vitality%20in%20my%20home" 
+                        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                            class="card-cta ripple-effect" 
                            target="_blank" 
                            rel="noopener noreferrer">
-                            Get Started →
+                            Chat with Sanjay Jain →
                         </a>
                     </div>
                 </div>
@@ -71,22 +71,22 @@ get_header();
                 <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-image-wrapper">
                         <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/peaceful-bedroom.jpg' ); ?>" 
-                             alt="Relationships & Rest - Peaceful balanced bedroom" 
+                             alt="Relationship Sanctuary - Peaceful balanced bedroom" 
                              class="card-image" 
                              loading="lazy">
                         <div class="card-overlay"></div>
                     </div>
                     <div class="card-content">
-                        <div class="service-icon">❤️</div>
-                        <h3 class="service-title">Relationships & Rest</h3>
+                        <div class="service-icon">∞</div>
+                        <h3 class="service-title">Relationship Sanctuary</h3>
                         <p class="service-description">
-                            Create a supportive atmosphere for harmony and sleep. Design a peaceful bedroom that nurtures relationships and rest.
+                            Create a bedroom environment that fosters deep rest and emotional connection. Our South-West stability remedies help resolve conflicts and bring harmony to your personal life.
                         </p>
-                        <a href="https://wa.me/919810143516?text=I%20want%20to%20enhance%20relationships%20and%20rest%20in%20my%20home" 
+                        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                            class="card-cta ripple-effect" 
                            target="_blank" 
                            rel="noopener noreferrer">
-                            Get Started →
+                            Chat with Sanjay Jain →
                         </a>
                     </div>
                 </div>
@@ -94,22 +94,22 @@ get_header();
                 <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="card-image-wrapper">
                         <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/minimalist-entrance.jpg' ); ?>" 
-                             alt="Prosperity & Flow - Minimalist entrance foyer" 
+                             alt="The Gateway to Abundance - Minimalist entrance foyer" 
                              class="card-image" 
                              loading="lazy">
                         <div class="card-overlay"></div>
                     </div>
                     <div class="card-content">
                         <div class="service-icon">💰</div>
-                        <h3 class="service-title">Prosperity & Flow</h3>
+                        <h3 class="service-title">The Gateway to Abundance</h3>
                         <p class="service-description">
-                            Activate your home to attract financial growth. Optimize your entrance and foyer for wealth and abundance.
+                            Your main entrance is the mouth of opportunity. We use elemental balancing to ensure your home attracts financial growth and career success.
                         </p>
-                        <a href="https://wa.me/919810143516?text=I%20want%20to%20activate%20prosperity%20in%20my%20home" 
+                        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                            class="card-cta ripple-effect" 
                            target="_blank" 
                            rel="noopener noreferrer">
-                            Get Started →
+                            Chat with Sanjay Jain →
                         </a>
                     </div>
                 </div>
@@ -118,21 +118,20 @@ get_header();
 
         <!-- COMMERCIAL GROWTH -->
         <section class="commercial-growth-section">
-            <h2 class="section-title">Commercial Growth</h2>
-            <p class="section-subtitle">Scaling Business without Disruption or Demolition</p>
+            <h2 class="section-title">The Growth Engine</h2>
+            <p class="section-subtitle">Scalable Vastu solutions for Offices, Retail, and Factories</p>
             
             <div class="commercial-grid">
                 <div class="glass-card commercial-card" data-aos="fade-right">
                     <div class="service-icon">🏢</div>
-                    <h3 class="service-title">Office Optimization</h3>
+                    <h3 class="service-title">Office Productivity</h3>
                     <p class="service-description">
-                        Enhance productivity and employee well-being through strategic workspace design. 
-                        Zero disruption to daily operations.
+                        Optimize your workspace to increase employee productivity, enhance decision-making, and create an environment where innovation thrives—no structural changes required.
                     </p>
                     <ul class="feature-list">
-                        <li>✓ Enhanced team collaboration</li>
-                        <li>✓ Increased focus and creativity</li>
-                        <li>✓ Better decision-making spaces</li>
+                        <li>✓ Enhanced team collaboration & creativity</li>
+                        <li>✓ Improved focus and efficiency</li>
+                        <li>✓ Better leadership & strategic thinking</li>
                     </ul>
                 </div>
 
@@ -140,37 +139,35 @@ get_header();
                     <div class="service-icon">🛒</div>
                     <h3 class="service-title">Retail Excellence</h3>
                     <p class="service-description">
-                        Maximize customer flow and conversion rates with energy-optimized store layouts. 
-                        No structural changes needed.
+                        Attract high-paying clients, increase average transaction values, and create customer flow that naturally converts—all through strategic energy optimization.
                     </p>
                     <ul class="feature-list">
-                        <li>✓ Improved customer experience</li>
-                        <li>✓ Higher sales conversion</li>
-                        <li>✓ Enhanced brand perception</li>
+                        <li>✓ Increased customer footfall & dwell time</li>
+                        <li>✓ Higher sales conversion rates</li>
+                        <li>✓ Enhanced brand perception & loyalty</li>
                     </ul>
                 </div>
 
                 <div class="glass-card commercial-card" data-aos="fade-left">
                     <div class="service-icon">🏭</div>
-                    <h3 class="service-title">Factory & Industrial</h3>
+                    <h3 class="service-title">Industrial Growth</h3>
                     <p class="service-description">
-                        Boost operational efficiency and worker safety through precise energy alignment. 
-                        Maintain production while optimizing.
+                        Clear the path for exponential profit. Boost operational efficiency, enhance worker safety, and optimize production flow while maintaining full operations.
                     </p>
                     <ul class="feature-list">
-                        <li>✓ Improved operational flow</li>
-                        <li>✓ Enhanced worker safety</li>
-                        <li>✓ Increased productivity</li>
+                        <li>✓ Streamlined operational flow</li>
+                        <li>✓ Enhanced worker safety & morale</li>
+                        <li>✓ Increased productivity & profitability</li>
                     </ul>
                 </div>
             </div>
 
             <div class="commercial-cta">
-                <a href="https://wa.me/919810143516?text=I%20want%20to%20scale%20my%20business%20with%20Vastu" 
+                <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                    class="cta-primary ripple-effect" 
                    target="_blank" 
                    rel="noopener noreferrer">
-                    📱 Book Commercial Consultation
+                    📱 Chat with Sanjay Jain on WhatsApp
                 </a>
             </div>
         </section>
@@ -198,6 +195,37 @@ get_header();
                     <div class="proof-icon">🌍</div>
                     <div class="proof-number">Global</div>
                     <div class="proof-label">Remote Precision</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SANJAY JAIN SECTION -->
+        <section class="about-sanjay-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2 class="section-title">About Sanjay Jain</h2>
+                    <div class="about-text">
+                        <p class="about-intro">
+                            With a legacy spanning over 25 years, Sanjay Jain has become a global pioneer in Remote Scientific Vastu.
+                        </p>
+                        <p>
+                            Having served over 10,000 families and businesses across continents, his approach is unique: it combines the ancient spiritual laws of Vastu Shastra with modern architectural precision. By utilizing satellite mapping and AutoCAD analysis, Sanjay provides 100% accurate remedies that require zero demolition, making him the trusted choice for the modern, high-end homeowner.
+                        </p>
+                        <p>
+                            What began as a personal journey to bridge ancient wisdom with contemporary living has evolved into a pioneering practice that transforms lives. Sanjay's philosophy is elegantly simple yet profoundly effective: <strong>your space should work for you, not against you.</strong>
+                        </p>
+                        <p>
+                            Whether it's a home struggling with persistent health challenges, a business facing stagnant growth, or relationships needing deeper harmony, Sanjay's remedies are scientifically precise, non-invasive, and remarkably transformative. From Mumbai boardrooms to Sydney suburbs, from Dubai high-rises to New York apartments, he has helped families and entrepreneurs unlock prosperity, wellness, and peace—all through the power of aligned energy and time-tested wisdom adapted for the 21st century.
+                        </p>
+                    </div>
+                    <div class="about-cta">
+                        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
+                           class="cta-primary ripple-effect" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            📱 Chat with Sanjay Jain on WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -232,6 +260,149 @@ get_header();
             </div>
         </section>
 
+        <!-- RESULTS GALLERY - Trust & Proliferation Engine -->
+        <section class="results-gallery-section">
+            <h2 class="section-title">Results Gallery</h2>
+            <p class="section-subtitle">Real transformations. Measured outcomes. Zero demolition.</p>
+            
+            <div class="results-grid">
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="result-icon water-element">💧</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Declining Profits in Manufacturing Unit</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Water Element Activation in North Zone</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">20% Revenue Growth</p>
+                            <span class="outcome-timeline">Within 4 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="result-icon fire-element">🔥</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Stagnant Sales & Low Customer Footfall</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Fire Element Enhancement in South-East</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">35% Sales Increase</p>
+                            <span class="outcome-timeline">Within 3 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="result-icon earth-element">🌱</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Family Health Issues & Constant Medical Bills</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Earth Element Balance in Center & SW</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">85% Health Improvement</p>
+                            <span class="outcome-timeline">Within 6 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="result-icon metal-element">⚡</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Career Stagnation & Delayed Promotions</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Metal Strip Placement in North-West</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">Job Promotion Received</p>
+                            <span class="outcome-timeline">Within 2 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="result-icon space-element">🌟</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Relationship Discord & Family Conflicts</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Space Element Optimization & Color Therapy</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">Restored Family Harmony</p>
+                            <span class="outcome-timeline">Within 5 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="result-icon wood-element">🍃</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Business Losses & Cash Flow Problems</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Wood Element Activation in East Zone</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">300% Profit Growth</p>
+                            <span class="outcome-timeline">Within 6 Months</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-cta">
+                <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
+                   class="cta-primary ripple-effect" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    📱 Chat with Sanjay Jain on WhatsApp
+                </a>
+            </div>
+        </section>
+
         <!-- CALL TO ACTION SECTION -->
         <section class="hero-section" style="min-height: 60vh; background: linear-gradient(135deg, var(--color-deep-indigo) 0%, var(--color-sage-green) 100%);">
             <div class="hero-content">
@@ -242,12 +413,12 @@ get_header();
                     Book your personalized Vastu consultation today.<br>
                     100% Remote. 100% Scientific. 0% Demolition.
                 </p>
-                <a href="https://wa.me/919810143516?text=Hello!%20I%20would%20like%20to%20book%20a%20Vastu%20consultation" 
+                <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                    class="cta-primary ripple-effect" 
                    style="background: var(--color-warm-sand); color: var(--color-deep-indigo);"
                    target="_blank" 
                    rel="noopener noreferrer">
-                    📱 Start Your Journey Now
+                    📱 Chat with Sanjay Jain on WhatsApp
                 </a>
             </div>
         </section>

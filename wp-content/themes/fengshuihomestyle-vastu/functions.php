@@ -125,15 +125,15 @@ add_action( 'wp_head', 'fengshuihomestyle_vastu_preload_fonts', 1 );
  * Add WhatsApp chat widget
  */
 function fengshuihomestyle_vastu_whatsapp_widget() {
-    $phone_number = '+919810143516'; // Update with actual WhatsApp number
-    $message = urlencode( 'Hello! I would like to book a Vastu consultation.' );
+    $phone_number = '+919828088678'; // Sanjay Jain's WhatsApp number
+    $message = urlencode( 'Hello Sanjay, I would like to consult regarding my space.' );
     ?>
     <div class="whatsapp-widget cta-sticky">
         <a href="https://wa.me/<?php echo esc_attr( $phone_number ); ?>?text=<?php echo esc_attr( $message ); ?>" 
            class="cta-primary whatsapp-cta" 
            target="_blank" 
            rel="noopener noreferrer">
-            📱 Book Your WhatsApp Audit
+            📱 Chat with Sanjay Jain
         </a>
     </div>
     <?php
@@ -239,3 +239,196 @@ function fengshuihomestyle_vastu_register_blog_categories() {
     }
 }
 add_action( 'after_setup_theme', 'fengshuihomestyle_vastu_register_blog_categories' );
+
+/**
+ * Add Professional Service Schema Markup (JSON-LD)
+ * Phase 3: Trust & Proliferation Engine
+ */
+function fengshuihomestyle_vastu_schema_markup() {
+    if ( is_front_page() ) {
+        $schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'ProfessionalService',
+            'name' => 'Feng Shui Homestyle Vastu',
+            'image' => get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg',
+            '@id' => home_url(),
+            'url' => home_url(),
+            'telephone' => '+919828088678',
+            'priceRange' => '$$',
+            'address' => array(
+                '@type' => 'PostalAddress',
+                'addressCountry' => 'IN',
+                'addressRegion' => 'Global Remote Services',
+            ),
+            'geo' => array(
+                '@type' => 'GeoCoordinates',
+                'latitude' => 28.6139,
+                'longitude' => 77.2090,
+            ),
+            'openingHoursSpecification' => array(
+                '@type' => 'OpeningHoursSpecification',
+                'dayOfWeek' => array(
+                    'Monday',
+                    'Tuesday',
+                    'Wednesday',
+                    'Thursday',
+                    'Friday',
+                    'Saturday',
+                ),
+                'opens' => '09:00',
+                'closes' => '18:00',
+            ),
+            'founder' => array(
+                '@type' => 'Person',
+                'name' => 'Sanjay Jain',
+                'jobTitle' => 'Senior Vastu & Feng Shui Consultant',
+                'description' => 'Top-rated Vastu Shastra and Feng Shui consultant with 25+ years of experience in remote scientific consultations.',
+                'knowsAbout' => array(
+                    'Vastu Shastra',
+                    'Feng Shui',
+                    'Scientific Remote Consultation',
+                    'AutoCAD Floor Plan Analysis',
+                    'Satellite Mapping',
+                    'Energy Alignment',
+                    'Five Elements Theory',
+                ),
+            ),
+            'aggregateRating' => array(
+                '@type' => 'AggregateRating',
+                'ratingValue' => '4.9',
+                'reviewCount' => '10000',
+                'bestRating' => '5',
+                'worstRating' => '1',
+            ),
+            'description' => 'Expert Vastu & Feng Shui consultations for residential and commercial spaces. 100% Remote consultations using True North Satellite Mapping and AutoCAD Floor Plan Analysis. Over 25 years of mastery with 10,000+ success stories. Zero demolition required.',
+            'areaServed' => array(
+                array(
+                    '@type' => 'City',
+                    'name' => 'Jaipur',
+                ),
+                array(
+                    '@type' => 'City',
+                    'name' => 'Mumbai',
+                ),
+                array(
+                    '@type' => 'City',
+                    'name' => 'Delhi',
+                ),
+                array(
+                    '@type' => 'City',
+                    'name' => 'Bangalore',
+                ),
+                array(
+                    '@type' => 'City',
+                    'name' => 'Dubai',
+                ),
+                array(
+                    '@type' => 'City',
+                    'name' => 'Singapore',
+                ),
+                array(
+                    '@type' => 'City',
+                    'name' => 'London',
+                ),
+                array(
+                    '@type' => 'Country',
+                    'name' => 'India',
+                ),
+                array(
+                    '@type' => 'Country',
+                    'name' => 'United Arab Emirates',
+                ),
+                array(
+                    '@type' => 'Country',
+                    'name' => 'Singapore',
+                ),
+                array(
+                    '@type' => 'Country',
+                    'name' => 'United Kingdom',
+                ),
+                array(
+                    '@type' => 'Country',
+                    'name' => 'United States',
+                ),
+            ),
+            'hasOfferCatalog' => array(
+                '@type' => 'OfferCatalog',
+                'name' => 'Vastu & Feng Shui Services',
+                'itemListElement' => array(
+                    array(
+                        '@type' => 'Offer',
+                        'itemOffered' => array(
+                            '@type' => 'Service',
+                            'name' => 'Residential Vastu Consultation',
+                            'description' => 'Complete home energy analysis for health, wealth, and harmony',
+                        ),
+                    ),
+                    array(
+                        '@type' => 'Offer',
+                        'itemOffered' => array(
+                            '@type' => 'Service',
+                            'name' => 'Commercial Vastu Consultation',
+                            'description' => 'Business space optimization for enhanced productivity and profitability',
+                        ),
+                    ),
+                    array(
+                        '@type' => 'Offer',
+                        'itemOffered' => array(
+                            '@type' => 'Service',
+                            'name' => 'Remote Scientific Vastu Audit',
+                            'description' => '100% remote consultation using satellite mapping and AutoCAD analysis',
+                        ),
+                    ),
+                ),
+            ),
+            'slogan' => 'Scientific Vastu: Harmony without Demolition',
+            'knowsLanguage' => array('English', 'Hindi'),
+        );
+        
+        echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
+    }
+}
+add_action( 'wp_head', 'fengshuihomestyle_vastu_schema_markup' );
+
+/**
+ * Add Legacy Counter section before footer
+ * Phase 3: Trust & Proliferation Engine
+ */
+function fengshuihomestyle_vastu_legacy_counter() {
+    ?>
+    <!-- LEGACY COUNTER - Phase 3 Trust Engine -->
+    <section class="legacy-counter-section">
+        <div class="legacy-counter-container">
+            <div class="legacy-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="legacy-icon">⚡</div>
+                <div class="legacy-number trust-counter">25</div>
+                <div class="legacy-suffix">+ Years</div>
+                <div class="legacy-label">Of Mastery</div>
+            </div>
+
+            <div class="legacy-divider"></div>
+
+            <div class="legacy-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="legacy-icon">👨‍👩‍👧‍👦</div>
+                <div class="legacy-number trust-counter">10,000</div>
+                <div class="legacy-suffix">+</div>
+                <div class="legacy-label">Families Aligned</div>
+            </div>
+
+            <div class="legacy-divider"></div>
+
+            <div class="legacy-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="legacy-icon">✓</div>
+                <div class="legacy-number">100</div>
+                <div class="legacy-suffix">%</div>
+                <div class="legacy-label">No-Demolition Guarantee</div>
+            </div>
+        </div>
+        
+        <div class="legacy-tagline">
+            <p>Transforming Spaces. Preserving Structures. Creating Harmony.</p>
+        </div>
+    </section>
+    <?php
+}
+add_action( 'astra_footer_before', 'fengshuihomestyle_vastu_legacy_counter' );

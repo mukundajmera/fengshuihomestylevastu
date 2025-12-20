@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 3: Results Gallery Preview - Feng Shui Homestyle Vastu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Custom Properties */
+        :root {
+            --color-warm-sand: #F5EAE1;
+            --color-sage-green: #648E7B;
+            --color-deep-indigo: #2E2B59;
+            --color-earth-brown: #8B7355;
+            --color-soft-cream: #FFF8F0;
+            --color-zen-white: #FFFFFF;
+            --font-serif: 'Cinzel', serif;
+            --font-sans: 'Lato', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: linear-gradient(180deg, var(--color-warm-sand) 0%, var(--color-soft-cream) 100%);
+            color: var(--color-deep-indigo);
+            line-height: 1.7;
+            padding: var(--spacing-lg);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+        }
+
+        /* Results Gallery Section */
+        .results-gallery-section {
+            padding: var(--spacing-xl) var(--spacing-md);
+            background: linear-gradient(180deg, var(--color-warm-sand) 0%, var(--color-soft-cream) 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-sm);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--color-deep-indigo);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--color-earth-brown);
+            margin-bottom: var(--spacing-lg);
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .results-grid {
+            max-width: 1400px;
+            margin: 0 auto var(--spacing-lg);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(46, 43, 89, 0.1);
+            transition: var(--transition-base);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(46, 43, 89, 0.15);
+        }
+
+        .results-card {
+            position: relative;
+            padding: 0;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: -50px auto var(--spacing-md);
+            background: var(--color-zen-white);
+            box-shadow: 0 8px 24px rgba(46, 43, 89, 0.15);
+            position: relative;
+            z-index: 2;
+            transition: var(--transition-base);
+        }
+
+        .results-card:hover .result-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 32px rgba(46, 43, 89, 0.2);
+        }
+
+        .water-element { background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%); }
+        .fire-element { background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%); }
+        .earth-element { background: linear-gradient(135deg, #F1F8E9 0%, #DCEDC8 100%); }
+        .metal-element { background: linear-gradient(135deg, #ECEFF1 0%, #CFD8DC 100%); }
+        .space-element { background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%); }
+        .wood-element { background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); }
+
+        .result-content {
+            padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+            width: 100%;
+        }
+
+        .result-challenge,
+        .result-solution,
+        .result-outcome {
+            text-align: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .result-challenge h4,
+        .result-solution h4,
+        .result-outcome h4 {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-sage-green);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .result-challenge p,
+        .result-solution p {
+            font-size: 1.125rem;
+            color: var(--color-deep-indigo);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .result-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, var(--color-sage-green) 50%, transparent 100%);
+            margin: var(--spacing-md) auto;
+        }
+
+        .outcome-metric {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-deep-indigo);
+            margin-bottom: var(--spacing-xs);
+            display: block;
+        }
+
+        .outcome-timeline {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(100, 142, 123, 0.1);
+            color: var(--color-sage-green);
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-top: var(--spacing-xs);
+        }
+
+        .results-cta {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .cta-primary {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background-color: var(--color-deep-indigo);
+            color: var(--color-zen-white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: var(--transition-base);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(46, 43, 89, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(46, 43, 89, 0.4);
+        }
+
+        /* Legacy Counter Section */
+        .legacy-counter-section {
+            padding: var(--spacing-xl) var(--spacing-md);
+            background: linear-gradient(135deg, var(--color-deep-indigo) 0%, var(--color-sage-green) 100%);
+            position: relative;
+            overflow: hidden;
+            margin-top: var(--spacing-xl);
+        }
+
+        .legacy-counter-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+
+        .legacy-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            padding: var(--spacing-md);
+        }
+
+        .legacy-icon {
+            font-size: 3.5rem;
+            color: var(--color-warm-sand);
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .legacy-number {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            color: var(--color-zen-white);
+            line-height: 1;
+            margin-bottom: 0;
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+        }
+
+        .legacy-suffix {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--color-warm-sand);
+            display: inline-block;
+            margin-left: 4px;
+        }
+
+        .legacy-label {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: var(--spacing-xs);
+        }
+
+        .legacy-divider {
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+        }
+
+        .legacy-tagline {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        .legacy-tagline p {
+            font-family: var(--font-serif);
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--color-warm-sand);
+            font-style: italic;
+            font-weight: 400;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .preview-header {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: var(--color-deep-indigo);
+            color: var(--color-zen-white);
+            margin: calc(-1 * var(--spacing-lg));
+            margin-bottom: var(--spacing-xl);
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .legacy-counter-container {
+                flex-direction: column;
+            }
+            
+            .legacy-divider {
+                width: 100px;
+                height: 2px;
+                background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-header">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Phase 3: Trust & Proliferation Engine</h1>
+        <p style="font-size: 1.25rem; opacity: 0.9;">Preview of Results Gallery & Legacy Counter Sections</p>
+    </div>
+
+    <!-- RESULTS GALLERY Section -->
+    <section class="results-gallery-section">
+        <h2 class="section-title">Results Gallery</h2>
+        <p class="section-subtitle">Real transformations. Measured outcomes. Zero demolition.</p>
+        
+        <div class="results-grid">
+            <div class="glass-card results-card">
+                <div class="result-icon water-element">💧</div>
+                <div class="result-content">
+                    <div class="result-challenge">
+                        <h4>Challenge</h4>
+                        <p>Declining Profits in Manufacturing Unit</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-solution">
+                        <h4>Remedial Solution</h4>
+                        <p>Water Element Activation in North Zone</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-outcome">
+                        <h4>Pioneer Outcome</h4>
+                        <p class="outcome-metric">20% Revenue Growth</p>
+                        <span class="outcome-timeline">Within 4 Months</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card results-card">
+                <div class="result-icon fire-element">🔥</div>
+                <div class="result-content">
+                    <div class="result-challenge">
+                        <h4>Challenge</h4>
+                        <p>Stagnant Sales & Low Customer Footfall</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-solution">
+                        <h4>Remedial Solution</h4>
+                        <p>Fire Element Enhancement in South-East</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-outcome">
+                        <h4>Pioneer Outcome</h4>
+                        <p class="outcome-metric">35% Sales Increase</p>
+                        <span class="outcome-timeline">Within 3 Months</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card results-card">
+                <div class="result-icon earth-element">🌱</div>
+                <div class="result-content">
+                    <div class="result-challenge">
+                        <h4>Challenge</h4>
+                        <p>Family Health Issues & Constant Medical Bills</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-solution">
+                        <h4>Remedial Solution</h4>
+                        <p>Earth Element Balance in Center & SW</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-outcome">
+                        <h4>Pioneer Outcome</h4>
+                        <p class="outcome-metric">85% Health Improvement</p>
+                        <span class="outcome-timeline">Within 6 Months</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card results-card">
+                <div class="result-icon metal-element">⚡</div>
+                <div class="result-content">
+                    <div class="result-challenge">
+                        <h4>Challenge</h4>
+                        <p>Career Stagnation & Delayed Promotions</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-solution">
+                        <h4>Remedial Solution</h4>
+                        <p>Metal Strip Placement in North-West</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-outcome">
+                        <h4>Pioneer Outcome</h4>
+                        <p class="outcome-metric">Job Promotion Received</p>
+                        <span class="outcome-timeline">Within 2 Months</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card results-card">
+                <div class="result-icon space-element">🌟</div>
+                <div class="result-content">
+                    <div class="result-challenge">
+                        <h4>Challenge</h4>
+                        <p>Relationship Discord & Family Conflicts</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-solution">
+                        <h4>Remedial Solution</h4>
+                        <p>Space Element Optimization & Color Therapy</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-outcome">
+                        <h4>Pioneer Outcome</h4>
+                        <p class="outcome-metric">Restored Family Harmony</p>
+                        <span class="outcome-timeline">Within 5 Months</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card results-card">
+                <div class="result-icon wood-element">🍃</div>
+                <div class="result-content">
+                    <div class="result-challenge">
+                        <h4>Challenge</h4>
+                        <p>Business Losses & Cash Flow Problems</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-solution">
+                        <h4>Remedial Solution</h4>
+                        <p>Wood Element Activation in East Zone</p>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-outcome">
+                        <h4>Pioneer Outcome</h4>
+                        <p class="outcome-metric">300% Profit Growth</p>
+                        <span class="outcome-timeline">Within 6 Months</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-cta">
+            <a href="#" class="cta-primary">
+                📱 Get Your Custom Solution
+            </a>
+        </div>
+    </section>
+
+    <!-- LEGACY COUNTER Section -->
+    <section class="legacy-counter-section">
+        <div class="legacy-counter-container">
+            <div class="legacy-item">
+                <div class="legacy-icon">⚡</div>
+                <div class="legacy-number">25</div>
+                <div class="legacy-suffix">+ Years</div>
+                <div class="legacy-label">Of Mastery</div>
+            </div>
+
+            <div class="legacy-divider"></div>
+
+            <div class="legacy-item">
+                <div class="legacy-icon">👨‍👩‍👧‍👦</div>
+                <div class="legacy-number">10,000</div>
+                <div class="legacy-suffix">+</div>
+                <div class="legacy-label">Families Aligned</div>
+            </div>
+
+            <div class="legacy-divider"></div>
+
+            <div class="legacy-item">
+                <div class="legacy-icon">✓</div>
+                <div class="legacy-number">100</div>
+                <div class="legacy-suffix">%</div>
+                <div class="legacy-label">No-Demolition Guarantee</div>
+            </div>
+        </div>
+        
+        <div class="legacy-tagline">
+            <p>Transforming Spaces. Preserving Structures. Creating Harmony.</p>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -496,6 +496,68 @@ a:hover {
 }
 
 /* ========================================
+   About Sanjay Jain Section
+   ======================================== */
+.about-sanjay-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: linear-gradient(180deg, var(--color-soft-cream) 0%, var(--color-warm-sand) 100%);
+}
+
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-content {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: var(--spacing-xl);
+    box-shadow: 0 8px 32px rgba(46, 43, 89, 0.1);
+}
+
+.about-text {
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-intro {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    color: var(--color-deep-indigo);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.about-text p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.8;
+    color: var(--color-earth-brown);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-text strong {
+    color: var(--color-sage-green);
+    font-weight: 700;
+}
+
+.about-cta {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .about-intro {
+        font-size: 1.25rem;
+    }
+}
+
+/* ========================================
    Methodology Section
    ======================================== */
 .methodology-section {
@@ -1307,4 +1369,302 @@ img {
 
 .related-post-image {
     aspect-ratio: 4 / 3;
+}
+
+/* ========================================
+   RESULTS GALLERY SECTION - Phase 3
+   Trust & Proliferation Engine
+   ======================================== */
+.results-gallery-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: linear-gradient(180deg, var(--color-warm-sand) 0%, var(--color-soft-cream) 100%);
+}
+
+.results-grid {
+    max-width: 1400px;
+    margin: 0 auto var(--spacing-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.results-card {
+    position: relative;
+    padding: 0;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-icon {
+    font-size: 4rem;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: -50px auto var(--spacing-md);
+    background: var(--color-zen-white);
+    box-shadow: 0 8px 24px rgba(46, 43, 89, 0.15);
+    position: relative;
+    z-index: 2;
+    transition: var(--transition-base);
+}
+
+.results-card:hover .result-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 32px rgba(46, 43, 89, 0.2);
+}
+
+/* Element-specific icon styles */
+.water-element {
+    background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+}
+
+.fire-element {
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+}
+
+.earth-element {
+    background: linear-gradient(135deg, #F1F8E9 0%, #DCEDC8 100%);
+}
+
+.metal-element {
+    background: linear-gradient(135deg, #ECEFF1 0%, #CFD8DC 100%);
+}
+
+.space-element {
+    background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+}
+
+.wood-element {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+}
+
+.result-content {
+    padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+    width: 100%;
+}
+
+.result-challenge,
+.result-solution,
+.result-outcome {
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.result-challenge h4,
+.result-solution h4,
+.result-outcome h4 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-sage-green);
+    margin-bottom: var(--spacing-xs);
+}
+
+.result-challenge p,
+.result-solution p {
+    font-size: 1.125rem;
+    color: var(--color-deep-indigo);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.result-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-sage-green) 50%, transparent 100%);
+    margin: var(--spacing-md) auto;
+}
+
+.outcome-metric {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-deep-indigo);
+    margin-bottom: var(--spacing-xs);
+    display: block;
+}
+
+.outcome-timeline {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(100, 142, 123, 0.1);
+    color: var(--color-sage-green);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-top: var(--spacing-xs);
+}
+
+.results-cta {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+/* Mobile responsive for results gallery */
+@media (max-width: 768px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .result-icon {
+        font-size: 3rem;
+        width: 80px;
+        height: 80px;
+        margin: -40px auto var(--spacing-md);
+    }
+    
+    .outcome-metric {
+        font-size: 1.5rem;
+    }
+}
+
+/* ========================================
+   LEGACY COUNTER SECTION - Phase 3
+   Footer Trust Reinforcement
+   ======================================== */
+.legacy-counter-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-deep-indigo) 0%, var(--color-sage-green) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.legacy-counter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 200"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" /></linearGradient></defs><path fill="url(%23grad)" d="M0,100 Q480,150 960,100 T1920,100 L1920,200 L0,200 Z" /></svg>');
+    background-size: cover;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.legacy-counter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+.legacy-item {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    padding: var(--spacing-md);
+}
+
+.legacy-icon {
+    font-size: 3.5rem;
+    color: var(--color-warm-sand);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+@keyframes pulse-subtle {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.legacy-number {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    color: var(--color-zen-white);
+    line-height: 1;
+    margin-bottom: 0;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+}
+
+.legacy-suffix {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--color-warm-sand);
+    display: inline-block;
+    margin-left: 4px;
+}
+
+.legacy-label {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: var(--spacing-xs);
+}
+
+.legacy-divider {
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+}
+
+.legacy-tagline {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.legacy-tagline p {
+    font-family: var(--font-serif);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--color-warm-sand);
+    font-style: italic;
+    font-weight: 400;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile responsive for legacy counter */
+@media (max-width: 768px) {
+    .legacy-counter-container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .legacy-divider {
+        width: 100px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    }
+    
+    .legacy-icon {
+        font-size: 2.5rem;
+    }
+    
+    .legacy-number {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+    
+    .legacy-item {
+        padding: var(--spacing-sm);
+        min-width: auto;
+    }
 }
