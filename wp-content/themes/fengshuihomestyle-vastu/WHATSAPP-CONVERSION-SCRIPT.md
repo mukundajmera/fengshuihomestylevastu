@@ -309,7 +309,7 @@ Wishing you harmony and prosperity! 🙏
 
 Sanjay Jain
 Feng Shui Homestyle Vastu
-+91-9810143516
++91-9828088678
 ```
 
 ---

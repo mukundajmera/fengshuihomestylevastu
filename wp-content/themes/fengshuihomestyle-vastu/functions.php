@@ -253,7 +253,7 @@ function fengshuihomestyle_vastu_schema_markup() {
             'image' => get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg',
             '@id' => home_url(),
             'url' => home_url(),
-            'telephone' => '+91-9810143516',
+            'telephone' => '+919828088678',
             'priceRange' => '$$',
             'address' => array(
                 '@type' => 'PostalAddress',
@@ -292,7 +292,6 @@ function fengshuihomestyle_vastu_schema_markup() {
                     'Energy Alignment',
                     'Five Elements Theory',
                 ),
-                'yearsInOperation' => 25,
             ),
             'aggregateRating' => array(
                 '@type' => 'AggregateRating',

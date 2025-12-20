@@ -527,7 +527,7 @@ Each landing page follows this structure:
 
 5. **Call-to-Actions:**
    - City-specific WhatsApp links with pre-filled messages
-   - Example: `https://wa.me/919810143516?text=Hello! I'm from Jaipur and interested in remote Vastu consultation`
+   - Example: `https://wa.me/919828088678?text=Hello! I'm from Jaipur and interested in remote Vastu consultation`
 
 ### SEO Best Practices:
 
