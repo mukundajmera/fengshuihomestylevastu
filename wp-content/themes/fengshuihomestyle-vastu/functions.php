@@ -16,11 +16,19 @@ function fengshuihomestyle_vastu_enqueue_styles() {
     // Enqueue parent theme style
     wp_enqueue_style( 'astra-theme-css', get_template_directory_uri() . '/style.css', array(), ASTRA_THEME_VERSION );
     
+    // Enqueue Google Fonts
+    wp_enqueue_style(
+        'fengshuihomestyle-google-fonts',
+        'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap',
+        array(),
+        null
+    );
+    
     // Enqueue child theme style
     wp_enqueue_style( 
         'fengshuihomestyle-vastu-style',
         get_stylesheet_directory_uri() . '/style.css',
-        array( 'astra-theme-css' ),
+        array( 'astra-theme-css', 'fengshuihomestyle-google-fonts' ),
         wp_get_theme()->get( 'Version' )
     );
     

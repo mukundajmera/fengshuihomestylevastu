@@ -12,18 +12,18 @@
         $('.tab-button').on('click', function() {
             var tabId = $(this).data('tab');
             
-            // Remove active class from all tabs and contents
-            $('.tab-button').removeClass('active');
+            // Remove active class and update ARIA from all tabs and contents
+            $('.tab-button').removeClass('active').attr('aria-selected', 'false');
             $('.tab-content').removeClass('active');
             
-            // Add active class to clicked tab and corresponding content
-            $(this).addClass('active');
+            // Add active class and update ARIA to clicked tab and corresponding content
+            $(this).addClass('active').attr('aria-selected', 'true');
             $('#' + tabId).addClass('active');
         });
 
         // Activate first tab by default
         if ($('.tab-button').length > 0) {
-            $('.tab-button').first().addClass('active');
+            $('.tab-button').first().addClass('active').attr('aria-selected', 'true');
             $('.tab-content').first().addClass('active');
         }
 
@@ -95,11 +95,13 @@
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         var video = entry.target;
-                        if (video.dataset.src) {
-                            video.src = video.dataset.src;
-                            video.load();
-                            videoObserver.unobserve(video);
+                        // Video already has src attribute, just ensure it plays
+                        if (video.paused) {
+                            video.play().catch(function(error) {
+                                console.log('Video autoplay prevented:', error);
+                            });
                         }
+                        videoObserver.unobserve(video);
                     }
                 });
             });

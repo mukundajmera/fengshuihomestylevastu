@@ -21,9 +21,11 @@ get_header();
         <!-- HERO SECTION - The Energy Foyer -->
         <section class="hero-section">
             <!-- Video Background -->
-            <video class="hero-video-bg" autoplay muted loop playsinline data-src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/hero-video.mp4' ); ?>">
+            <video class="hero-video-bg" autoplay muted loop playsinline 
+                   src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/hero-video.mp4' ); ?>"
+                   poster="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/hero-poster.jpg' ); ?>">
                 <!-- Fallback for browsers that don't support video -->
-                Your browser does not support the video tag.
+                <p>Your browser does not support the video tag.</p>
             </video>
             <div class="hero-video-overlay"></div>
 
@@ -120,9 +122,21 @@ get_header();
             <h2 class="section-title">Our Services</h2>
 
             <div class="service-tabs">
-                <button class="tab-button ripple-effect" data-tab="residential">Residential Harmony</button>
-                <button class="tab-button ripple-effect" data-tab="commercial">Commercial Success</button>
-                <button class="tab-button ripple-effect" data-tab="astro-vastu">Astro-Vastu</button>
+                <button class="tab-button ripple-effect" 
+                        data-tab="residential" 
+                        role="tab" 
+                        aria-selected="true" 
+                        aria-controls="residential">Residential Harmony</button>
+                <button class="tab-button ripple-effect" 
+                        data-tab="commercial" 
+                        role="tab" 
+                        aria-selected="false" 
+                        aria-controls="commercial">Commercial Success</button>
+                <button class="tab-button ripple-effect" 
+                        data-tab="astro-vastu" 
+                        role="tab" 
+                        aria-selected="false" 
+                        aria-controls="astro-vastu">Astro-Vastu</button>
             </div>
 
             <!-- Residential Harmony Tab -->
