@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Scientific Vastu & Feng Shui Consultations. 100% Remote. 0% Demolition. Over 25 years of expert guidance by Sanjay Jain.">
-    <title>Feng Shui Homestyle Vastu - Harmonize Your Space, Transform Your Life</title>
+    <meta name="description" content="Expert Vastu & Feng Shui guidance to solve health, wealth, and relationship challenges. 100% Remote. No Demolition. 25+ years of mastery.">
+    <title>Feng Shui Homestyle Vastu - Digital Zen Homepage</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Import theme styles - this would normally be in style.css */
+        /* CSS Custom Properties - Biophilic Color System */
         :root {
             --color-warm-sand: #F5EAE1;
             --color-sage-green: #648E7B;
@@ -61,7 +61,7 @@
             justify-content: center;
             padding: var(--spacing-lg) var(--spacing-md);
             background: linear-gradient(135deg, rgba(245, 234, 225, 0.95) 0%, rgba(100, 142, 123, 0.85) 100%),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23648E7B" opacity="0.1" width="1200" height="600"/><circle cx="200" cy="200" r="100" fill="%23F5EAE1" opacity="0.3"/><circle cx="900" cy="400" r="150" fill="%232E2B59" opacity="0.2"/></svg>');
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23F5EAE1" width="1920" height="1080"/><circle cx="1500" cy="300" r="200" fill="%23648E7B" opacity="0.1"/><rect x="100" y="700" width="400" height="300" fill="%232E2B59" opacity="0.05"/></svg>');
             background-size: cover;
             background-position: center;
         }
@@ -71,6 +71,7 @@
             max-width: 900px;
             margin: 0 auto;
             z-index: 1;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero-headline {
@@ -108,59 +109,46 @@
             box-shadow: 0 15px 40px rgba(46, 43, 89, 0.4);
         }
 
-        .trust-strip {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
-            padding: var(--spacing-md);
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            font-weight: 700;
-        }
-
-        .trust-icon {
-            font-size: 1.5rem;
-            color: var(--color-sage-green);
-        }
-
-        /* Methodology Section */
-        .methodology-section {
+        /* Residential Solutions Section */
+        .residential-solutions-section {
             padding: var(--spacing-xl) var(--spacing-md);
-            background-color: var(--color-soft-cream);
+            background: linear-gradient(180deg, var(--color-soft-cream) 0%, var(--color-warm-sand) 100%);
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
             font-size: clamp(2rem, 4vw, 3.5rem);
         }
 
-        .methodology-content {
-            max-width: 1200px;
+        .section-subtitle {
+            text-align: center;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--color-earth-brown);
+            margin-bottom: var(--spacing-lg);
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .residential-grid {
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-md);
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
         }
 
         .glass-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: var(--spacing-lg);
             box-shadow: 0 8px 32px rgba(46, 43, 89, 0.1);
             transition: var(--transition-base);
+            overflow: hidden;
         }
 
         .glass-card:hover {
@@ -168,10 +156,38 @@
             box-shadow: 0 15px 40px rgba(46, 43, 89, 0.15);
         }
 
+        .residential-card {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--color-sage-green) 0%, var(--color-earth-brown) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-image-placeholder {
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .card-content {
+            padding: var(--spacing-lg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         .service-icon {
             font-size: 3rem;
-            margin-bottom: var(--spacing-sm);
             text-align: center;
+            margin-bottom: var(--spacing-sm);
         }
 
         .service-title {
@@ -183,95 +199,171 @@
         .service-description {
             color: var(--color-earth-brown);
             text-align: center;
+            margin-bottom: var(--spacing-sm);
         }
 
-        /* Energy Diagram */
-        .energy-diagram {
-            max-width: 800px;
-            margin: var(--spacing-lg) auto;
-            padding: var(--spacing-lg);
-            background: var(--color-zen-white);
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(46, 43, 89, 0.1);
-        }
-
-        .diagram-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .diagram-item {
-            padding: 3rem;
-            border-radius: 15px;
-            text-align: center;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .diagram-before {
-            background: linear-gradient(45deg, rgba(255, 0, 0, 0.2), rgba(255, 100, 100, 0.2));
-        }
-
-        .diagram-after {
-            background: linear-gradient(45deg, rgba(100, 142, 123, 0.2), rgba(100, 200, 150, 0.2));
-        }
-
-        /* Services Section */
-        .services-section {
-            padding: var(--spacing-xl) var(--spacing-md);
-            background: linear-gradient(180deg, var(--color-warm-sand) 0%, var(--color-soft-cream) 100%);
-        }
-
-        .service-tabs {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-lg);
-            flex-wrap: wrap;
-        }
-
-        .tab-button {
-            padding: 1rem 2rem;
-            background: var(--color-zen-white);
-            border: 2px solid var(--color-sage-green);
-            color: var(--color-sage-green);
-            font-family: var(--font-serif);
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition-base);
-        }
-
-        .tab-button:hover,
-        .tab-button.active {
-            background: var(--color-sage-green);
+        .card-cta {
+            display: inline-block;
+            margin-top: auto;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--color-sage-green);
             color: var(--color-zen-white);
-            transform: scale(1.05);
+            font-weight: 600;
+            border-radius: 30px;
+            transition: var(--transition-base);
+            text-align: center;
+            text-decoration: none;
         }
 
-        .tab-content {
-            display: none;
+        .card-cta:hover {
+            background-color: var(--color-deep-indigo);
+            transform: translateX(5px);
+        }
+
+        /* Commercial Growth Section */
+        .commercial-growth-section {
+            padding: var(--spacing-xl) var(--spacing-md);
+            background: var(--color-deep-indigo);
+            color: var(--color-zen-white);
+        }
+
+        .commercial-growth-section .section-title,
+        .commercial-growth-section .section-subtitle {
+            color: var(--color-zen-white);
+        }
+
+        .commercial-grid {
             max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .service-grid {
+            margin: 0 auto var(--spacing-lg);
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: var(--spacing-md);
         }
 
-        /* CTA Section */
+        .commercial-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: var(--spacing-lg);
+        }
+
+        .commercial-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--color-sage-green);
+        }
+
+        .commercial-card .service-icon {
+            color: var(--color-sage-green);
+        }
+
+        .commercial-card .service-title {
+            color: var(--color-zen-white);
+        }
+
+        .commercial-card .service-description {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-top: var(--spacing-sm);
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        .commercial-cta {
+            text-align: center;
+        }
+
+        /* Social Proof Section */
+        .social-proof-section {
+            padding: var(--spacing-xl) var(--spacing-md);
+            background: var(--color-sage-green);
+        }
+
+        .proof-strip {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            flex-wrap: wrap;
+        }
+
+        .proof-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .proof-icon {
+            font-size: 3rem;
+            color: var(--color-zen-white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .proof-number {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 700;
+            color: var(--color-zen-white);
+            margin-bottom: var(--spacing-xs);
+            line-height: 1;
+        }
+
+        .proof-label {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .proof-divider {
+            width: 2px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: var(--spacing-xl) var(--spacing-md);
+            background: var(--color-warm-sand);
+        }
+
+        .testimonial-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .testimonial-card {
+            padding: var(--spacing-lg);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-earth-brown);
+        }
+
+        .testimonial-author {
+            color: var(--color-sage-green);
+            font-weight: bold;
+        }
+
+        /* Final CTA Section */
         .cta-section {
             min-height: 60vh;
             display: flex;
@@ -291,7 +383,7 @@
             color: var(--color-deep-indigo);
         }
 
-        /* WhatsApp Sticky */
+        /* Sticky WhatsApp Button */
         .whatsapp-sticky {
             position: fixed;
             bottom: 20px;
@@ -305,6 +397,17 @@
             50% { box-shadow: 0 15px 40px rgba(46, 43, 89, 0.5); }
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero-section {
@@ -312,29 +415,37 @@
                 padding: var(--spacing-md) var(--spacing-sm);
             }
             
-            .trust-strip {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-            }
-            
-            .diagram-grid {
+            .residential-grid {
                 grid-template-columns: 1fr;
             }
             
-            .service-tabs {
-                flex-direction: column;
+            .commercial-grid {
+                grid-template-columns: 1fr;
             }
             
-            .tab-button {
-                width: 100%;
+            .proof-strip {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            
+            .proof-divider {
+                width: 80px;
+                height: 2px;
             }
             
             .whatsapp-sticky {
-                bottom: 10px;
+                bottom: 15px;
                 right: 50%;
                 transform: translateX(50%);
-                width: 90%;
-                max-width: 300px;
+                left: auto;
+                width: calc(100% - 30px);
+                max-width: 320px;
+            }
+            
+            .whatsapp-sticky .cta-primary {
+                width: 100%;
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
         }
     </style>
@@ -344,204 +455,198 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-            <h1 class="hero-headline">Harmonize Your Space, Transform Your Life</h1>
+            <h1 class="hero-headline">Harmonize Your Space, Transform Your Life.</h1>
             <p class="hero-subheadline">
-                Scientific Vastu & Feng Shui Consultations. 100% Remote. 0% Demolition.<br>
-                Over 25 years of expert guidance by Sanjay Jain.
+                Expert Vastu & Feng Shui guidance to solve health, wealth, and relationship challenges. 100% Remote. No Demolition. 25+ years of mastery.
             </p>
             
             <a href="https://wa.me/919810143516?text=Hello!%20I%20would%20like%20to%20book%20a%20Vastu%20consultation" 
                class="cta-primary" 
                target="_blank">
-                📱 Book Your WhatsApp Audit
+                📱 Book WhatsApp Consultation
             </a>
-
-            <div class="trust-strip">
-                <div class="trust-item">
-                    <span class="trust-icon">✓</span>
-                    <span>Trusted by <strong>10,000+</strong> Families</span>
-                </div>
-                <div class="trust-item">
-                    <span class="trust-icon">🌍</span>
-                    <span><strong>Global</strong> Remote Consultations</span>
-                </div>
-                <div class="trust-item">
-                    <span class="trust-icon">⭐</span>
-                    <span><strong>25+</strong> Years Experience</span>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Methodology Section -->
-    <section class="methodology-section">
-        <h2 class="section-title">Scientific Vastu: The 2025 Approach</h2>
+    <!-- Residential Solutions Section -->
+    <section class="residential-solutions-section">
+        <h2 class="section-title">Residential Solutions</h2>
+        <p class="section-subtitle">Transform every space in your home into a sanctuary of harmony and prosperity</p>
         
-        <div class="methodology-content">
-            <div class="glass-card">
-                <div class="service-icon">🛰️</div>
-                <h3 class="service-title">True North Satellite Mapping</h3>
-                <p class="service-description">
-                    We use Google Earth satellite imagery to determine the precise True North orientation 
-                    of your property, ensuring accurate directional analysis for optimal energy flow.
-                </p>
-            </div>
-
-            <div class="glass-card">
-                <div class="service-icon">📐</div>
-                <h3 class="service-title">AutoCAD Floor Plan Analysis</h3>
-                <p class="service-description">
-                    Advanced CAD technology allows us to analyze your space with millimeter precision, 
-                    identifying energy imbalances and opportunities for harmonization.
-                </p>
-            </div>
-
-            <div class="glass-card">
-                <div class="service-icon">🏡</div>
-                <h3 class="service-title">Zero Demolition Solutions</h3>
-                <p class="service-description">
-                    Our scientific approach focuses on spatial alignment and energy redirection, 
-                    eliminating the need for costly and disruptive structural changes.
-                </p>
-            </div>
-        </div>
-
-        <div class="energy-diagram">
-            <h3 style="text-align: center; margin-bottom: 2rem;">Energy Flow Transformation</h3>
-            <div class="diagram-grid">
-                <div>
-                    <h4 style="color: #8B7355; text-align: center; margin-bottom: 1rem;">Before</h4>
-                    <div class="diagram-item diagram-before">
-                        <p style="font-size: 2rem; opacity: 0.7;">⚠️ Blocked Energy</p>
-                    </div>
+        <div class="residential-grid">
+            <div class="glass-card residential-card">
+                <div class="card-image-wrapper">
+                    <span class="card-image-placeholder">🍃</span>
                 </div>
-                <div>
-                    <h4 style="color: #648E7B; text-align: center; margin-bottom: 1rem;">After</h4>
-                    <div class="diagram-item diagram-after">
-                        <p style="font-size: 2rem; opacity: 0.7;">✨ Harmonized Flow</p>
-                    </div>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 2rem; color: #8B7355; font-style: italic;">
-                *Visualization represents energy flow optimization through scientific Vastu principles
-            </p>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section">
-        <h2 class="section-title">Our Services</h2>
-
-        <div class="service-tabs">
-            <button class="tab-button active" onclick="switchTab('residential')">Residential Harmony</button>
-            <button class="tab-button" onclick="switchTab('commercial')">Commercial Success</button>
-            <button class="tab-button" onclick="switchTab('astro')">Astro-Vastu</button>
-        </div>
-
-        <!-- Residential Tab -->
-        <div id="residential" class="tab-content active">
-            <div class="service-grid">
-                <div class="glass-card">
+                <div class="card-content">
                     <div class="service-icon">💚</div>
-                    <h3 class="service-title">Health & Wellness</h3>
+                    <h3 class="service-title">Health & Vitality</h3>
                     <p class="service-description">
-                        North-East zone optimization for enhanced vitality, mental clarity, and overall well-being.
+                        Fix energy blocks affecting family wellness. Create a vibrant kitchen and living spaces that promote health and vitality.
                     </p>
+                    <a href="https://wa.me/919810143516?text=I%20want%20to%20improve%20health%20and%20vitality%20in%20my%20home" 
+                       class="card-cta" 
+                       target="_blank">
+                        Get Started →
+                    </a>
                 </div>
-                <div class="glass-card">
-                    <div class="service-icon">💰</div>
-                    <h3 class="service-title">Wealth & Prosperity</h3>
-                    <p class="service-description">
-                        South-East sector balancing to attract abundance and financial growth.
-                    </p>
+            </div>
+
+            <div class="glass-card residential-card">
+                <div class="card-image-wrapper">
+                    <span class="card-image-placeholder">🌙</span>
                 </div>
-                <div class="glass-card">
+                <div class="card-content">
                     <div class="service-icon">❤️</div>
-                    <h3 class="service-title">Relationships & Harmony</h3>
+                    <h3 class="service-title">Relationships & Rest</h3>
                     <p class="service-description">
-                        South-West zone enhancement for stable relationships and family harmony.
+                        Create a supportive atmosphere for harmony and sleep. Design a peaceful bedroom that nurtures relationships and rest.
                     </p>
-                </div>
-                <div class="glass-card">
-                    <div class="service-icon">🎓</div>
-                    <h3 class="service-title">Education & Growth</h3>
-                    <p class="service-description">
-                        West zone optimization for children's education and career advancement.
-                    </p>
+                    <a href="https://wa.me/919810143516?text=I%20want%20to%20enhance%20relationships%20and%20rest%20in%20my%20home" 
+                       class="card-cta" 
+                       target="_blank">
+                        Get Started →
+                    </a>
                 </div>
             </div>
-        </div>
 
-        <!-- Commercial Tab -->
-        <div id="commercial" class="tab-content">
-            <div class="service-grid">
-                <div class="glass-card">
-                    <div class="service-icon">🏢</div>
-                    <h3 class="service-title">Office Productivity</h3>
-                    <p class="service-description">
-                        Workspace optimization for enhanced employee performance and collaboration.
-                    </p>
+            <div class="glass-card residential-card">
+                <div class="card-image-wrapper">
+                    <span class="card-image-placeholder">✨</span>
                 </div>
-                <div class="glass-card">
-                    <div class="service-icon">🛒</div>
-                    <h3 class="service-title">Retail Growth</h3>
+                <div class="card-content">
+                    <div class="service-icon">💰</div>
+                    <h3 class="service-title">Prosperity & Flow</h3>
                     <p class="service-description">
-                        Store layout design to maximize customer flow and increase sales.
+                        Activate your home to attract financial growth. Optimize your entrance and foyer for wealth and abundance.
                     </p>
-                </div>
-                <div class="glass-card">
-                    <div class="service-icon">🏭</div>
-                    <h3 class="service-title">Industrial Vastu</h3>
-                    <p class="service-description">
-                        Factory optimization for operational efficiency and business growth.
-                    </p>
-                </div>
-                <div class="glass-card">
-                    <div class="service-icon">🏨</div>
-                    <h3 class="service-title">Hospitality Excellence</h3>
-                    <p class="service-description">
-                        Hotel and restaurant design for positive guest experiences.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Astro-Vastu Tab -->
-        <div id="astro" class="tab-content">
-            <div class="service-grid">
-                <div class="glass-card">
-                    <div class="service-icon">⭐</div>
-                    <h3 class="service-title">Personal Energy Blueprint</h3>
-                    <p class="service-description">
-                        Integration of your birth chart with living spaces for personalized approach.
-                    </p>
-                </div>
-                <div class="glass-card">
-                    <div class="service-icon">🌙</div>
-                    <h3 class="service-title">Planetary Remedies</h3>
-                    <p class="service-description">
-                        Address challenging planetary positions through spatial corrections.
-                    </p>
-                </div>
-                <div class="glass-card">
-                    <div class="service-icon">🔮</div>
-                    <h3 class="service-title">Timing & Muhurat</h3>
-                    <p class="service-description">
-                        Select auspicious timings for important events and decisions.
-                    </p>
-                </div>
-                <div class="glass-card">
-                    <div class="service-icon">🌟</div>
-                    <h3 class="service-title">Holistic Transformation</h3>
-                    <p class="service-description">
-                        Comprehensive analysis combining Vedic astrology with Vastu Shastra.
-                    </p>
+                    <a href="https://wa.me/919810143516?text=I%20want%20to%20activate%20prosperity%20in%20my%20home" 
+                       class="card-cta" 
+                       target="_blank">
+                        Get Started →
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Commercial Growth Section -->
+    <section class="commercial-growth-section">
+        <h2 class="section-title">Commercial Growth</h2>
+        <p class="section-subtitle">Scaling Business without Disruption or Demolition</p>
+        
+        <div class="commercial-grid">
+            <div class="glass-card commercial-card">
+                <div class="service-icon">🏢</div>
+                <h3 class="service-title">Office Optimization</h3>
+                <p class="service-description">
+                    Enhance productivity and employee well-being through strategic workspace design. 
+                    Zero disruption to daily operations.
+                </p>
+                <ul class="feature-list">
+                    <li>✓ Enhanced team collaboration</li>
+                    <li>✓ Increased focus and creativity</li>
+                    <li>✓ Better decision-making spaces</li>
+                </ul>
+            </div>
+
+            <div class="glass-card commercial-card">
+                <div class="service-icon">🛒</div>
+                <h3 class="service-title">Retail Excellence</h3>
+                <p class="service-description">
+                    Maximize customer flow and conversion rates with energy-optimized store layouts. 
+                    No structural changes needed.
+                </p>
+                <ul class="feature-list">
+                    <li>✓ Improved customer experience</li>
+                    <li>✓ Higher sales conversion</li>
+                    <li>✓ Enhanced brand perception</li>
+                </ul>
+            </div>
+
+            <div class="glass-card commercial-card">
+                <div class="service-icon">🏭</div>
+                <h3 class="service-title">Factory & Industrial</h3>
+                <p class="service-description">
+                    Boost operational efficiency and worker safety through precise energy alignment. 
+                    Maintain production while optimizing.
+                </p>
+                <ul class="feature-list">
+                    <li>✓ Improved operational flow</li>
+                    <li>✓ Enhanced worker safety</li>
+                    <li>✓ Increased productivity</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="commercial-cta">
+            <a href="https://wa.me/919810143516?text=I%20want%20to%20scale%20my%20business%20with%20Vastu" 
+               class="cta-primary" 
+               target="_blank">
+                📱 Book Commercial Consultation
+            </a>
+        </div>
+    </section>
+
+    <!-- Social Proof & Legacy Section -->
+    <section class="social-proof-section">
+        <div class="proof-strip">
+            <div class="proof-item">
+                <div class="proof-icon">⭐</div>
+                <div class="proof-number">25+</div>
+                <div class="proof-label">Years of Expert Guidance</div>
+            </div>
+
+            <div class="proof-divider"></div>
+
+            <div class="proof-item">
+                <div class="proof-icon">✓</div>
+                <div class="proof-number">10,000+</div>
+                <div class="proof-label">Success Stories</div>
+            </div>
+
+            <div class="proof-divider"></div>
+
+            <div class="proof-item">
+                <div class="proof-icon">🌍</div>
+                <div class="proof-number">Global</div>
+                <div class="proof-label">Remote Precision</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2 class="section-title">Success Stories</h2>
+        
+        <div class="testimonial-grid">
+            <div class="glass-card testimonial-card">
+                <p class="testimonial-text">
+                    "After Sanjay Ji's remote consultation, our business grew by 300% within 6 months. 
+                    The best part - no demolition required!"
+                </p>
+                <p class="testimonial-author">- Rajesh M., Mumbai</p>
+            </div>
+
+            <div class="glass-card testimonial-card">
+                <p class="testimonial-text">
+                    "The scientific approach using satellite mapping convinced me. Results were remarkable 
+                    - improved health and family harmony."
+                </p>
+                <p class="testimonial-author">- Priya S., Bangalore</p>
+            </div>
+
+            <div class="glass-card testimonial-card">
+                <p class="testimonial-text">
+                    "Living abroad, I was skeptical about remote consultations. The AutoCAD analysis was 
+                    incredibly precise. Highly recommended!"
+                </p>
+                <p class="testimonial-author">- David L., USA</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
     <section class="cta-section">
         <div class="hero-content">
             <h2 class="hero-headline">Ready to Transform Your Space?</h2>
@@ -565,26 +670,6 @@
             📱 WhatsApp
         </a>
     </div>
-
-    <script>
-        function switchTab(tabName) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Remove active from all buttons
-            document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Show selected tab
-            document.getElementById(tabName).classList.add('active');
-            
-            // Add active to clicked button
-            event.target.classList.add('active');
-        }
-    </script>
 
 </body>
 </html>

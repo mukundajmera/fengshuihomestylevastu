@@ -20,245 +20,184 @@ get_header();
 
         <!-- HERO SECTION - The Energy Foyer -->
         <section class="hero-section">
-            <!-- Video Background -->
-            <video class="hero-video-bg" autoplay muted loop playsinline 
-                   src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/hero-video.mp4' ); ?>"
-                   poster="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/hero-poster.jpg' ); ?>">
-                <!-- Fallback for browsers that don't support video -->
-                <p>Your browser does not support the video tag.</p>
-            </video>
-            <div class="hero-video-overlay"></div>
+            <!-- Static Cinematic Image Background -->
+            <div class="hero-image-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg' ); ?>');"></div>
+            <div class="hero-overlay"></div>
 
             <div class="hero-content">
-                <h1 class="hero-headline">Harmonize Your Space, Transform Your Life</h1>
+                <h1 class="hero-headline">Harmonize Your Space, Transform Your Life.</h1>
                 <p class="hero-subheadline">
-                    Scientific Vastu & Feng Shui Consultations. 100% Remote. 0% Demolition.<br>
-                    Over 25 years of expert guidance by Sanjay Jain.
+                    Expert Vastu & Feng Shui guidance to solve health, wealth, and relationship challenges. 100% Remote. No Demolition. 25+ years of mastery.
                 </p>
                 
                 <a href="https://wa.me/919810143516?text=Hello!%20I%20would%20like%20to%20book%20a%20Vastu%20consultation" 
                    class="cta-primary ripple-effect" 
                    target="_blank" 
                    rel="noopener noreferrer">
-                    📱 Book Your WhatsApp Audit
+                    📱 Book WhatsApp Consultation
                 </a>
-
-                <!-- Trust Markers -->
-                <div class="trust-strip">
-                    <div class="trust-item">
-                        <span class="trust-icon">✓</span>
-                        <span>Trusted by <strong class="trust-counter">10000</strong>+ Families</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">🌍</span>
-                        <span><strong>Global</strong> Remote Consultations</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">⭐</span>
-                        <span><strong>25+</strong> Years Experience</span>
-                    </div>
-                </div>
             </div>
         </section>
 
-        <!-- METHODOLOGY SECTION - Scientific Vastu -->
-        <section class="methodology-section">
-            <h2 class="section-title">Scientific Vastu: The 2025 Approach</h2>
+        <!-- RESIDENTIAL SOLUTIONS - Interactive Grid -->
+        <section class="residential-solutions-section">
+            <h2 class="section-title">Residential Solutions</h2>
+            <p class="section-subtitle">Transform every space in your home into a sanctuary of harmony and prosperity</p>
             
-            <div class="methodology-content">
-                <div class="glass-card">
-                    <div class="service-icon">🛰️</div>
-                    <h3 class="service-title">True North Satellite Mapping</h3>
-                    <p class="service-description">
-                        We use Google Earth satellite imagery to determine the precise True North orientation 
-                        of your property, ensuring accurate directional analysis for optimal energy flow.
-                    </p>
-                </div>
-
-                <div class="glass-card">
-                    <div class="service-icon">📐</div>
-                    <h3 class="service-title">AutoCAD Floor Plan Analysis</h3>
-                    <p class="service-description">
-                        Advanced CAD technology allows us to analyze your space with millimeter precision, 
-                        identifying energy imbalances and opportunities for harmonization.
-                    </p>
-                </div>
-
-                <div class="glass-card">
-                    <div class="service-icon">🏡</div>
-                    <h3 class="service-title">Zero Demolition Solutions</h3>
-                    <p class="service-description">
-                        Our scientific approach focuses on spatial alignment and energy redirection, 
-                        eliminating the need for costly and disruptive structural changes.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Before & After Energy Diagram -->
-            <div class="energy-diagram">
-                <h3 style="text-align: center; margin-bottom: 2rem;">Energy Flow Transformation</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
-                    <div>
-                        <h4 style="color: #8B7355; text-align: center;">Before</h4>
-                        <div style="background: linear-gradient(45deg, rgba(255,0,0,0.2), rgba(255,100,100,0.2)); padding: 3rem; border-radius: 15px; text-align: center; min-height: 200px; display: flex; align-items: center; justify-content: center;">
-                            <p style="font-size: 2rem; opacity: 0.7;">Blocked Energy</p>
-                        </div>
+            <div class="residential-grid">
+                <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-image-wrapper">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/vibrant-kitchen.jpg' ); ?>" 
+                             alt="Health & Vitality - Clean vibrant kitchen" 
+                             class="card-image" 
+                             loading="lazy">
+                        <div class="card-overlay"></div>
                     </div>
-                    <div>
-                        <h4 style="color: #648E7B; text-align: center;">After</h4>
-                        <div style="background: linear-gradient(45deg, rgba(100,142,123,0.2), rgba(100,200,150,0.2)); padding: 3rem; border-radius: 15px; text-align: center; min-height: 200px; display: flex; align-items: center; justify-content: center;">
-                            <p style="font-size: 2rem; opacity: 0.7;">Harmonized Flow</p>
-                        </div>
+                    <div class="card-content">
+                        <div class="service-icon">💚</div>
+                        <h3 class="service-title">Health & Vitality</h3>
+                        <p class="service-description">
+                            Fix energy blocks affecting family wellness. Create a vibrant kitchen and living spaces that promote health and vitality.
+                        </p>
+                        <a href="https://wa.me/919810143516?text=I%20want%20to%20improve%20health%20and%20vitality%20in%20my%20home" 
+                           class="card-cta ripple-effect" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            Get Started →
+                        </a>
                     </div>
                 </div>
-                <p style="text-align: center; margin-top: 2rem; color: #8B7355; font-style: italic;">
-                    *Visualization represents energy flow optimization through scientific Vastu principles
-                </p>
+
+                <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-image-wrapper">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/peaceful-bedroom.jpg' ); ?>" 
+                             alt="Relationships & Rest - Peaceful balanced bedroom" 
+                             class="card-image" 
+                             loading="lazy">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="service-icon">❤️</div>
+                        <h3 class="service-title">Relationships & Rest</h3>
+                        <p class="service-description">
+                            Create a supportive atmosphere for harmony and sleep. Design a peaceful bedroom that nurtures relationships and rest.
+                        </p>
+                        <a href="https://wa.me/919810143516?text=I%20want%20to%20enhance%20relationships%20and%20rest%20in%20my%20home" 
+                           class="card-cta ripple-effect" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            Get Started →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-image-wrapper">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/minimalist-entrance.jpg' ); ?>" 
+                             alt="Prosperity & Flow - Minimalist entrance foyer" 
+                             class="card-image" 
+                             loading="lazy">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="service-icon">💰</div>
+                        <h3 class="service-title">Prosperity & Flow</h3>
+                        <p class="service-description">
+                            Activate your home to attract financial growth. Optimize your entrance and foyer for wealth and abundance.
+                        </p>
+                        <a href="https://wa.me/919810143516?text=I%20want%20to%20activate%20prosperity%20in%20my%20home" 
+                           class="card-cta ripple-effect" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            Get Started →
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- SERVICES SECTION - The Solution Menu -->
-        <section class="services-section">
-            <h2 class="section-title">Our Services</h2>
+        <!-- COMMERCIAL GROWTH -->
+        <section class="commercial-growth-section">
+            <h2 class="section-title">Commercial Growth</h2>
+            <p class="section-subtitle">Scaling Business without Disruption or Demolition</p>
+            
+            <div class="commercial-grid">
+                <div class="glass-card commercial-card" data-aos="fade-right">
+                    <div class="service-icon">🏢</div>
+                    <h3 class="service-title">Office Optimization</h3>
+                    <p class="service-description">
+                        Enhance productivity and employee well-being through strategic workspace design. 
+                        Zero disruption to daily operations.
+                    </p>
+                    <ul class="feature-list">
+                        <li>✓ Enhanced team collaboration</li>
+                        <li>✓ Increased focus and creativity</li>
+                        <li>✓ Better decision-making spaces</li>
+                    </ul>
+                </div>
 
-            <div class="service-tabs">
-                <button class="tab-button ripple-effect" 
-                        data-tab="residential" 
-                        role="tab" 
-                        aria-selected="true" 
-                        aria-controls="residential">Residential Harmony</button>
-                <button class="tab-button ripple-effect" 
-                        data-tab="commercial" 
-                        role="tab" 
-                        aria-selected="false" 
-                        aria-controls="commercial">Commercial Success</button>
-                <button class="tab-button ripple-effect" 
-                        data-tab="astro-vastu" 
-                        role="tab" 
-                        aria-selected="false" 
-                        aria-controls="astro-vastu">Astro-Vastu</button>
-            </div>
+                <div class="glass-card commercial-card" data-aos="fade-up">
+                    <div class="service-icon">🛒</div>
+                    <h3 class="service-title">Retail Excellence</h3>
+                    <p class="service-description">
+                        Maximize customer flow and conversion rates with energy-optimized store layouts. 
+                        No structural changes needed.
+                    </p>
+                    <ul class="feature-list">
+                        <li>✓ Improved customer experience</li>
+                        <li>✓ Higher sales conversion</li>
+                        <li>✓ Enhanced brand perception</li>
+                    </ul>
+                </div>
 
-            <!-- Residential Harmony Tab -->
-            <div id="residential" class="tab-content">
-                <div class="service-grid">
-                    <div class="glass-card service-card">
-                        <div class="service-icon">💚</div>
-                        <h3 class="service-title">Health & Wellness</h3>
-                        <p class="service-description">
-                            North-East zone optimization for enhanced vitality, mental clarity, and overall well-being. 
-                            Address health challenges through proper spatial energy alignment.
-                        </p>
-                    </div>
-
-                    <div class="glass-card service-card">
-                        <div class="service-icon">💰</div>
-                        <h3 class="service-title">Wealth & Prosperity</h3>
-                        <p class="service-description">
-                            South-East sector balancing to attract abundance and financial growth. 
-                            Activate wealth corners and remove blockages hindering prosperity.
-                        </p>
-                    </div>
-
-                    <div class="glass-card service-card">
-                        <div class="service-icon">❤️</div>
-                        <h3 class="service-title">Relationships & Harmony</h3>
-                        <p class="service-description">
-                            South-West zone enhancement for stable relationships and family harmony. 
-                            Strengthen bonds and create a nurturing home environment.
-                        </p>
-                    </div>
-
-                    <div class="glass-card service-card">
-                        <div class="service-icon">🎓</div>
-                        <h3 class="service-title">Education & Growth</h3>
-                        <p class="service-description">
-                            West zone optimization for children's education and career advancement. 
-                            Create focused study areas that enhance concentration and learning.
-                        </p>
-                    </div>
+                <div class="glass-card commercial-card" data-aos="fade-left">
+                    <div class="service-icon">🏭</div>
+                    <h3 class="service-title">Factory & Industrial</h3>
+                    <p class="service-description">
+                        Boost operational efficiency and worker safety through precise energy alignment. 
+                        Maintain production while optimizing.
+                    </p>
+                    <ul class="feature-list">
+                        <li>✓ Improved operational flow</li>
+                        <li>✓ Enhanced worker safety</li>
+                        <li>✓ Increased productivity</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Commercial Success Tab -->
-            <div id="commercial" class="tab-content">
-                <div class="service-grid">
-                    <div class="glass-card service-card">
-                        <div class="service-icon">🏢</div>
-                        <h3 class="service-title">Office Productivity</h3>
-                        <p class="service-description">
-                            Workspace optimization for enhanced employee performance, creativity, and collaboration. 
-                            Strategic desk placement and energy flow design.
-                        </p>
-                    </div>
-
-                    <div class="glass-card service-card">
-                        <div class="service-icon">🛒</div>
-                        <h3 class="service-title">Retail Growth</h3>
-                        <p class="service-description">
-                            Store layout design to maximize customer flow, increase sales, and create an inviting 
-                            shopping atmosphere that converts browsers to buyers.
-                        </p>
-                    </div>
-
-                    <div class="glass-card service-card">
-                        <div class="service-icon">🏭</div>
-                        <h3 class="service-title">Industrial Vastu</h3>
-                        <p class="service-description">
-                            Factory and manufacturing facility optimization for operational efficiency, 
-                            worker safety, and business growth through proper machinery placement.
-                        </p>
-                    </div>
-
-                    <div class="glass-card service-card">
-                        <div class="service-icon">🏨</div>
-                        <h3 class="service-title">Hospitality Excellence</h3>
-                        <p class="service-description">
-                            Hotel, restaurant, and hospitality venue design for positive guest experiences, 
-                            repeat business, and reputation building through energy harmony.
-                        </p>
-                    </div>
-                </div>
+            <div class="commercial-cta">
+                <a href="https://wa.me/919810143516?text=I%20want%20to%20scale%20my%20business%20with%20Vastu" 
+                   class="cta-primary ripple-effect" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    📱 Book Commercial Consultation
+                </a>
             </div>
+        </section>
 
-            <!-- Astro-Vastu Tab -->
-            <div id="astro-vastu" class="tab-content">
-                <div class="service-grid">
-                    <div class="glass-card service-card">
-                        <div class="service-icon">⭐</div>
-                        <h3 class="service-title">Personal Energy Blueprint</h3>
-                        <p class="service-description">
-                            Integration of your birth chart with living spaces for a personalized approach. 
-                            Align your environment with your cosmic energy signature.
-                        </p>
-                    </div>
+        <!-- SOCIAL PROOF & LEGACY -->
+        <section class="social-proof-section">
+            <div class="proof-strip">
+                <div class="proof-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="proof-icon">⭐</div>
+                    <div class="proof-number">25+</div>
+                    <div class="proof-label">Years of Expert Guidance</div>
+                </div>
 
-                    <div class="glass-card service-card">
-                        <div class="service-icon">🌙</div>
-                        <h3 class="service-title">Planetary Remedies</h3>
-                        <p class="service-description">
-                            Address challenging planetary positions through spatial corrections and placement 
-                            of specific elements in corresponding directional zones.
-                        </p>
-                    </div>
+                <div class="proof-divider"></div>
 
-                    <div class="glass-card service-card">
-                        <div class="service-icon">🔮</div>
-                        <h3 class="service-title">Timing & Muhurat</h3>
-                        <p class="service-description">
-                            Select auspicious timings for important events, moving in, renovations, and 
-                            major decisions based on astrological and Vastu principles.
-                        </p>
-                    </div>
+                <div class="proof-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="proof-icon">✓</div>
+                    <div class="proof-number">10,000+</div>
+                    <div class="proof-label">Success Stories</div>
+                </div>
 
-                    <div class="glass-card service-card">
-                        <div class="service-icon">🌟</div>
-                        <h3 class="service-title">Holistic Transformation</h3>
-                        <p class="service-description">
-                            Comprehensive life area analysis combining Vedic astrology with Vastu Shastra 
-                            for complete harmonization of your personal and spatial energies.
-                        </p>
-                    </div>
+                <div class="proof-divider"></div>
+
+                <div class="proof-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="proof-icon">🌍</div>
+                    <div class="proof-number">Global</div>
+                    <div class="proof-label">Remote Precision</div>
                 </div>
             </div>
         </section>
