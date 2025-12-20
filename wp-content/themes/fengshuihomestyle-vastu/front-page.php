@@ -232,6 +232,149 @@ get_header();
             </div>
         </section>
 
+        <!-- RESULTS GALLERY - Trust & Proliferation Engine -->
+        <section class="results-gallery-section">
+            <h2 class="section-title">Results Gallery</h2>
+            <p class="section-subtitle">Real transformations. Measured outcomes. Zero demolition.</p>
+            
+            <div class="results-grid">
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="result-icon water-element">💧</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Declining Profits in Manufacturing Unit</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Water Element Activation in North Zone</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">20% Revenue Growth</p>
+                            <span class="outcome-timeline">Within 4 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="result-icon fire-element">🔥</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Stagnant Sales & Low Customer Footfall</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Fire Element Enhancement in South-East</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">35% Sales Increase</p>
+                            <span class="outcome-timeline">Within 3 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="result-icon earth-element">🌱</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Family Health Issues & Constant Medical Bills</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Earth Element Balance in Center & SW</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">85% Health Improvement</p>
+                            <span class="outcome-timeline">Within 6 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="result-icon metal-element">⚡</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Career Stagnation & Delayed Promotions</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Metal Strip Placement in North-West</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">Job Promotion Received</p>
+                            <span class="outcome-timeline">Within 2 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="result-icon space-element">🌟</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Relationship Discord & Family Conflicts</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Space Element Optimization & Color Therapy</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">Restored Family Harmony</p>
+                            <span class="outcome-timeline">Within 5 Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card results-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="result-icon wood-element">🍃</div>
+                    <div class="result-content">
+                        <div class="result-challenge">
+                            <h4>Challenge</h4>
+                            <p>Business Losses & Cash Flow Problems</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-solution">
+                            <h4>Remedial Solution</h4>
+                            <p>Wood Element Activation in East Zone</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-outcome">
+                            <h4>Pioneer Outcome</h4>
+                            <p class="outcome-metric">300% Profit Growth</p>
+                            <span class="outcome-timeline">Within 6 Months</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-cta">
+                <a href="https://wa.me/919810143516?text=I%20want%20to%20create%20similar%20results%20in%20my%20space" 
+                   class="cta-primary ripple-effect" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    📱 Get Your Custom Solution
+                </a>
+            </div>
+        </section>
+
         <!-- CALL TO ACTION SECTION -->
         <section class="hero-section" style="min-height: 60vh; background: linear-gradient(135deg, var(--color-deep-indigo) 0%, var(--color-sage-green) 100%);">
             <div class="hero-content">
