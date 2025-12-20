@@ -168,3 +168,74 @@ function fengshuihomestyle_vastu_optimize_performance() {
     remove_action( 'wp_head', 'wp_generator' );
 }
 add_action( 'init', 'fengshuihomestyle_vastu_optimize_performance' );
+
+/**
+ * Calculate reading time for blog posts
+ */
+function fengshuihomestyle_vastu_reading_time() {
+    $content = get_post_field( 'post_content', get_the_ID() );
+    $word_count = str_word_count( strip_tags( $content ) );
+    $reading_time = ceil( $word_count / 200 ); // Average reading speed: 200 words per minute
+    
+    return $reading_time;
+}
+
+/**
+ * Track post views for popular posts widget
+ */
+function fengshuihomestyle_vastu_set_post_views( $post_id ) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta( $post_id, $count_key, true );
+    
+    if ( $count == '' ) {
+        $count = 0;
+        delete_post_meta( $post_id, $count_key );
+        add_post_meta( $post_id, $count_key, '0' );
+    } else {
+        $count++;
+        update_post_meta( $post_id, $count_key, $count );
+    }
+}
+
+/**
+ * Hook to track views on single posts
+ */
+function fengshuihomestyle_vastu_track_post_views( $post_id ) {
+    if ( ! is_single() ) {
+        return;
+    }
+    
+    if ( empty( $post_id ) ) {
+        global $post;
+        $post_id = $post->ID;
+    }
+    
+    fengshuihomestyle_vastu_set_post_views( $post_id );
+}
+add_action( 'wp_head', 'fengshuihomestyle_vastu_track_post_views' );
+
+/**
+ * Register blog categories for pillar-cluster content
+ */
+function fengshuihomestyle_vastu_register_blog_categories() {
+    // Check if categories already exist before creating
+    $categories = array(
+        'Directional Mastery' => 'Articles on the 8 cardinal directions and 5 elements in Vastu',
+        'Solutions & Remedies' => 'Practical Vastu solutions for wealth, health, harmony, and career',
+        'Remote Vastu' => 'Scientific and remote Vastu consultation methods',
+    );
+    
+    foreach ( $categories as $cat_name => $cat_desc ) {
+        if ( ! term_exists( $cat_name, 'category' ) ) {
+            wp_insert_term(
+                $cat_name,
+                'category',
+                array(
+                    'description' => $cat_desc,
+                    'slug' => sanitize_title( $cat_name ),
+                )
+            );
+        }
+    }
+}
+add_action( 'after_setup_theme', 'fengshuihomestyle_vastu_register_blog_categories' );
