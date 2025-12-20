@@ -125,15 +125,15 @@ add_action( 'wp_head', 'fengshuihomestyle_vastu_preload_fonts', 1 );
  * Add WhatsApp chat widget
  */
 function fengshuihomestyle_vastu_whatsapp_widget() {
-    $phone_number = '+919810143516'; // Update with actual WhatsApp number
-    $message = urlencode( 'Hello! I would like to book a Vastu consultation.' );
+    $phone_number = '+919828088678'; // Sanjay Jain's WhatsApp number
+    $message = urlencode( 'Hello Sanjay, I would like to consult regarding my space.' );
     ?>
     <div class="whatsapp-widget cta-sticky">
         <a href="https://wa.me/<?php echo esc_attr( $phone_number ); ?>?text=<?php echo esc_attr( $message ); ?>" 
            class="cta-primary whatsapp-cta" 
            target="_blank" 
            rel="noopener noreferrer">
-            📱 Book Your WhatsApp Audit
+            📱 WhatsApp Consult
         </a>
     </div>
     <?php

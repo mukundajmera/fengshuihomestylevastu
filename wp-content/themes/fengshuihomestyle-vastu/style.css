@@ -496,6 +496,68 @@ a:hover {
 }
 
 /* ========================================
+   About Sanjay Jain Section
+   ======================================== */
+.about-sanjay-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: linear-gradient(180deg, var(--color-soft-cream) 0%, var(--color-warm-sand) 100%);
+}
+
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-content {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: var(--spacing-xl);
+    box-shadow: 0 8px 32px rgba(46, 43, 89, 0.1);
+}
+
+.about-text {
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-intro {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    color: var(--color-deep-indigo);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.about-text p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.8;
+    color: var(--color-earth-brown);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-text strong {
+    color: var(--color-sage-green);
+    font-weight: 700;
+}
+
+.about-cta {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .about-intro {
+        font-size: 1.25rem;
+    }
+}
+
+/* ========================================
    Methodology Section
    ======================================== */
 .methodology-section {

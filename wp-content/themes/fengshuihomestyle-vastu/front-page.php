@@ -27,14 +27,14 @@ get_header();
             <div class="hero-content">
                 <h1 class="hero-headline">Harmonize Your Space, Transform Your Life.</h1>
                 <p class="hero-subheadline">
-                    Expert Vastu & Feng Shui guidance to solve health, wealth, and relationship challenges. 100% Remote. No Demolition. 25+ years of mastery.
+                    Expert Vastu & Feng Shui guidance to solve health, wealth, and relationship challenges. 25+ Years of Mastery. 0% Demolition. 100% Remote.
                 </p>
                 
-                <a href="https://wa.me/919810143516?text=Hello!%20I%20would%20like%20to%20book%20a%20Vastu%20consultation" 
+                <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                    class="cta-primary ripple-effect" 
                    target="_blank" 
                    rel="noopener noreferrer">
-                    📱 Book WhatsApp Consultation
+                    📱 WhatsApp Consult
                 </a>
             </div>
         </section>
@@ -57,13 +57,13 @@ get_header();
                         <div class="service-icon">💚</div>
                         <h3 class="service-title">Health & Vitality</h3>
                         <p class="service-description">
-                            Fix energy blocks affecting family wellness. Create a vibrant kitchen and living spaces that promote health and vitality.
+                            Nurturing the heart of your home for family wellness. Transform your kitchen and living areas into vibrant spaces that support health, energy, and vitality for every family member.
                         </p>
-                        <a href="https://wa.me/919810143516?text=I%20want%20to%20improve%20health%20and%20vitality%20in%20my%20home" 
+                        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                            class="card-cta ripple-effect" 
                            target="_blank" 
                            rel="noopener noreferrer">
-                            Get Started →
+                            WhatsApp Consult →
                         </a>
                     </div>
                 </div>
@@ -80,13 +80,13 @@ get_header();
                         <div class="service-icon">❤️</div>
                         <h3 class="service-title">Relationships & Rest</h3>
                         <p class="service-description">
-                            Create a supportive atmosphere for harmony and sleep. Design a peaceful bedroom that nurtures relationships and rest.
+                            Creating a sanctuary for rest and deeper connection. Design peaceful bedrooms that nurture relationships, promote restful sleep, and strengthen family bonds.
                         </p>
-                        <a href="https://wa.me/919810143516?text=I%20want%20to%20enhance%20relationships%20and%20rest%20in%20my%20home" 
+                        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                            class="card-cta ripple-effect" 
                            target="_blank" 
                            rel="noopener noreferrer">
-                            Get Started →
+                            WhatsApp Consult →
                         </a>
                     </div>
                 </div>
@@ -103,13 +103,13 @@ get_header();
                         <div class="service-icon">💰</div>
                         <h3 class="service-title">Prosperity & Flow</h3>
                         <p class="service-description">
-                            Activate your home to attract financial growth. Optimize your entrance and foyer for wealth and abundance.
+                            Activating your space to attract financial opportunity. Optimize your entrance and key areas to invite wealth, abundance, and positive energy flow into your life.
                         </p>
-                        <a href="https://wa.me/919810143516?text=I%20want%20to%20activate%20prosperity%20in%20my%20home" 
+                        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                            class="card-cta ripple-effect" 
                            target="_blank" 
                            rel="noopener noreferrer">
-                            Get Started →
+                            WhatsApp Consult →
                         </a>
                     </div>
                 </div>
@@ -124,53 +124,50 @@ get_header();
             <div class="commercial-grid">
                 <div class="glass-card commercial-card" data-aos="fade-right">
                     <div class="service-icon">🏢</div>
-                    <h3 class="service-title">Office Optimization</h3>
+                    <h3 class="service-title">Office Productivity</h3>
                     <p class="service-description">
-                        Enhance productivity and employee well-being through strategic workspace design. 
-                        Zero disruption to daily operations.
+                        Transform your workspace into a hub of innovation and efficiency. Strategic energy optimization enhances team collaboration, decision-making, and employee well-being—all without disrupting daily operations.
                     </p>
                     <ul class="feature-list">
-                        <li>✓ Enhanced team collaboration</li>
-                        <li>✓ Increased focus and creativity</li>
-                        <li>✓ Better decision-making spaces</li>
+                        <li>✓ Enhanced team collaboration & creativity</li>
+                        <li>✓ Improved focus and productivity</li>
+                        <li>✓ Better leadership & decision-making</li>
                     </ul>
                 </div>
 
                 <div class="glass-card commercial-card" data-aos="fade-up">
                     <div class="service-icon">🛒</div>
-                    <h3 class="service-title">Retail Excellence</h3>
+                    <h3 class="service-title">Business Scaling</h3>
                     <p class="service-description">
-                        Maximize customer flow and conversion rates with energy-optimized store layouts. 
-                        No structural changes needed.
+                        Maximize customer flow and sales conversion with energy-optimized retail layouts. Attract more customers, increase average transaction values, and enhance brand reputation—no structural changes required.
                     </p>
                     <ul class="feature-list">
-                        <li>✓ Improved customer experience</li>
-                        <li>✓ Higher sales conversion</li>
-                        <li>✓ Enhanced brand perception</li>
+                        <li>✓ Increased customer footfall & dwell time</li>
+                        <li>✓ Higher sales conversion rates</li>
+                        <li>✓ Enhanced brand perception & loyalty</li>
                     </ul>
                 </div>
 
                 <div class="glass-card commercial-card" data-aos="fade-left">
                     <div class="service-icon">🏭</div>
-                    <h3 class="service-title">Factory & Industrial</h3>
+                    <h3 class="service-title">Industrial Growth</h3>
                     <p class="service-description">
-                        Boost operational efficiency and worker safety through precise energy alignment. 
-                        Maintain production while optimizing.
+                        Boost operational efficiency and worker safety through precise energy alignment. Optimize production flow, reduce accidents, and increase output—while maintaining full operations during implementation.
                     </p>
                     <ul class="feature-list">
-                        <li>✓ Improved operational flow</li>
-                        <li>✓ Enhanced worker safety</li>
-                        <li>✓ Increased productivity</li>
+                        <li>✓ Improved operational efficiency & flow</li>
+                        <li>✓ Enhanced worker safety & morale</li>
+                        <li>✓ Increased productivity & profitability</li>
                     </ul>
                 </div>
             </div>
 
             <div class="commercial-cta">
-                <a href="https://wa.me/919810143516?text=I%20want%20to%20scale%20my%20business%20with%20Vastu" 
+                <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                    class="cta-primary ripple-effect" 
                    target="_blank" 
                    rel="noopener noreferrer">
-                    📱 Book Commercial Consultation
+                    📱 WhatsApp Consult
                 </a>
             </div>
         </section>
@@ -198,6 +195,37 @@ get_header();
                     <div class="proof-icon">🌍</div>
                     <div class="proof-number">Global</div>
                     <div class="proof-label">Remote Precision</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SANJAY JAIN SECTION -->
+        <section class="about-sanjay-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2 class="section-title">About Sanjay Jain</h2>
+                    <div class="about-text">
+                        <p class="about-intro">
+                            For over 25 years, Sanjay Jain has guided 10,000+ families and businesses across the globe to harmonize their spaces without breaking walls—literally or figuratively.
+                        </p>
+                        <p>
+                            What began as a personal journey to bridge ancient Vastu wisdom with modern living has evolved into a pioneering practice. Sanjay's approach is rooted in scientific precision—using satellite mapping, AutoCAD floor plan analysis, and directional accuracy to deliver results that transform lives.
+                        </p>
+                        <p>
+                            His philosophy is simple: <strong>your space should work for you, not against you.</strong> Whether it's a home struggling with health challenges, a business facing stagnant growth, or relationships needing deeper harmony, Sanjay's remedies are elegant, non-invasive, and profoundly effective.
+                        </p>
+                        <p>
+                            From Mumbai boardrooms to Sydney suburbs, from Dubai high-rises to New York apartments, Sanjay has helped families and entrepreneurs unlock prosperity, wellness, and peace—all through the power of aligned energy and ancient wisdom adapted for the 21st century.
+                        </p>
+                    </div>
+                    <div class="about-cta">
+                        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
+                           class="cta-primary ripple-effect" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            📱 WhatsApp Consult
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -366,11 +394,11 @@ get_header();
             </div>
 
             <div class="results-cta">
-                <a href="https://wa.me/919810143516?text=I%20want%20to%20create%20similar%20results%20in%20my%20space" 
+                <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                    class="cta-primary ripple-effect" 
                    target="_blank" 
                    rel="noopener noreferrer">
-                    📱 Get Your Custom Solution
+                    📱 WhatsApp Consult
                 </a>
             </div>
         </section>
@@ -385,12 +413,12 @@ get_header();
                     Book your personalized Vastu consultation today.<br>
                     100% Remote. 100% Scientific. 0% Demolition.
                 </p>
-                <a href="https://wa.me/919810143516?text=Hello!%20I%20would%20like%20to%20book%20a%20Vastu%20consultation" 
+                <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
                    class="cta-primary ripple-effect" 
                    style="background: var(--color-warm-sand); color: var(--color-deep-indigo);"
                    target="_blank" 
                    rel="noopener noreferrer">
-                    📱 Start Your Journey Now
+                    📱 WhatsApp Consult
                 </a>
             </div>
         </section>
