@@ -172,6 +172,72 @@ get_header();
             </div>
         </section>
 
+        <!-- INTERACTIVE TOOLS - Kua Number & Compass -->
+        <section class="vastu-tools-section" id="tools">
+            <h2 class="section-title" style="color: var(--color-zen-white);">Discover Your Energy</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Find your personal Kua Number to unlock your best directions.</p>
+
+            <div class="tool-card">
+                <h3>Find Your Kua Number</h3>
+                <div class="kua-calculator-form">
+                    <input type="number" id="kua-year" class="tool-input" placeholder="Enter Birth Year (e.g., 1985)" min="1900" max="2025">
+                    <select id="kua-gender" class="tool-input">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <button id="calculate-kua" class="cta-primary" style="width: 100%; margin-top: 10px;">Calculate Now</button>
+                </div>
+                <div id="kua-result" class="tool-result">
+                    <h4>Your Kua Number is: <span id="kua-number-display" class="text-gold" style="font-size: 2rem;"></span></h4>
+                    <p id="kua-description"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WISDOM HUB - Production-Ready Blog Posts -->
+        <section class="wisdom-hub-grid" id="blog">
+            <div class="container" style="display: block; max-width: 1200px;">
+                <h2 class="section-title">Wisdom Hub</h2>
+                <p class="section-subtitle">Expert insights for a balanced life.</p>
+
+                <div class="blog-posts-grid">
+                    <!-- Blog 1 -->
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <!-- Placeholder image or generic bedroom image -->
+                            <div style="background: var(--color-warm-sand); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🛏️</div>
+                            <span class="category-badge">Relationships</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <h3 class="blog-card-title"><a href="#">The Secret to a Happy Marriage? Check Your Bedroom Mirror.</a></h3>
+                            <p class="blog-card-excerpt">
+                                Are you experiencing unexplained distances or frequent arguments with your spouse? While relationship dynamics are complex, Vastu Shastra suggests that the physical layout of your bedroom plays a silent but powerful role in your domestic harmony.
+                            </p>
+                            <p><strong>The "Sensitive" Vastu of Relationships:</strong> According to Vastu expert Sanjay Jain, husband-wife relationships are becoming increasingly delicate. One of the biggest "silent killers" of peace in the bedroom is the improper placement of mirrors.</p>
+                            <a href="#" class="read-more-link">Read Full Article →</a>
+                        </div>
+                    </article>
+
+                    <!-- Blog 2 -->
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <!-- Placeholder image or generic construction image -->
+                            <div style="background: var(--color-deep-indigo); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🏗️</div>
+                            <span class="category-badge">Career Growth</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <h3 class="blog-card-title"><a href="#">Boosting Your Career & Growth: The Vastu Height Protocol</a></h3>
+                            <p class="blog-card-excerpt">
+                                Is Your House Height Blocking Your Success? In the world of business and career, "growth" isn't just about hard work—it’s about the energy balance of the space you occupy.
+                            </p>
+                            <p><strong>The Height Hierarchy:</strong> North-East (Lowest) → North-West → South-East → South-West (Highest). If your NE is higher than SW, it's a "Growth Killer".</p>
+                            <a href="#" class="read-more-link">Read Full Article →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- SOCIAL PROOF & LEGACY -->
         <section class="social-proof-section">
             <div class="proof-strip">
