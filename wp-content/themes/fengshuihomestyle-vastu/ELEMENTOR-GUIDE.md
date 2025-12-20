@@ -367,8 +367,8 @@ backdrop-filter: blur(10px);
 @media (max-width: 768px) {
     .whatsapp-sticky {
         bottom: 15px;
-        right: 50%;
-        transform: translateX(50%);
+        left: 50%;
+        transform: translateX(-50%);
         width: calc(100% - 30px);
         max-width: 320px;
     }
