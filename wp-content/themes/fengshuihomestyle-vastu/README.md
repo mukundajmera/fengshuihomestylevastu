@@ -33,37 +33,63 @@ This WordPress child theme is built on the Astra framework and implements a comp
 ### Homepage Sections
 
 1. **Hero Section** - "The Energy Foyer"
-   - Full-screen video background (flowing water/nature)
-   - Compelling headline and sub-headline
-   - Sticky WhatsApp CTA button
-   - Trust markers strip
+   - Large cinematic static image background (serene living space with natural light)
+   - Compelling headline: "Harmonize Your Space, Transform Your Life."
+   - Sub-headline with 25+ years expertise highlight
+   - Prominent WhatsApp CTA button
+   - Optimized for "Quiet Luxury" 2025 wellness aesthetic
 
-2. **Methodology Section** - "Scientific Vastu"
-   - True North Satellite Mapping explanation
-   - AutoCAD Floor Plan Analysis details
-   - Zero Demolition Solutions showcase
-   - Before/After energy diagram visualization
+2. **Residential Solutions** - Interactive Grid
+   - Three focused life solutions with high-resolution lifestyle images
+   - **Health & Vitality:** Vibrant kitchen imagery, energy block solutions
+   - **Relationships & Rest:** Peaceful bedroom design for harmony
+   - **Prosperity & Flow:** Minimalist entrance optimization for wealth
+   - Glassmorphism cards with image overlays
+   - Individual CTAs for each solution
 
-3. **Services Section** - "The Solution Menu"
-   - Tabbed interface for easy navigation
-   - Residential Harmony services
-   - Commercial Success services
+3. **Commercial Growth** - Business Scaling
+   - Professional section for offices, retail, and factories
+   - Focus on "Scaling Business without Disruption or Demolition"
+   - Three service cards with feature lists
+   - Dark indigo background for authority and contrast
+   - Dedicated commercial consultation CTA
+
+4. **Social Proof & Legacy** - Trust Markers
+   - Horizontal strip with key statistics
+   - "25+ Years of Expert Guidance"
+   - "10,000+ Success Stories"  
+   - "Global Remote Precision"
+   - Glassmorphism effect on sage green background
    - Astro-Vastu services
 
-4. **Testimonials Section**
-   - Social proof from satisfied clients
-   - Glassmorphism cards
+5. **Testimonials Section** - Success Stories
+   - Client testimonials with glassmorphism cards
+   - Real results from satisfied clients
+   - Social proof from diverse locations (Mumbai, Bangalore, USA)
 
-5. **Final CTA Section**
-   - Gradient background
-   - Clear call-to-action
+6. **Final CTA Section** - Conversion Focus
+   - Gradient background (Deep Indigo to Sage Green)
+   - Clear value proposition
+   - Strong call-to-action to book consultation
 
 ### Mobile-First Design
 
-- **Thumb Zone Navigation:** Bottom-centered controls
-- **Responsive Typography:** Fluid scaling
-- **Touch-Optimized:** Large tap targets, touch feedback
+- **Thumb Zone Navigation:** Bottom-centered sticky WhatsApp button (15px from bottom, centered)
+- **Responsive Typography:** Fluid scaling with CSS clamp()
+- **Touch-Optimized:** Large tap targets (44px minimum), touch feedback
+- **Mobile Breakpoints:** Optimized for 768px and below
+- **Sticky CTA:** Full-width button (max 320px) positioned for easy thumb access
 - **Performance Target:** LCP < 2.5 seconds
+
+### Imagery Standards
+
+Following "Quiet Luxury" 2025 wellness aesthetic:
+- **High-Resolution:** Minimum 1920x1080 for hero, 800x600 for cards
+- **Style:** Natural morning light, serene indoor plants, high-end modern architecture
+- **Avoid:** Generic clipart spiritual icons, overly staged photos
+- **Color Harmony:** Images complement biophilic color palette
+- **Format:** WebP with JPG fallback, optimized < 500KB each
+- **See:** `assets/images/IMAGE-REQUIREMENTS.md` for detailed specifications
 
 ### Performance Optimizations
 
@@ -101,19 +127,26 @@ This WordPress child theme is built on the Astra framework and implements a comp
 
 ```
 fengshuihomestyle-vastu/
-├── style.css              # Main stylesheet with Digital Zen design system
-├── functions.php          # Theme functions and WordPress hooks
-├── front-page.php         # Homepage template
-├── screenshot.png         # Theme screenshot (to be added)
-├── SITEMAP.md            # Detailed website architecture documentation
-├── README.md             # This file
+├── style.css                    # Main stylesheet with Digital Zen design system
+├── functions.php                # Theme functions and WordPress hooks
+├── front-page.php               # Homepage template with new sections
+├── demo-preview.html            # Standalone demo (open in browser)
+├── demo-preview-backup.html     # Previous version backup
+├── README.md                    # This file
+├── ELEMENTOR-GUIDE.md          # Complete Elementor implementation guide
+├── SITEMAP.md                  # Detailed website architecture
 ├── assets/
-│   ├── css/              # Additional stylesheets (if needed)
+│   ├── css/                    # Additional stylesheets (if needed)
 │   ├── js/
-│   │   └── custom.js     # Custom JavaScript for interactions
+│   │   └── custom.js           # Custom JavaScript for interactions
 │   └── images/
-│       └── hero-video.mp4 # Hero section background video (to be added)
-└── template-parts/       # Reusable template components (future use)
+│       ├── IMAGE-REQUIREMENTS.md    # Detailed image specifications
+│       ├── VIDEO-INSTRUCTIONS.md    # Video requirements (legacy)
+│       ├── hero-serene-living-space.jpg     # Hero section (to be added)
+│       ├── vibrant-kitchen.jpg              # Health & Vitality card (to be added)
+│       ├── peaceful-bedroom.jpg             # Relationships & Rest card (to be added)
+│       └── minimalist-entrance.jpg          # Prosperity & Flow card (to be added)
+└── template-parts/             # Reusable template components (future use)
 ```
 
 ## Customization
