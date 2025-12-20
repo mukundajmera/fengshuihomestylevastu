@@ -133,7 +133,7 @@ function fengshuihomestyle_vastu_whatsapp_widget() {
            class="cta-primary whatsapp-cta" 
            target="_blank" 
            rel="noopener noreferrer">
-            📱 WhatsApp Consult
+            📱 Chat with Sanjay Jain
         </a>
     </div>
     <?php
