@@ -175,21 +175,37 @@ get_header();
         <!-- INTERACTIVE TOOLS - Kua Number & Compass -->
         <section class="vastu-tools-section" id="tools">
             <h2 class="section-title" style="color: var(--color-zen-white);">Discover Your Energy</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Find your personal Kua Number to unlock your best directions.</p>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Unlock your personal directions with our scientific Vastu tools.</p>
 
-            <div class="tool-card">
-                <h3>Find Your Kua Number</h3>
-                <div class="kua-calculator-form">
-                    <input type="number" id="kua-year" class="tool-input" placeholder="Enter Birth Year (e.g., 1985)" min="1900" max="2025">
-                    <select id="kua-gender" class="tool-input">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                    <button id="calculate-kua" class="cta-primary" style="width: 100%; margin-top: 10px;">Calculate Now</button>
+            <div class="tools-grid">
+                <!-- Tool 1: Kua Calculator -->
+                <div class="tool-card">
+                    <h3>Find Your Kua Number</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem; color: rgba(255,255,255,0.8);">Discover your favorable directions for wealth and health.</p>
+                    <div class="kua-calculator-form">
+                        <input type="number" id="kua-year" class="tool-input" placeholder="Enter Birth Year (e.g., 1985)" min="1900" max="2025" aria-label="Birth Year">
+                        <select id="kua-gender" class="tool-input" aria-label="Gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <button id="calculate-kua" class="cta-primary" style="width: 100%; margin-top: 10px;">Calculate Now</button>
+                    </div>
+                    <div id="kua-result" class="tool-result">
+                        <h4>Your Kua Number is: <span id="kua-number-display" class="text-gold" style="font-size: 2rem;"></span></h4>
+                        <p id="kua-description"></p>
+                    </div>
                 </div>
-                <div id="kua-result" class="tool-result">
-                    <h4>Your Kua Number is: <span id="kua-number-display" class="text-gold" style="font-size: 2rem;"></span></h4>
-                    <p id="kua-description"></p>
+
+                <!-- Tool 2: Vastu Compass Overlay -->
+                <div class="tool-card">
+                    <h3>Vastu Compass Check</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem; color: rgba(255,255,255,0.8);">Use your phone to check directions in real-time.</p>
+                    <div class="compass-tool-container" style="position: relative; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%; width: 200px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                        <div class="compass-needle" style="width: 4px; height: 90px; background: red; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); transform-origin: bottom center; transition: transform 0.5s ease;"></div>
+                        <div class="compass-needle-south" style="width: 4px; height: 90px; background: silver; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); transform-origin: top center;"></div>
+                        <div style="z-index: 2; font-weight: bold; color: var(--color-wealth-gold);">N</div>
+                    </div>
+                    <button class="cta-primary" style="width: 100%; margin-top: 20px;" onclick="alert('Open this on a mobile device to enable the compass overlay!');">Launch Compass Overlay</button>
                 </div>
             </div>
         </section>

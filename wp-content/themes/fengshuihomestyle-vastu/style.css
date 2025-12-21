@@ -81,15 +81,29 @@ Text Domain: fengshuihomestyle-vastu
     color: var(--color-zen-white);
 }
 
+.tools-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .tool-card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     padding: var(--spacing-lg);
+    width: 100%;
     max-width: 500px;
-    margin: 0 auto;
     text-align: center;
+}
+
+/* Vastu Mobile Requirements: 48px touch targets */
+.tool-input, .cta-primary, button, select {
+    min-height: 48px;
 }
 
 .tool-input {
