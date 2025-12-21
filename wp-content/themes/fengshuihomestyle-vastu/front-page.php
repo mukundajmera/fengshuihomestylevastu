@@ -20,8 +20,8 @@ get_header();
 
         <!-- HERO SECTION - The Energy Foyer -->
         <section class="hero-section">
-            <!-- Static Cinematic Image Background -->
-            <div class="hero-image-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg' ); ?>');"></div>
+            <!-- Static Cinematic Image Background - WebP for Speed -->
+            <div class="hero-image-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.webp' ); ?>');"></div>
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
@@ -47,7 +47,7 @@ get_header();
             <div class="residential-grid">
                 <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/vibrant-kitchen.jpg' ); ?>" 
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/vibrant-kitchen.webp' ); ?>"
                              alt="Family Wellness & Vitality - Clean vibrant kitchen" 
                              class="card-image" 
                              loading="lazy">
@@ -70,7 +70,7 @@ get_header();
 
                 <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/peaceful-bedroom.jpg' ); ?>" 
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/peaceful-bedroom.webp' ); ?>"
                              alt="Relationship Sanctuary - Peaceful balanced bedroom" 
                              class="card-image" 
                              loading="lazy">
@@ -93,7 +93,7 @@ get_header();
 
                 <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/minimalist-entrance.jpg' ); ?>" 
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/minimalist-entrance.webp' ); ?>"
                              alt="The Gateway to Abundance - Minimalist entrance foyer" 
                              class="card-image" 
                              loading="lazy">
@@ -315,6 +315,23 @@ get_header();
         <!-- TESTIMONIALS SECTION -->
         <section class="methodology-section" style="background: var(--color-warm-sand);">
             <h2 class="section-title">Success Stories</h2>
+
+            <!-- Video Integration: Lazy Loading for Performance -->
+            <div class="video-wrapper" style="max-width: 800px; margin: 0 auto var(--spacing-lg); text-align: center;">
+                 <h3 style="margin-bottom: 1rem;">Watch: The Science Behind Vastu</h3>
+                 <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 15px;">
+                    <iframe
+                        loading="lazy"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Vastu Science Explained"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                 </div>
+            </div>
+
             <div class="service-grid" style="max-width: 1200px; margin: 0 auto;">
                 <div class="glass-card">
                     <p class="service-description" style="font-style: italic; margin-bottom: 1rem;">

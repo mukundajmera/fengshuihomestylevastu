@@ -217,9 +217,10 @@ a:hover {
 }
 
 .hero-content {
-    text-align: center;
+    text-align: left; /* North-East LCP Focus: "Airy" and Left-aligned */
     max-width: 900px;
-    margin: 0 auto;
+    margin: 0 auto 0 0; /* Align to left/start */
+    padding-left: var(--spacing-md);
     z-index: 1;
     animation: fadeInUp 1s ease-out;
 }
