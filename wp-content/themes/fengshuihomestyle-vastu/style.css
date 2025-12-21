@@ -81,6 +81,14 @@ Text Domain: fengshuihomestyle-vastu
     color: var(--color-zen-white);
 }
 
+.vastu-tools-section .section-title {
+    color: var(--color-zen-white);
+}
+
+.vastu-tools-section .section-subtitle {
+    color: rgba(255,255,255,0.9);
+}
+
 .tools-grid {
     display: flex;
     justify-content: center;
@@ -99,6 +107,12 @@ Text Domain: fengshuihomestyle-vastu
     width: 100%;
     max-width: 500px;
     text-align: center;
+}
+
+.tool-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: rgba(255,255,255,0.8);
 }
 
 /* Vastu Mobile Requirements: 48px touch targets */
@@ -128,6 +142,61 @@ Text Domain: fengshuihomestyle-vastu
 .tool-result.active {
     display: block;
     animation: fadeIn 0.5s ease;
+}
+
+#calculate-kua.cta-primary {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#kua-number-display {
+    font-size: 2rem;
+}
+
+.compass-tool-container {
+    position: relative;
+    height: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.compass-needle {
+    width: 4px;
+    height: 90px;
+    background: red;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: bottom center;
+    transition: transform 0.5s ease;
+}
+
+.compass-needle-south {
+    width: 4px;
+    height: 90px;
+    background: silver;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: top center;
+}
+
+.compass-tool-container > div {
+    z-index: 2;
+    font-weight: bold;
+    color: var(--color-wealth-gold);
+}
+
+.tool-card .cta-primary.compass-launch {
+    width: 100%;
+    margin-top: 20px;
 }
 
 /* ========================================
@@ -890,6 +959,28 @@ img {
     color: var(--color-zen-white);
     padding: var(--spacing-xl) var(--spacing-md);
     text-align: center;
+}
+
+.wisdom-hub-grid .container {
+    display: block;
+    max-width: 1200px;
+}
+
+.blog-card-image .placeholder-emoji {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.blog-card-image .placeholder-emoji.sand-bg {
+    background: var(--color-warm-sand);
+}
+
+.blog-card-image .placeholder-emoji.indigo-bg {
+    background: var(--color-deep-indigo);
 }
 
 .hub-title {
