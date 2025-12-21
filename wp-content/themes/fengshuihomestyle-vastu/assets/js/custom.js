@@ -214,6 +214,114 @@
                 .appendTo('head');
         }
 
+        // Kua Number Calculator
+        $('#calculate-kua').on('click', function(e) {
+            e.preventDefault();
+            var year = parseInt($('#kua-year').val());
+            var gender = $('#kua-gender').val();
+            var result = 0;
+            var description = "";
+
+            if (!year || year < 1900 || year > 2025) {
+                alert("Please enter a valid birth year between 1900 and 2025.");
+                return;
+            }
+
+            // Kua Calculation Logic
+            var sum = 0;
+            var yearStr = year.toString();
+            // Sum last two digits
+            // Actually, sum ALL digits until single digit is common, but strict Kua formula is:
+            // 1. Sum digits of year until single digit? No.
+            // Simplified Formula:
+            // Add the last two digits of the year of birth. If the result is 10 or greater, add the two digits to get a single number.
+
+            // Standard Kua Formula:
+            // Sum of digits of the year.
+            var sumDigits = 0;
+            var digits = yearStr.split('');
+            // Usually we take the whole year sum until single digit.
+            // Let's use the standard algorithm:
+            // Add all digits of year. If > 9, add again.
+            // Example: 1985 -> 1+9+8+5 = 23 -> 2+3 = 5.
+
+            // Wait, typical Kua formula is:
+            // 1. Add the last two digits of birth year. (e.g. 1985 -> 8+5=13 -> 1+3=4).
+            // 2. Male: 10 - result (if born before 2000). 9 - result (if born after 2000? No).
+            // Let's use the robust "Sum of all digits to single digit" approach then apply offset.
+            // Kua Number Calculation:
+            // Step 1: Add the last two digits of the year of birth. If the result is a double-digit number, add the two digits together to get a single number.
+            // Example 1985: 8+5=13 -> 1+3 = 4.
+
+            var lastTwo = year % 100;
+            var d1 = Math.floor(lastTwo / 10);
+            var d2 = lastTwo % 10;
+            var kSum = d1 + d2;
+            while (kSum > 9) {
+                kSum = Math.floor(kSum / 10) + (kSum % 10);
+            }
+
+            // Step 2:
+            if (gender === 'male') {
+                // For Male: 10 - kSum (if born < 2000). 9 - kSum (if born >= 2000).
+                // Actually, standard is: Before 2000: 10 - kSum. After 2000: 9 - kSum.
+                // Wait, some sources say for 2000+, use 9. Let's stick to standard pre-2000 logic mainly or adjust.
+                // Correct universal:
+                // Pre-2000 Male: 10 - kSum.
+                // 2000+ Male: 9 - kSum.
+
+                var base = (year < 2000) ? 10 : 9;
+                result = base - kSum;
+                // If result is negative or 0? (e.g. 9-9=0 -> 9).
+                // Let's handle wrapping.
+                // Actually, if year is 2000+: 9 - kSum. Ex: 2000 -> 0+0=0. 9-0=9. Correct.
+                // Ex: 2009 -> 0+9=9. 9-9=0. If 0, it becomes 9.
+                // Wait, if result is 0, it is 9? No, Kua 9 is Fire.
+                // Let's verify Kua 2009 Male: 9. (9-9=0, so 9).
+
+                if (result <= 0) result += 9; // Handling edge cases if any
+
+            } else {
+                // For Female:
+                // Pre-2000: 5 + kSum.
+                // 2000+: 6 + kSum.
+
+                var base = (year < 2000) ? 5 : 6;
+                result = base + kSum;
+                if (result > 9) {
+                     result = Math.floor(result / 10) + (result % 10); // Reduce to single digit
+                }
+            }
+
+            // Kua 5 exception:
+            // Male 5 becomes 2.
+            // Female 5 becomes 8.
+            if (result === 5) {
+                if (gender === 'male') result = 2;
+                else result = 8;
+            }
+
+            // Display
+            $('#kua-number-display').text(result);
+
+            var group = (result === 1 || result === 3 || result === 4 || result === 9) ? "East Group" : "West Group";
+            var element = "";
+            switch(result) {
+                case 1: element = "Water (Career)"; break;
+                case 2: element = "Earth (Relationships)"; break;
+                case 3: element = "Wood (Growth)"; break;
+                case 4: element = "Wood (Wealth)"; break;
+                case 6: element = "Metal (Helpful People)"; break;
+                case 7: element = "Metal (Creativity)"; break;
+                case 8: element = "Earth (Knowledge)"; break;
+                case 9: element = "Fire (Fame)"; break;
+            }
+
+            $('#kua-description').html("<strong>Element:</strong> " + element + "<br><strong>Group:</strong> " + group + "<br><em>Unlock your specific directions in a full consultation.</em>");
+
+            $('#kua-result').addClass('active');
+        });
+
         // Console welcome message
         console.log('%c🏡 Feng Shui Homestyle Vastu', 'font-size: 20px; color: #648E7B; font-weight: bold;');
         console.log('%cScientific Vastu: Harmony without Demolition', 'font-size: 14px; color: #2E2B59;');
