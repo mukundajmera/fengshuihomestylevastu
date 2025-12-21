@@ -72,14 +72,14 @@ Choosing the right tools from the start makes everything easier.
 ### Recommended Lightweight Themes
 These themes are known for their speed, clean code, and SEO friendliness:
 *   **GeneratePress:** Extremely lightweight, modular, and developer-friendly.
-*   **Astra:** very popular, fast, and offers many starter templates.
+*   **Astra:** Very popular, fast, and offers many starter templates.
 *   **Kadence:** Offers powerful header/footer builders and great performance out of the box.
 *   **Hello Elementor:** Ideally used if you are building everything with the Elementor page builder (a blank canvas).
 
 ### 5-Step Launch Checklist for Mobile Success
 Before you tell the world, check these 5 things:
 1.  **Mobile Speed Test:** Run your site through Google PageSpeed Insights. Look specifically at the "Mobile" tab score.
-2.  **The "Thumb Test":** navigate your site on a phone using only one hand. Can you reach the menu? Are buttons easy to tap?
+2.  **The "Thumb Test":** Navigate your site on a phone using only one hand. Can you reach the menu? Are buttons easy to tap?
 3.  **Form Verification:** Fill out your contact forms on a mobile device to ensure the keyboard doesn't hide the input fields and that it submits correctly.
 4.  **Check for Pop-ups:** Ensure any pop-ups are easy to close on mobile. Google penalizes "intrusive interstitials" that block content on mobile devices.
 5.  **Broken Link Check:** Use a free tool to scan for broken links. 404 errors frustrate users and search bots.
