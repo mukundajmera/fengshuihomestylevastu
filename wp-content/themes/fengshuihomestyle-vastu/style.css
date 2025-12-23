@@ -1748,3 +1748,431 @@ img {
         min-width: auto;
     }
 }
+
+/* ========================================
+   PIONEER ZENITH: Phase 2 Visual Metamorphosis
+   Digital Zen Design System — 2025
+   ======================================== */
+
+/* ----------------------------------------
+   1. PIONEER STANDARD SPACING SYSTEM
+   ---------------------------------------- */
+:root {
+    /* Pioneer Standard: 80-100px section spacing */
+    --pioneer-section-spacing: clamp(80px, 10vw, 100px);
+    --pioneer-card-gap: 48px;
+    --pioneer-container-max: 1400px;
+}
+
+/* ----------------------------------------
+   2. ADVANCED GLASSMORPHISM SOLUTION CARDS
+   Health, Wealth, Relationships Triad
+   ---------------------------------------- */
+
+/* Base Pioneer Glass Card */
+.pioneer-glass-card {
+    /* Glass Effect Core */
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    
+    /* Subtle Border for Depth */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+    
+    /* Soft Shadow */
+    box-shadow: 
+        0 8px 32px rgba(46, 43, 89, 0.08),
+        0 2px 8px rgba(46, 43, 89, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    
+    /* Structure */
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    
+    /* Gentle Energy Flow Transition */
+    transition: 
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s ease;
+}
+
+/* Hover State — "Gentle Energy Flow" */
+.pioneer-glass-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(100, 142, 123, 0.5);
+    box-shadow: 
+        0 20px 60px rgba(46, 43, 89, 0.15),
+        0 8px 24px rgba(100, 142, 123, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Card Image Container */
+.pioneer-glass-card .card-image-wrapper {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.pioneer-glass-card .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle Image Zoom on Hover */
+.pioneer-glass-card:hover .card-image {
+    transform: scale(1.08);
+}
+
+/* Image Gradient Overlay */
+.pioneer-glass-card .card-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.5) 40%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+/* Card Content Area */
+.pioneer-glass-card .card-content {
+    padding: 2rem 2.5rem 2.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card Title — Caudex Serif */
+.pioneer-glass-card .card-title {
+    font-family: 'Caudex', serif;
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #2E2B59;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+/* Card Focus Tag — Sage Green */
+.pioneer-glass-card .card-focus-tag {
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #648E7B;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+}
+
+/* Card Description */
+.pioneer-glass-card .card-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #8B7355;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+/* Card CTA Button */
+.pioneer-glass-card .card-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #648E7B 0%, #5a8070 100%);
+    color: #FFFFFF;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(100, 142, 123, 0.3);
+    margin-top: auto;
+}
+
+.pioneer-glass-card .card-cta:hover {
+    background: linear-gradient(135deg, #2E2B59 0%, #3a375f 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(46, 43, 89, 0.3);
+    color: #FFFFFF;
+}
+
+/* Arrow Icon Animation */
+.pioneer-glass-card .card-cta::after {
+    content: ' →';
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.pioneer-glass-card .card-cta:hover::after {
+    transform: translateX(5px);
+}
+
+/* Pioneer Glass Card Mobile */
+@media (max-width: 768px) {
+    .pioneer-glass-card .card-image-wrapper {
+        height: 220px;
+    }
+    
+    .pioneer-glass-card .card-content {
+        padding: 1.5rem;
+    }
+    
+    .pioneer-glass-card .card-title {
+        font-size: 1.375rem;
+    }
+}
+
+/* ----------------------------------------
+   3. THUMB-ZONE MOBILE WHATSAPP FOOTER
+   One-handed operation positioning
+   ---------------------------------------- */
+
+/* Desktop: Traditional floating button */
+.whatsapp-thumb-zone {
+    display: none; /* Hidden on desktop */
+}
+
+/* Floating WhatsApp Icon (Desktop) */
+.floating-whatsapp-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 6px 20px rgba(37, 211, 102, 0.4),
+        0 3px 10px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.floating-whatsapp-icon:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 
+        0 12px 30px rgba(37, 211, 102, 0.5),
+        0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.floating-whatsapp-icon svg {
+    width: 35px;
+    height: 35px;
+    fill: #FFFFFF;
+}
+
+/* Mobile: Thumb Zone Footer Bar */
+@media (max-width: 768px) {
+    /* Hide desktop floating icon on mobile */
+    .floating-whatsapp-icon {
+        display: none;
+    }
+    
+    /* Show thumb zone footer */
+    .whatsapp-thumb-zone {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        padding: 12px 16px;
+        padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+        background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0.98) 0%,
+            rgba(255, 255, 255, 0.95) 100%
+        );
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(46, 43, 89, 0.08);
+        box-shadow: 0 -4px 30px rgba(46, 43, 89, 0.1);
+    }
+    
+    .thumb-zone-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        padding: 16px 24px;
+        min-height: 56px; /* Apple HIG: 44pt minimum */
+        background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        color: #FFFFFF;
+        font-family: 'Lato', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 14px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+        transition: all 0.3s ease;
+    }
+    
+    .thumb-zone-cta:hover,
+    .thumb-zone-cta:active {
+        background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+    }
+    
+    .thumb-zone-cta svg {
+        width: 24px;
+        height: 24px;
+        fill: #FFFFFF;
+    }
+    
+    /* Add bottom padding to body for thumb zone */
+    body.has-thumb-zone {
+        padding-bottom: 90px;
+    }
+}
+
+/* Ultra-small screens */
+@media (max-width: 375px) {
+    .thumb-zone-cta {
+        font-size: 0.9rem;
+        padding: 14px 20px;
+    }
+}
+
+/* ----------------------------------------
+   4. RESPONSIVE HEADLINE SCALING SYSTEM
+   "No-Demolition" Perfect Scaling
+   ---------------------------------------- */
+
+/* Hero Headline - Perfect Scaling */
+.pioneer-hero-headline {
+    font-family: 'Caudex', serif;
+    font-size: clamp(2rem, 5vw + 1rem, 4.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #2E2B59;
+    text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.3);
+    margin-bottom: 1.5rem;
+    
+    /* Optimize text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Tablet Adjustments */
+@media (max-width: 1024px) {
+    .pioneer-hero-headline {
+        font-size: clamp(2rem, 6vw, 3.5rem);
+        line-height: 1.2;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .pioneer-hero-headline {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+        line-height: 1.25;
+        text-align: center;
+        padding: 0 1rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 375px) {
+    .pioneer-hero-headline {
+        font-size: 1.625rem;
+        line-height: 1.3;
+    }
+}
+
+/* Section Titles */
+.pioneer-section-title {
+    font-family: 'Caudex', serif;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 600;
+    color: #2E2B59;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Subheadlines */
+.pioneer-subheadline {
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.375rem);
+    font-weight: 300;
+    line-height: 1.7;
+    color: #8B7355;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .pioneer-subheadline {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+/* ----------------------------------------
+   5. PIONEER SECTION SPACING
+   ---------------------------------------- */
+
+.pioneer-section {
+    padding: var(--pioneer-section-spacing) var(--spacing-md);
+}
+
+.pioneer-section--cream {
+    background: linear-gradient(180deg, var(--color-soft-cream) 0%, var(--color-warm-sand) 100%);
+}
+
+.pioneer-section--indigo {
+    background: var(--color-deep-indigo);
+    color: var(--color-zen-white);
+}
+
+.pioneer-section--sage {
+    background: var(--color-sage-green);
+    color: var(--color-zen-white);
+}
+
+/* Pioneer Grid for Cards */
+.pioneer-grid {
+    max-width: var(--pioneer-container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--pioneer-card-gap);
+}
+
+@media (max-width: 768px) {
+    .pioneer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+

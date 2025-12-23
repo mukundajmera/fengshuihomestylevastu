@@ -11,8 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Lato:wght@300;400;700&display=swap"
         rel="stylesheet">
 
     <style>
@@ -26,8 +25,8 @@
             --color-zen-white: #FFFFFF;
             --color-luxury-gold: #D4AF37;
 
-            --font-serif: 'Cinzel', serif;
-            --font-sans: 'Outfit', sans-serif;
+            --font-serif: 'Caudex', serif;
+            --font-sans: 'Lato', sans-serif;
 
             --spacing-xs: 0.5rem;
             --spacing-sm: 1rem;
@@ -88,6 +87,31 @@
 
         .mb-4 {
             margin-bottom: var(--spacing-xl);
+        }
+
+        /* Glassmorphism Content Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(46, 43, 89, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(46, 43, 89, 0.15);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .glass-card--dark {
+            background: rgba(46, 43, 89, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
         }
 
         /* Navigation */
@@ -360,6 +384,258 @@
                 /* Simplify for mobile preview */
             }
         }
+
+        /* Pioneer Zenith Inline Styles */
+        .pioneer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 48px;
+        }
+
+        .pioneer-glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+            box-shadow:
+                0 8px 32px rgba(46, 43, 89, 0.08),
+                0 2px 8px rgba(46, 43, 89, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition:
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s ease;
+        }
+
+        .pioneer-glass-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(100, 142, 123, 0.5);
+            box-shadow:
+                0 20px 60px rgba(46, 43, 89, 0.15),
+                0 8px 24px rgba(100, 142, 123, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .pioneer-glass-card .card-image-wrapper {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .pioneer-glass-card .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pioneer-glass-card:hover .card-image {
+            transform: scale(1.08);
+        }
+
+        .pioneer-glass-card .card-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top,
+                    rgba(255, 255, 255, 0.9) 0%,
+                    rgba(255, 255, 255, 0.5) 40%,
+                    transparent 100%);
+            pointer-events: none;
+        }
+
+        .pioneer-glass-card .card-content {
+            padding: 2rem 2.5rem 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pioneer-glass-card .card-focus-tag {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #648E7B;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .pioneer-glass-card .card-title {
+            font-family: 'Caudex', serif;
+            font-size: 1.625rem;
+            font-weight: 700;
+            color: #2E2B59;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .pioneer-glass-card .card-description {
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #8B7355;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .pioneer-glass-card .card-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #648E7B 0%, #5a8070 100%);
+            color: #FFFFFF;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(100, 142, 123, 0.3);
+            margin-top: auto;
+        }
+
+        .pioneer-glass-card .card-cta:hover {
+            background: linear-gradient(135deg, #2E2B59 0%, #3a375f 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 43, 89, 0.3);
+            color: #FFFFFF;
+        }
+
+        .pioneer-glass-card .card-cta::after {
+            content: ' →';
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .pioneer-glass-card .card-cta:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Floating WhatsApp Icon (Desktop) */
+        .floating-whatsapp-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow:
+                0 6px 20px rgba(37, 211, 102, 0.4),
+                0 3px 10px rgba(0, 0, 0, 0.15);
+            z-index: 9999;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .floating-whatsapp-icon:hover {
+            transform: scale(1.1) translateY(-3px);
+            box-shadow:
+                0 12px 30px rgba(37, 211, 102, 0.5),
+                0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-whatsapp-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: #FFFFFF;
+        }
+
+        /* Mobile Thumb Zone */
+        .whatsapp-thumb-zone {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .floating-whatsapp-icon {
+                display: none;
+            }
+
+            .whatsapp-thumb-zone {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 9999;
+                padding: 12px 16px;
+                padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+                background: linear-gradient(to top,
+                        rgba(255, 255, 255, 0.98) 0%,
+                        rgba(255, 255, 255, 0.95) 100%);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(46, 43, 89, 0.08);
+                box-shadow: 0 -4px 30px rgba(46, 43, 89, 0.1);
+            }
+
+            .thumb-zone-cta {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                width: 100%;
+                padding: 16px 24px;
+                min-height: 56px;
+                background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+                color: #FFFFFF;
+                font-family: 'Lato', sans-serif;
+                font-size: 1rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                border-radius: 14px;
+                text-decoration: none;
+                border: none;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+                transition: all 0.3s ease;
+            }
+
+            .thumb-zone-cta svg {
+                width: 24px;
+                height: 24px;
+                fill: #FFFFFF;
+            }
+
+            .pioneer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pioneer-glass-card .card-image-wrapper {
+                height: 220px;
+            }
+
+            .pioneer-glass-card .card-content {
+                padding: 1.5rem;
+            }
+
+            .pioneer-glass-card .card-title {
+                font-size: 1.375rem;
+            }
+
+            body {
+                padding-bottom: 90px;
+            }
+        }
     </style>
 </head>
 
@@ -379,61 +655,83 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <!-- Using generated Hero Image -->
-        <img src="assets/images/hero_living_room_1766308417087.png" alt="Minimalist Luxury Living Room" class="hero-bg">
+        <img src="assets/images/hero_energy_foyer.png" alt="Minimalist Luxury Living Room" class="hero-bg">
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <h1 class="hero-headline">Unlock Your Life’s Hidden Potential—Without Moving a Single Brick.</h1>
+            <h1 class="hero-headline">Transform Your Space. Transform Your Life.</h1>
             <p class="hero-subheadline">
-                Sanjay Jain combines 25 years of ancient Vastu precision with modern scientific architecture to
-                harmonize your health, wealth, and relationships. Zero demolition. 100% transformation.
+                Experience Vastu Shastra re-engineered for the modern world. Using satellite mapping and certified
+                AutoCAD analysis, I remotely diagnose and harmonize your home or office—unlocking Health, Wealth, and
+                Serenity without a single brick out of place.
             </p>
-            <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space."
-                class="btn btn-outline" style="border-color:white; color:white;">Start Your Transformation</a>
+            <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20want%20to%20consult%20regarding%20my%20space."
+                class="btn btn-outline" style="border-color:white; color:white;">Begin Your Free Consultation →</a>
         </div>
     </section>
 
     <!-- The Solution Triad -->
     <section class="triad-section" id="solutions">
         <div class="container">
-            <h2 class="section-title text-center mb-4">Harmony at Home</h2>
+            <h2 class="section-title text-center mb-4" style="font-size: 3rem;">The Solution Triad — Residential</h2>
 
-            <div class="triad-grid">
+            <div class="pioneer-grid">
                 <!-- Health (Kitchen) -->
-                <div class="triad-card" id="health">
-                    <img src="assets/images/wellness_kitchen_1766308433935.png" alt="Wellness Kitchen" class="card-img">
-                    <div class="card-body">
-                        <h3 class="card-title">The Hearth of Vitality</h3>
-                        <span class="card-quote">"Health is not just what you eat; it’s where you create."</span>
-                        <p>Your kitchen is the energetic engine of your family's immunity. We re-tune this critical zone
-                            to become a source of nourishment and calm.</p>
+                <article class="pioneer-glass-card" id="health">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/wellness_kitchen.png" alt="Wellness Kitchen — Biophilic Design"
+                            class="card-image">
+                        <div class="card-image-overlay"></div>
                     </div>
-                </div>
+                    <div class="card-content">
+                        <span class="card-focus-tag">Kitchen Focus</span>
+                        <h3 class="card-title">Reclaim Your Family's Vitality</h3>
+                        <p class="card-description">The kitchen is the heart of your home's health. My <strong>Kitchen
+                                Harmony Analysis</strong> identifies subtle energetic misalignments—fire and water
+                            conflicts, improper positioning—and corrects them through strategic placement. No
+                            reconstruction required.</p>
+                        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20want%20to%20consult%20about%20my%20kitchen's%20energy."
+                            class="card-cta">Heal My Kitchen</a>
+                    </div>
+                </article>
 
                 <!-- Prosperity (Entrance) -->
-                <div class="triad-card" id="wealth">
-                    <img src="assets/images/prosperity_entrance_1766308453879.png" alt="Grand Entrance"
-                        class="card-img">
-                    <div class="card-body">
-                        <h3 class="card-title">The Gateway of Abundance</h3>
-                        <span class="card-quote">"Opportunity knocks constantly. Is your door open to receive
-                            it?"</span>
-                        <p>Your entrance is the mouth of your home. We scientifically align your threshold to welcome
-                            flow, signaling readiness for success.</p>
+                <article class="pioneer-glass-card" id="wealth">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/prosperity_entrance.png" alt="Grand Entrance — Gateway to Prosperity"
+                            class="card-image">
+                        <div class="card-image-overlay"></div>
                     </div>
-                </div>
+                    <div class="card-content">
+                        <span class="card-focus-tag">Entrance Focus</span>
+                        <h3 class="card-title">Open the Gateway to Prosperity</h3>
+                        <p class="card-description">Your main entrance is the first point of contact with opportunity.
+                            My <strong>Entrance Energy Audit</strong> uses satellite mapping to determine True North
+                            alignment and prescribes non-structural adjustments to transform your entrance into a magnet
+                            for abundance.</p>
+                        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20want%20to%20consult%20about%20my%20entrance."
+                            class="card-cta">Unlock My Entrance</a>
+                    </div>
+                </article>
 
                 <!-- Relationships (Bedroom) -->
-                <div class="triad-card" id="relationships">
-                    <img src="assets/images/stability_bedroom_1766308594435.png" alt="Sanctuary Master Bedroom"
-                        class="card-img">
-                    <div class="card-body">
-                        <h3 class="card-title">The Sanctuary of Stability</h3>
-                        <span class="card-quote">"Sleep is the foundation of love."</span>
-                        <p>Restless nights lead to restless relationships. We balance the Earth element here to dissolve
-                            unseen tension and reignite intimacy.</p>
+                <article class="pioneer-glass-card" id="relationships">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/stability_bedroom.png"
+                            alt="Sanctuary Master Bedroom — Relationship Harmony" class="card-image">
+                        <div class="card-image-overlay"></div>
                     </div>
-                </div>
+                    <div class="card-content">
+                        <span class="card-focus-tag">Bedroom Focus</span>
+                        <h3 class="card-title">Restore Harmony Where It Matters Most</h3>
+                        <p class="card-description">The master bedroom is the anchor of all relationships. Through
+                            <strong>Bedroom Stability Mapping</strong>, I analyze position, orientation, and elemental
+                            composition—restoring equilibrium that fosters deep connection and restful sleep.
+                        </p>
+                        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20want%20to%20consult%20about%20my%20bedroom."
+                            class="card-cta">Harmonize My Bedroom</a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -442,15 +740,20 @@
     <section class="commercial-section">
         <div class="container commercial-content">
             <div class="commercial-text">
-                <h2>Industrial Vastu—The Invisible CEO.</h2>
-                <p class="mb-2">In the high-stakes world of business, spatial dissonance bleeds profits. Whether it’s
-                    labor unrest or machinery breakdown, the root cause is often energetic.</p>
-                <p class="mb-2">By aligning your workspace with the laws of nature and the precision of AutoCAD, we turn
-                    your infrastructure into an asset that actively works <em>for</em> your growth.</p>
-                <p><strong>No superstitions. Just pure, measurable energy physics.</strong></p>
+                <h2>Scale Your Business with Spatial Intelligence</h2>
+                <p class="mb-2">From ambitious startups to industrial powerhouses, the spatial design of your commercial
+                    environment directly impacts productivity, employee morale, and the bottom line.</p>
+                <p class="mb-2">I provide <strong>Commercial Vastu Consulting</strong> for offices, factories, retail
+                    spaces, and hospitality ventures. Using AutoCAD floor plan analysis and satellite orientation data,
+                    I identify energy leaks, productivity blocks, and growth inhibitors—then prescribe targeted,
+                    non-disruptive solutions.</p>
+                <p><strong>Measurable increases in productivity and revenue. A space that actively supports your growth
+                        trajectory.</strong></p>
+                <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20want%20to%20consult%20regarding%20my%20space."
+                    class="btn btn-outline" style="margin-top:2rem;">Consult for My Business →</a>
             </div>
             <div class="commercial-image">
-                <img src="assets/images/success_office_1766308611704.png" alt="Industrial Growth Office"
+                <img src="assets/images/success_office.png" alt="Industrial Growth Office"
                     style="width:100%; height:100%; object-fit:cover; border-radius:4px;">
             </div>
         </div>
@@ -459,26 +762,53 @@
     <!-- Legacy Narrative -->
     <section class="legacy-section" id="about">
         <div class="container legacy-container">
-            <h2 class="mb-2" style="color: white;">Bridging the Ancient and the Infinite</h2>
-            <p class="mb-2">For over 25 years, <strong>Sanjay Jain</strong> has stood as a guardian of a lost science.
-                He is a spatial alchemist who bridges the gap between Vedic wisdom and modern architectural reality.</p>
-            <p class="mb-2">In a world obsessed with tearing down the old, Sanjay champions <strong>"Harmony without
-                    Demolition."</strong> He understands that your space has a soul. His method combines the
-                mathematical rigor of satellite-mapped AutoCAD precision with the intuitive flow of bio-energetics.</p>
-            <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space."
-                class="btn btn-outline" style="margin-top: 2rem;">Consult Sanjay Jain</a>
+            <h2 class="mb-2" style="color: white;">25 Years of Bridging Ancient Wisdom with Modern Architecture</h2>
+            <p class="mb-2">For over two and a half decades, I have dedicated my life to a singular mission: making the
+                profound science of Vastu Shastra accessible, practical, and verifiable for the modern world.</p>
+            <p class="mb-2">My journey began with a deep reverence for the ancient texts—the Mayamata, the Manasara—that
+                codified the principles of spatial harmony thousands of years ago. But I quickly realized that
+                traditional methods, reliant on subjective compass readings and demanding expensive demolitions, were
+                failing the people who needed them most.</p>
+            <p class="mb-2">This realization sparked my transition. I became a bridge between two worlds. I mastered
+                architectural drafting tools like AutoCAD, adopted satellite imaging for True North precision, and
+                developed a rigorous, remote consultation methodology that serves clients from Jaipur to New York, Dubai
+                to Sydney.</p>
+            <p class="mb-2">My approach is not mystical; it is <strong>Scientific Vastu</strong>. Every recommendation I
+                make is grounded in the geometry of space, the physics of light and air, and the psychology of design. I
+                have successfully guided over 10,000 clients—families seeking health, entrepreneurs seeking growth, and
+                individuals seeking peace—without ever asking them to break a single wall.</p>
+            <p class="mb-2">Today, I stand as a pioneer of remote, data-driven Vastu consulting. My commitment remains
+                unchanged: to empower you with clarity, precision, and lasting harmony in the spaces where your life
+                unfolds.</p>
+            <p style="margin-top:1.5rem;"><strong>— Sanjay Jain</strong><br><em>Vastu Consultant | Spatial Harmonist |
+                    25-Year Legacy</em></p>
+            <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20want%20to%20consult%20regarding%20my%20space."
+                class="btn btn-outline" style="margin-top: 2rem;">Connect with Sanjay →</a>
         </div>
     </section>
 
-    <!-- Thumb Zone WhatsApp -->
-    <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space."
-        class="floating-whatsapp" target="_blank">
-        <!-- WhatsApp SVG Icon -->
-        <svg width="35" height="35" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <!-- Desktop Floating WhatsApp Icon -->
+    <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20want%20to%20consult%20regarding%20my%20space."
+        class="floating-whatsapp-icon" target="_blank" rel="noopener noreferrer"
+        aria-label="Start WhatsApp Consultation">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
     </a>
+
+    <!-- Mobile Thumb Zone WhatsApp Footer -->
+    <div class="whatsapp-thumb-zone">
+        <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20want%20to%20consult%20regarding%20my%20space."
+            class="thumb-zone-cta" target="_blank" rel="noopener noreferrer"
+            aria-label="Start Free Consultation on WhatsApp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            <span>Begin Free Consultation</span>
+        </a>
+    </div>
 
 </body>
 
