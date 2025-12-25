@@ -110,6 +110,7 @@ h6 {
     padding: var(--spacing-lg);
     max-width: 1400px;
     margin: 0 auto;
+    overflow-x: hidden; /* Prevent horizontal scroll on small screens */
 }
 
 .bento-item {
@@ -276,6 +277,18 @@ h6 {
 /* ==========================================================================
    6. MOBILE RESPONSIVENESS
    ========================================================================== */
+
+/* Extra small devices (320px and up) - Overflow prevention */
+@media (max-width: 360px) {
+    .bento-grid {
+        padding: var(--spacing-xs);
+        gap: var(--spacing-xs);
+    }
+    
+    .bento-item {
+        padding: var(--spacing-sm);
+    }
+}
 
 @media (max-width: 992px) {
     .bento-grid {

@@ -217,13 +217,28 @@
         // Kua Number Calculator
         $('#calculate-kua').on('click', function(e) {
             e.preventDefault();
-            var year = parseInt($('#kua-year').val());
+            var yearInput = $('#kua-year').val();
+            var year = parseInt(yearInput);
             var gender = $('#kua-gender').val();
             var result = 0;
             var description = "";
 
-            if (!year || year < 1900 || year > 2025) {
+            // Input validation - Error handling for non-numeric or invalid year
+            if (!yearInput || yearInput.trim() === '') {
+                alert("Please enter your birth year.");
+                $('#kua-year').focus();
+                return;
+            }
+
+            if (isNaN(year)) {
+                alert("Please enter a valid numeric year (e.g., 1985).");
+                $('#kua-year').val('').focus();
+                return;
+            }
+
+            if (year < 1900 || year > 2025) {
                 alert("Please enter a valid birth year between 1900 and 2025.");
+                $('#kua-year').focus();
                 return;
             }
 

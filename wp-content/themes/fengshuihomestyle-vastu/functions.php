@@ -20,7 +20,7 @@ function fengshuihomestyle_vastu_enqueue_styles()
     // Enqueue parent theme style
     wp_enqueue_style('astra-theme-css', get_template_directory_uri() . '/style.css', array(), ASTRA_THEME_VERSION);
 
-    // Enqueue Google Fonts
+    // Enqueue Google Fonts with font-display: swap for performance
     wp_enqueue_style(
         'fengshuihomestyle-google-fonts',
         'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap',
@@ -111,25 +111,63 @@ add_filter('astra_the_title_enabled', 'fengshuihomestyle_vastu_disable_page_titl
  */
 function fengshuihomestyle_vastu_custom_meta_tags()
 {
+    // Critical viewport meta tag for responsive design
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">' . "\n";
+    
+    // Robots meta tag for SEO control
+    echo '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">' . "\n";
+    
+    // Canonical URL
+    $canonical_url = is_front_page() ? home_url('/') : get_permalink();
+    echo '<link rel="canonical" href="' . esc_url($canonical_url) . '">' . "\n";
+    
     if (is_front_page()) {
         echo '<meta name="description" content="Scientific Vastu & Feng Shui Consultations. 100% Remote. 0% Demolition. Over 25 years of expert guidance by Sanjay Jain.">' . "\n";
         echo '<meta name="keywords" content="Vastu Shastra, Feng Shui, Remote Consultation, AutoCAD Floor Plan, Satellite Mapping, Sanjay Jain">' . "\n";
+        
+        // Open Graph meta tags for social sharing
         echo '<meta property="og:title" content="Feng Shui Homestyle Vastu - Harmonize Your Space, Transform Your Life">' . "\n";
         echo '<meta property="og:description" content="Scientific Vastu: Harmony without Demolition. Remote consultations using True North Satellite Mapping and AutoCAD Floor Plan Analysis.">' . "\n";
         echo '<meta property="og:type" content="website">' . "\n";
+        echo '<meta property="og:url" content="' . esc_url(home_url('/')) . '">' . "\n";
+        
+        // OG Image for WhatsApp/LinkedIn preview
+        $og_image = get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg';
+        echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
+        echo '<meta property="og:image:width" content="1200">' . "\n";
+        echo '<meta property="og:image:height" content="630">' . "\n";
+        echo '<meta property="og:image:alt" content="Feng Shui Homestyle Vastu - Scientific Space Harmonization">' . "\n";
+        
+        // Twitter Card meta tags
+        echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+        echo '<meta name="twitter:title" content="Feng Shui Homestyle Vastu - Harmonize Your Space">' . "\n";
+        echo '<meta name="twitter:description" content="Scientific Vastu: Harmony without Demolition. 25+ years of expertise.">' . "\n";
+        echo '<meta name="twitter:image" content="' . esc_url($og_image) . '">' . "\n";
     }
 }
-add_action('wp_head', 'fengshuihomestyle_vastu_custom_meta_tags');
+add_action('wp_head', 'fengshuihomestyle_vastu_custom_meta_tags', 1);
 
 /**
- * Preload critical fonts for performance
+ * Preload critical resources for performance (fonts and LCP images)
  */
-function fengshuihomestyle_vastu_preload_fonts()
+function fengshuihomestyle_vastu_preload_critical_resources()
 {
+    // Preconnect to Google Fonts
     echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
     echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+    
+    // Preload hero images based on device type for LCP optimization
+    if (is_front_page()) {
+        if (wp_is_mobile()) {
+            // Preload mobile hero image
+            echo '<link rel="preload" as="image" href="' . esc_url(get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.webp') . '" fetchpriority="high">' . "\n";
+        } else {
+            // Preload desktop hero image
+            echo '<link rel="preload" as="image" href="' . esc_url(get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.webp') . '" fetchpriority="high">' . "\n";
+        }
+    }
 }
-add_action('wp_head', 'fengshuihomestyle_vastu_preload_fonts', 1);
+add_action('wp_head', 'fengshuihomestyle_vastu_preload_critical_resources', 1);
 
 /**
  * Add WhatsApp chat widget
@@ -179,6 +217,18 @@ function fengshuihomestyle_vastu_optimize_performance()
     remove_action('wp_head', 'wp_generator');
 }
 add_action('init', 'fengshuihomestyle_vastu_optimize_performance');
+
+/**
+ * Add Vary: User-Agent header to prevent mobile/desktop caching conflicts
+ * Critical for wp_is_mobile() based adaptive rendering
+ */
+function vastu_add_vary_user_agent_header()
+{
+    if (!is_admin()) {
+        header('Vary: User-Agent');
+    }
+}
+add_action('send_headers', 'vastu_add_vary_user_agent_header');
 
 /**
  * ========================================

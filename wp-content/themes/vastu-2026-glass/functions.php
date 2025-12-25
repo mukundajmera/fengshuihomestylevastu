@@ -54,7 +54,7 @@ function vastu_2026_glass_enqueue_scripts() {
 
     // Localize script with WhatsApp data
     wp_localize_script( 'vastu-2026-glass-main', 'vastuData', array(
-        'whatsappNumber' => apply_filters( 'vastu_whatsapp_number', '919876543210' ),
+        'whatsappNumber' => apply_filters( 'vastu_whatsapp_number', '919828088678' ),
         'whatsappMessage' => apply_filters( 'vastu_whatsapp_message', 'Hello! I would like to get my Energy Report.' ),
     ) );
 }
@@ -88,11 +88,11 @@ function render_modern_bento_home() {
         $latest_post_link = esc_url( get_permalink( $recent_posts[0]['ID'] ) );
     }
 
-    // Hero background image (placeholder - replace with actual image URL)
-    $hero_bg_url = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80';
+    // Hero background image - Use local asset or fallback
+    $hero_bg_url = get_stylesheet_directory_uri() . '/assets/images/hero-desktop.webp';
 
     // WhatsApp configuration
-    $whatsapp_number = apply_filters( 'vastu_whatsapp_number', '919876543210' );
+    $whatsapp_number = apply_filters( 'vastu_whatsapp_number', '919828088678' );
     $whatsapp_message = apply_filters( 'vastu_whatsapp_message', 'Hello! I would like to get my Energy Report.' );
     $whatsapp_url = 'https://wa.me/' . $whatsapp_number . '?text=' . rawurlencode( $whatsapp_message );
 
