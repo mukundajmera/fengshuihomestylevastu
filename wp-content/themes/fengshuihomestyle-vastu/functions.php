@@ -231,6 +231,60 @@ function vastu_add_vary_user_agent_header()
 add_action('send_headers', 'vastu_add_vary_user_agent_header');
 
 /**
+ * Generate dynamic alt text for featured images and background images
+ * Improves accessibility and SEO
+ *
+ * @param string $context The context where the image is used (e.g., 'hero', 'card', 'gallery')
+ * @param int|null $post_id Optional post ID for context-aware alt text
+ * @return string Generated alt text
+ */
+function vastu_generate_alt_text($context = 'default', $post_id = null)
+{
+    $site_name = get_bloginfo('name');
+    
+    $alt_texts = [
+        'hero' => 'Serene living space designed with Vastu Shastra and Feng Shui principles - ' . $site_name,
+        'hero-mobile' => 'Harmonious home interior showcasing Vastu energy flow - ' . $site_name,
+        'hero-desktop' => 'Professional Vastu consultation space with balanced energy - ' . $site_name,
+        'kitchen' => 'Vibrant kitchen aligned with Vastu Fire element for family wellness',
+        'bedroom' => 'Peaceful bedroom with Vastu South-West stability for relationships',
+        'entrance' => 'Minimalist entrance foyer optimized for wealth and abundance',
+        'office' => 'Modern office space with Vastu energy optimization for productivity',
+        'retail' => 'Retail space designed for customer flow and sales excellence',
+        'factory' => 'Industrial facility with Vastu operational flow optimization',
+        'default' => 'Vastu and Feng Shui harmonized space - ' . $site_name,
+    ];
+    
+    if ($post_id && has_post_thumbnail($post_id)) {
+        $existing_alt = get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true);
+        if (!empty($existing_alt)) {
+            return esc_attr($existing_alt);
+        }
+    }
+    
+    return isset($alt_texts[$context]) ? esc_attr($alt_texts[$context]) : esc_attr($alt_texts['default']);
+}
+
+/**
+ * Add structured data for images to improve SEO
+ *
+ * @param string $image_url URL of the image
+ * @param string $alt_text Alt text description
+ * @param array $additional_props Additional ImageObject properties
+ * @return array ImageObject schema
+ */
+function vastu_get_image_schema($image_url, $alt_text, $additional_props = [])
+{
+    $schema = [
+        '@type' => 'ImageObject',
+        'url' => esc_url($image_url),
+        'description' => esc_attr($alt_text),
+    ];
+    
+    return array_merge($schema, $additional_props);
+}
+
+/**
  * ========================================
  * Smart Asset Loader - Core Web Vitals Engine
  * ========================================
