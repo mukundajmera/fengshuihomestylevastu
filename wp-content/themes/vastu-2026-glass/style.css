@@ -21,6 +21,7 @@
     --color-deep-teal: #2A9D8F;
     --color-amber-light: #F4A261;
     --color-glass-surface: rgba(255, 255, 255, 0.75);
+    --bg-texture-glass: url('assets/images/texture-glass.webp');
 
     /* Glassmorphism */
     --blur-strength: 12px;
@@ -78,6 +79,19 @@ h6 {
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
     border-radius: var(--radius-md);
     transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--bg-texture-glass);
+    background-size: cover;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .glass-card:hover {
@@ -144,7 +158,6 @@ h6 {
     opacity: 0.9;
     margin-bottom: var(--spacing-md);
 
-    /* ... existing content ... */
     max-width: 500px;
 }
 
@@ -153,6 +166,15 @@ h6 {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+
+
+
+.mobile-hero-bg {
+    background-image: url('assets/images/hero-mobile.webp');
+    background-size: cover;
+    background-position: center bottom;
 }
 
 
@@ -314,6 +336,19 @@ h6 {
     animation-delay: 0.2s;
 }
 
+
 .bento-item:nth-child(3) {
     animation-delay: 0.3s;
+}
+
+/* Service Tile - Business */
+.service-tile-business {
+    background-image: url('assets/images/tile-business.webp');
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.service-tile-business:hover {
+    transform: scale(1.05);
 }
