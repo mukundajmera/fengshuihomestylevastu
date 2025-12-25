@@ -5,17 +5,21 @@
  * @package Feng_Shui_Homestyle_Vastu
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
+
+// Load SEO Schema Generator (Entity Graph Engine)
+require_once get_stylesheet_directory() . '/inc/seo-schema.php';
 
 /**
  * Enqueue parent and child theme styles
  */
-function fengshuihomestyle_vastu_enqueue_styles() {
+function fengshuihomestyle_vastu_enqueue_styles()
+{
     // Enqueue parent theme style
-    wp_enqueue_style( 'astra-theme-css', get_template_directory_uri() . '/style.css', array(), ASTRA_THEME_VERSION );
-    
+    wp_enqueue_style('astra-theme-css', get_template_directory_uri() . '/style.css', array(), ASTRA_THEME_VERSION);
+
     // Enqueue Google Fonts
     wp_enqueue_style(
         'fengshuihomestyle-google-fonts',
@@ -23,86 +27,91 @@ function fengshuihomestyle_vastu_enqueue_styles() {
         array(),
         null
     );
-    
+
     // Enqueue child theme style
-    wp_enqueue_style( 
+    wp_enqueue_style(
         'fengshuihomestyle-vastu-style',
         get_stylesheet_directory_uri() . '/style.css',
-        array( 'astra-theme-css', 'fengshuihomestyle-google-fonts' ),
-        wp_get_theme()->get( 'Version' )
+        array('astra-theme-css', 'fengshuihomestyle-google-fonts'),
+        wp_get_theme()->get('Version')
     );
-    
+
     // Enqueue custom JavaScript
     wp_enqueue_script(
         'fengshuihomestyle-vastu-script',
         get_stylesheet_directory_uri() . '/assets/js/custom.js',
-        array( 'jquery' ),
-        wp_get_theme()->get( 'Version' ),
+        array('jquery'),
+        wp_get_theme()->get('Version'),
         true
     );
 }
-add_action( 'wp_enqueue_scripts', 'fengshuihomestyle_vastu_enqueue_styles', 15 );
+add_action('wp_enqueue_scripts', 'fengshuihomestyle_vastu_enqueue_styles', 15);
 
 /**
  * Add custom body classes
  */
-function fengshuihomestyle_vastu_body_classes( $classes ) {
+function fengshuihomestyle_vastu_body_classes($classes)
+{
     $classes[] = 'digital-zen';
     $classes[] = 'feng-shui-theme';
     return $classes;
 }
-add_filter( 'body_class', 'fengshuihomestyle_vastu_body_classes' );
+add_filter('body_class', 'fengshuihomestyle_vastu_body_classes');
 
 /**
  * Register custom navigation menus
  */
-function fengshuihomestyle_vastu_register_menus() {
-    register_nav_menus( array(
-        'mobile-menu' => __( 'Mobile Menu', 'fengshuihomestyle-vastu' ),
-    ) );
+function fengshuihomestyle_vastu_register_menus()
+{
+    register_nav_menus(array(
+        'mobile-menu' => __('Mobile Menu', 'fengshuihomestyle-vastu'),
+    ));
 }
-add_action( 'init', 'fengshuihomestyle_vastu_register_menus' );
+add_action('init', 'fengshuihomestyle_vastu_register_menus');
 
 /**
  * Customize Astra theme settings
  */
-function fengshuihomestyle_vastu_theme_defaults( $defaults ) {
+function fengshuihomestyle_vastu_theme_defaults($defaults)
+{
     $defaults['font-family-h1'] = "'Cinzel', serif";
     $defaults['font-family-h2'] = "'Cinzel', serif";
     $defaults['font-family-h3'] = "'Cinzel', serif";
     $defaults['font-family-body'] = "'Lato', sans-serif";
     return $defaults;
 }
-add_filter( 'astra_theme_defaults', 'fengshuihomestyle_vastu_theme_defaults' );
+add_filter('astra_theme_defaults', 'fengshuihomestyle_vastu_theme_defaults');
 
 /**
  * Add support for featured images
  */
-add_theme_support( 'post-thumbnails' );
+add_theme_support('post-thumbnails');
 
 /**
  * Add custom image sizes for the theme
  */
-add_image_size( 'hero-image', 1920, 1080, true );
-add_image_size( 'service-card', 600, 400, true );
-add_image_size( 'energy-diagram', 800, 600, false );
+add_image_size('hero-image', 1920, 1080, true);
+add_image_size('service-card', 600, 400, true);
+add_image_size('energy-diagram', 800, 600, false);
 
 /**
  * Disable Astra page title on front page
  */
-function fengshuihomestyle_vastu_disable_page_title( $defaults ) {
-    if ( is_front_page() ) {
+function fengshuihomestyle_vastu_disable_page_title($defaults)
+{
+    if (is_front_page()) {
         return false;
     }
     return $defaults;
 }
-add_filter( 'astra_the_title_enabled', 'fengshuihomestyle_vastu_disable_page_title' );
+add_filter('astra_the_title_enabled', 'fengshuihomestyle_vastu_disable_page_title');
 
 /**
  * Add custom meta tags for SEO
  */
-function fengshuihomestyle_vastu_custom_meta_tags() {
-    if ( is_front_page() ) {
+function fengshuihomestyle_vastu_custom_meta_tags()
+{
+    if (is_front_page()) {
         echo '<meta name="description" content="Scientific Vastu & Feng Shui Consultations. 100% Remote. 0% Demolition. Over 25 years of expert guidance by Sanjay Jain.">' . "\n";
         echo '<meta name="keywords" content="Vastu Shastra, Feng Shui, Remote Consultation, AutoCAD Floor Plan, Satellite Mapping, Sanjay Jain">' . "\n";
         echo '<meta property="og:title" content="Feng Shui Homestyle Vastu - Harmonize Your Space, Transform Your Life">' . "\n";
@@ -110,142 +119,346 @@ function fengshuihomestyle_vastu_custom_meta_tags() {
         echo '<meta property="og:type" content="website">' . "\n";
     }
 }
-add_action( 'wp_head', 'fengshuihomestyle_vastu_custom_meta_tags' );
+add_action('wp_head', 'fengshuihomestyle_vastu_custom_meta_tags');
 
 /**
  * Preload critical fonts for performance
  */
-function fengshuihomestyle_vastu_preload_fonts() {
+function fengshuihomestyle_vastu_preload_fonts()
+{
     echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
     echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
 }
-add_action( 'wp_head', 'fengshuihomestyle_vastu_preload_fonts', 1 );
+add_action('wp_head', 'fengshuihomestyle_vastu_preload_fonts', 1);
 
 /**
  * Add WhatsApp chat widget
  */
-function fengshuihomestyle_vastu_whatsapp_widget() {
+function fengshuihomestyle_vastu_whatsapp_widget()
+{
     $phone_number = '+919828088678'; // Sanjay Jain's WhatsApp number
-    $message = urlencode( 'Hello Sanjay, I would like to consult regarding my space.' );
+    $message = urlencode('Hello Sanjay, I would like to consult regarding my space.');
     ?>
     <div class="whatsapp-widget cta-sticky">
-        <a href="https://wa.me/<?php echo esc_attr( $phone_number ); ?>?text=<?php echo esc_attr( $message ); ?>" 
-           class="cta-primary whatsapp-cta" 
-           target="_blank" 
-           rel="noopener noreferrer">
+        <a href="https://wa.me/<?php echo esc_attr($phone_number); ?>?text=<?php echo esc_attr($message); ?>"
+            class="cta-primary whatsapp-cta" target="_blank" rel="noopener noreferrer">
             📱 Chat with Sanjay Jain
         </a>
     </div>
     <?php
 }
-add_action( 'wp_footer', 'fengshuihomestyle_vastu_whatsapp_widget' );
+add_action('wp_footer', 'fengshuihomestyle_vastu_whatsapp_widget');
 
 /**
  * Register custom widget areas
  */
-function fengshuihomestyle_vastu_widgets_init() {
-    register_sidebar( array(
-        'name'          => __( 'Hero Section', 'fengshuihomestyle-vastu' ),
-        'id'            => 'hero-section',
-        'description'   => __( 'Add widgets for the hero section', 'fengshuihomestyle-vastu' ),
+function fengshuihomestyle_vastu_widgets_init()
+{
+    register_sidebar(array(
+        'name' => __('Hero Section', 'fengshuihomestyle-vastu'),
+        'id' => 'hero-section',
+        'description' => __('Add widgets for the hero section', 'fengshuihomestyle-vastu'),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
-    ) );
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class="widget-title">',
+        'after_title' => '</h2>',
+    ));
 }
-add_action( 'widgets_init', 'fengshuihomestyle_vastu_widgets_init' );
+add_action('widgets_init', 'fengshuihomestyle_vastu_widgets_init');
 
 /**
  * Optimize performance - Remove unnecessary scripts and styles
  */
-function fengshuihomestyle_vastu_optimize_performance() {
+function fengshuihomestyle_vastu_optimize_performance()
+{
     // Remove emoji scripts for better performance
-    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-    remove_action( 'wp_print_styles', 'print_emoji_styles' );
-    
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('wp_print_styles', 'print_emoji_styles');
+
     // Remove WordPress version from head
-    remove_action( 'wp_head', 'wp_generator' );
+    remove_action('wp_head', 'wp_generator');
 }
-add_action( 'init', 'fengshuihomestyle_vastu_optimize_performance' );
+add_action('init', 'fengshuihomestyle_vastu_optimize_performance');
+
+/**
+ * ========================================
+ * Smart Asset Loader - Core Web Vitals Engine
+ * ========================================
+ * Optimizes FCP/LCP by deferring non-critical assets
+ * and implementing interaction-based script hydration.
+ */
+
+/**
+ * De-queue non-critical styles and scripts
+ */
+function vastu_smart_asset_loader()
+{
+    // Remove WordPress Block Library CSS (save ~50KB)
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style('wc-blocks-style'); // WooCommerce blocks if present
+
+    // Remove Global Styles (Gutenberg inline CSS)
+    wp_dequeue_style('global-styles');
+
+    // Remove Classic Theme Styles
+    wp_dequeue_style('classic-theme-styles');
+}
+add_action('wp_enqueue_scripts', 'vastu_smart_asset_loader', 100);
+
+/**
+ * Remove emoji scripts and DNS prefetch (additional ~50KB savings)
+ */
+function vastu_disable_emojis()
+{
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('admin_print_scripts', 'print_emoji_detection_script');
+    remove_action('wp_print_styles', 'print_emoji_styles');
+    remove_action('admin_print_styles', 'print_emoji_styles');
+    remove_filter('the_content_feed', 'wp_staticize_emoji');
+    remove_filter('comment_text_rss', 'wp_staticize_emoji');
+    remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+
+    // Remove DNS prefetch for emoji CDN
+    add_filter('wp_resource_hints', function ($urls, $relation_type) {
+        if ($relation_type === 'dns-prefetch') {
+            $urls = array_filter($urls, function ($url) {
+                return strpos($url, 'https://s.w.org/images/core/emoji/') === false;
+            });
+        }
+        return $urls;
+    }, 10, 2);
+}
+add_action('init', 'vastu_disable_emojis');
+
+/**
+ * Add defer attribute to non-critical scripts
+ */
+function vastu_defer_scripts($tag, $handle, $src)
+{
+    // Scripts to defer for better FCP
+    $defer_scripts = [
+        'vastu-compass-js',
+        'vastu-kua-engine',
+        'fengshuihomestyle-vastu-script',
+        'comment-reply',
+    ];
+
+    if (in_array($handle, $defer_scripts)) {
+        return str_replace(' src=', ' defer src=', $tag);
+    }
+
+    return $tag;
+}
+add_filter('script_loader_tag', 'vastu_defer_scripts', 10, 3);
+
+/**
+ * Add preconnect hints for critical third-party origins
+ */
+function vastu_add_resource_hints()
+{
+    // Preconnect to Google Fonts (already present but ensuring priority)
+    echo '<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>' . "\n";
+    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+
+    // DNS prefetch for WhatsApp API
+    echo '<link rel="dns-prefetch" href="https://wa.me">' . "\n";
+}
+add_action('wp_head', 'vastu_add_resource_hints', 1);
+
+/**
+ * Inject interaction-based script hydration
+ * Heavy scripts load ONLY after user interaction (mousemove/touchstart)
+ */
+function vastu_interaction_hydration()
+{
+    // Define heavy scripts to lazy load after interaction
+    $heavy_scripts = [
+        'vastu-compass' => get_stylesheet_directory_uri() . '/assets/js/vastu-compass.js',
+    ];
+
+    // Only output if we have scripts to hydrate
+    if (empty($heavy_scripts)) {
+        return;
+    }
+
+    $scripts_json = wp_json_encode($heavy_scripts);
+    ?>
+    <script id="vastu-interaction-hydration">
+        (function () {
+            'use strict';
+
+            var hydrated = false;
+            var heavyScripts = <?php echo $scripts_json; ?>;
+
+            function loadHeavyScripts() {
+                if (hydrated) return;
+                hydrated = true;
+
+                // Remove event listeners after first interaction
+                ['mousemove', 'touchstart', 'scroll', 'keydown'].forEach(function (evt) {
+                    window.removeEventListener(evt, loadHeavyScripts, { passive: true });
+                });
+
+                // Load each heavy script dynamically
+                Object.keys(heavyScripts).forEach(function (handle) {
+                    var script = document.createElement('script');
+                    script.src = heavyScripts[handle];
+                    script.defer = true;
+                    script.id = handle + '-hydrated';
+                    document.body.appendChild(script);
+                });
+
+                // Dispatch custom event for components that depend on hydration
+                window.dispatchEvent(new CustomEvent('vastu-hydrated'));
+            }
+
+            // Attach listeners for user interaction
+            ['mousemove', 'touchstart', 'scroll', 'keydown'].forEach(function (evt) {
+                window.addEventListener(evt, loadHeavyScripts, { once: true, passive: true });
+            });
+
+            // Fallback: Load after 5 seconds if no interaction
+            setTimeout(loadHeavyScripts, 5000);
+        })();
+    </script>
+    <?php
+}
+add_action('wp_footer', 'vastu_interaction_hydration', 5);
+
+/**
+ * Optimize image loading attributes
+ * Adds decoding="async" to all images and loading="lazy" for below-fold images
+ */
+function vastu_optimize_image_attributes($attr, $attachment, $size)
+{
+    // Add async decoding to all images
+    $attr['decoding'] = 'async';
+
+    // Keep loading="lazy" for non-hero images (WordPress 5.5+ default)
+    // Hero images should use loading="eager" set inline in template
+    if (!isset($attr['loading'])) {
+        $attr['loading'] = 'lazy';
+    }
+
+    return $attr;
+}
+add_filter('wp_get_attachment_image_attributes', 'vastu_optimize_image_attributes', 10, 3);
+
+/**
+ * Add fetchpriority="high" to LCP images (hero images)
+ */
+function vastu_lcp_image_priority($content)
+{
+    // Look for hero/featured images and add fetchpriority
+    $content = preg_replace(
+        '/<img([^>]*class="[^"]*hero[^"]*"[^>]*)>/i',
+        '<img$1 fetchpriority="high">',
+        $content
+    );
+
+    return $content;
+}
+add_filter('the_content', 'vastu_lcp_image_priority', 99);
+
+/**
+ * Register deferred Kua Engine script
+ */
+function vastu_register_kua_engine()
+{
+    wp_register_script(
+        'vastu-kua-engine',
+        get_stylesheet_directory_uri() . '/assets/js/kua-engine.js',
+        [],
+        wp_get_theme()->get('Version'),
+        true // Load in footer
+    );
+}
+add_action('wp_enqueue_scripts', 'vastu_register_kua_engine');
 
 /**
  * Calculate reading time for blog posts
  */
-function fengshuihomestyle_vastu_reading_time() {
-    $content = get_post_field( 'post_content', get_the_ID() );
-    $word_count = str_word_count( strip_tags( $content ) );
-    $reading_time = ceil( $word_count / 200 ); // Average reading speed: 200 words per minute
-    
+function fengshuihomestyle_vastu_reading_time()
+{
+    $content = get_post_field('post_content', get_the_ID());
+    $word_count = str_word_count(strip_tags($content));
+    $reading_time = ceil($word_count / 200); // Average reading speed: 200 words per minute
+
     return $reading_time;
 }
 
 /**
  * Track post views for popular posts widget
  */
-function fengshuihomestyle_vastu_set_post_views( $post_id ) {
+function fengshuihomestyle_vastu_set_post_views($post_id)
+{
     $count_key = 'post_views_count';
-    $count = get_post_meta( $post_id, $count_key, true );
-    
-    if ( $count == '' ) {
+    $count = get_post_meta($post_id, $count_key, true);
+
+    if ($count == '') {
         $count = 0;
-        delete_post_meta( $post_id, $count_key );
-        add_post_meta( $post_id, $count_key, '0' );
+        delete_post_meta($post_id, $count_key);
+        add_post_meta($post_id, $count_key, '0');
     } else {
         $count++;
-        update_post_meta( $post_id, $count_key, $count );
+        update_post_meta($post_id, $count_key, $count);
     }
 }
 
 /**
  * Hook to track views on single posts
  */
-function fengshuihomestyle_vastu_track_post_views( $post_id ) {
-    if ( ! is_single() ) {
+function fengshuihomestyle_vastu_track_post_views($post_id)
+{
+    if (!is_single()) {
         return;
     }
-    
-    if ( empty( $post_id ) ) {
+
+    if (empty($post_id)) {
         global $post;
         $post_id = $post->ID;
     }
-    
-    fengshuihomestyle_vastu_set_post_views( $post_id );
+
+    fengshuihomestyle_vastu_set_post_views($post_id);
 }
-add_action( 'wp_head', 'fengshuihomestyle_vastu_track_post_views' );
+add_action('wp_head', 'fengshuihomestyle_vastu_track_post_views');
 
 /**
  * Register blog categories for pillar-cluster content
  */
-function fengshuihomestyle_vastu_register_blog_categories() {
+function fengshuihomestyle_vastu_register_blog_categories()
+{
     // Check if categories already exist before creating
     $categories = array(
         'Directional Mastery' => 'Articles on the 8 cardinal directions and 5 elements in Vastu',
         'Solutions & Remedies' => 'Practical Vastu solutions for wealth, health, harmony, and career',
         'Remote Vastu' => 'Scientific and remote Vastu consultation methods',
     );
-    
-    foreach ( $categories as $cat_name => $cat_desc ) {
-        if ( ! term_exists( $cat_name, 'category' ) ) {
+
+    foreach ($categories as $cat_name => $cat_desc) {
+        if (!term_exists($cat_name, 'category')) {
             wp_insert_term(
                 $cat_name,
                 'category',
                 array(
                     'description' => $cat_desc,
-                    'slug' => sanitize_title( $cat_name ),
+                    'slug' => sanitize_title($cat_name),
                 )
             );
         }
     }
 }
-add_action( 'after_setup_theme', 'fengshuihomestyle_vastu_register_blog_categories' );
+add_action('after_setup_theme', 'fengshuihomestyle_vastu_register_blog_categories');
 
 /**
- * Add Professional Service Schema Markup (JSON-LD)
- * Phase 3: Trust & Proliferation Engine
- */
-function fengshuihomestyle_vastu_schema_markup() {
-    if ( is_front_page() ) {
+ * DEPRECATED: Legacy schema markup - Now handled by Vastu_Schema_Generator class
+ * @see inc/seo-schema.php for the new Entity Graph SEO Engine
+ * Keeping commented for reference during migration.
+ *
+function fengshuihomestyle_vastu_schema_markup()
+{
+    if (is_front_page()) {
         $schema = array(
             '@context' => 'https://schema.org',
             '@type' => 'ProfessionalService',
@@ -384,17 +597,19 @@ function fengshuihomestyle_vastu_schema_markup() {
             'slogan' => 'Scientific Vastu: Harmony without Demolition',
             'knowsLanguage' => array('English', 'Hindi'),
         );
-        
-        echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
+
+        echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>' . "\n";
     }
 }
-add_action( 'wp_head', 'fengshuihomestyle_vastu_schema_markup' );
+// add_action('wp_head', 'fengshuihomestyle_vastu_schema_markup');
+*/
 
 /**
  * Add Legacy Counter section before footer
  * Phase 3: Trust & Proliferation Engine
  */
-function fengshuihomestyle_vastu_legacy_counter() {
+function fengshuihomestyle_vastu_legacy_counter()
+{
     ?>
     <!-- LEGACY COUNTER - Phase 3 Trust Engine -->
     <section class="legacy-counter-section">
@@ -424,11 +639,127 @@ function fengshuihomestyle_vastu_legacy_counter() {
                 <div class="legacy-label">No-Demolition Guarantee</div>
             </div>
         </div>
-        
+
         <div class="legacy-tagline">
             <p>Transforming Spaces. Preserving Structures. Creating Harmony.</p>
         </div>
     </section>
     <?php
 }
-add_action( 'astra_footer_before', 'fengshuihomestyle_vastu_legacy_counter' );
+add_action('astra_footer_before', 'fengshuihomestyle_vastu_legacy_counter');
+
+/**
+ * ========================================
+ * WhatsApp Lead Engine - Vastu 2026
+ * ========================================
+ */
+
+// Define the primary WhatsApp number
+if (!defined('VASTU_PHONE')) {
+    define('VASTU_PHONE', '919828088678');
+}
+
+/**
+ * Generate dynamic WhatsApp link based on intent
+ *
+ * @param string $intent The consultation intent (e.g., 'home', 'office', 'general').
+ * @return string The complete WhatsApp URL with pre-filled message.
+ */
+function vastu_get_wa_link($intent = 'general')
+{
+    $phone = VASTU_PHONE;
+
+    // Intent-based message templates
+    $messages = array(
+        'home' => 'Hi Sanjay, I need a Home Vastu check. I would like to schedule a consultation for my residence.',
+        'office' => 'Hi Sanjay, I need an Office Vastu check. I would like to optimize my workspace for success.',
+        'factory' => 'Hi Sanjay, I need a Factory/Industrial Vastu check. Please help me align my production space.',
+        'shop' => 'Hi Sanjay, I need a Shop/Retail Vastu check. I want to enhance prosperity in my business.',
+        'plot' => 'Hi Sanjay, I need a Plot Selection consultation. Please guide me on choosing the right land.',
+        'new_home' => 'Hi Sanjay, I am building a New Home and need Vastu guidance from the planning stage.',
+        'remedies' => 'Hi Sanjay, I need Vastu Remedies for my existing space without any demolition.',
+        'general' => 'Hi Sanjay, I would like to consult regarding Vastu for my space. Please guide me.',
+    );
+
+    // Get the appropriate message or fall back to general
+    $message = isset($messages[$intent]) ? $messages[$intent] : $messages['general'];
+
+    // URL encode the message
+    $encoded_message = rawurlencode($message);
+
+    // Construct and return the WhatsApp URL
+    return 'https://wa.me/' . $phone . '?text=' . $encoded_message;
+}
+
+/**
+ * Add Mobile Sticky Bar - "Thumb Zone" Optimization
+ * Only renders on mobile devices for optimal UX
+ */
+function vastu_add_mobile_sticky_bar()
+{
+    // Only show on mobile devices
+    if (!wp_is_mobile()) {
+        return;
+    }
+
+    $wa_link = vastu_get_wa_link('general');
+    ?>
+    <!-- Vastu Mobile Sticky Bar - Thumb Zone CTA -->
+    <div class="vastu-mobile-sticky-bar">
+        <a href="<?php echo esc_url($wa_link); ?>" target="_blank" rel="noopener noreferrer">
+            <!-- WhatsApp SVG Icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+            <span class="bar-text">Chat with Sanjay</span>
+            <span class="online-indicator">
+                <span class="online-dot"></span>
+                Online
+            </span>
+        </a>
+    </div>
+    <?php
+}
+add_action('wp_footer', 'vastu_add_mobile_sticky_bar');
+
+/**
+ * ========================================
+ * Wisdom Gallery Shortcode - Vastu 2026
+ * ========================================
+ * Usage: [vastu_wisdom_gallery]
+ */
+function vastu_wisdom_gallery_shortcode()
+{
+    ob_start();
+    get_template_part('parts/wisdom-gallery');
+    return ob_get_clean();
+}
+add_shortcode('vastu_wisdom_gallery', 'vastu_wisdom_gallery_shortcode');
+
+/**
+ * ========================================
+ * Vastu Compass - Gyroscope Utility
+ * ========================================
+ * Loads compass overlay and sensor script on mobile devices only.
+ */
+function vastu_load_compass_assets()
+{
+    // Only load on mobile devices
+    if (!wp_is_mobile()) {
+        return;
+    }
+
+    // Include the compass overlay template part
+    get_template_part('parts/compass-overlay');
+
+    // Enqueue the compass JavaScript
+    wp_enqueue_script(
+        'vastu-compass-js',
+        get_stylesheet_directory_uri() . '/assets/js/vastu-compass.js',
+        array('jquery'),
+        wp_get_theme()->get('Version'),
+        true // Load in footer
+    );
+}
+add_action('wp_footer', 'vastu_load_compass_assets');

@@ -1,0 +1,319 @@
+/*
+ Theme Name:   Vastu 2026 Glass
+ Theme URI:    https://fengshuihomestylevastu.com/
+ Description:  A modern glassmorphism child theme for Astra with Bioluminescent Wellness palette
+ Author:       Sanjay Jain
+ Author URI:   https://fengshuihomestylevastu.com/
+ Template:     astra
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  vastu-2026-glass
+*/
+
+/* ==========================================================================
+   1. GLOBAL CSS VARIABLES - "Bioluminescent Wellness" Palette
+   ========================================================================== */
+
+:root {
+    /* Color System */
+    --color-mint-glow: #A8E6CF;
+    --color-deep-teal: #2A9D8F;
+    --color-amber-light: #F4A261;
+    --color-glass-surface: rgba(255, 255, 255, 0.75);
+
+    /* Glassmorphism */
+    --blur-strength: 12px;
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   2. BASE TYPOGRAPHY
+   ========================================================================== */
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: #1a1a2e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* ==========================================================================
+   3. GLASSMORPHISM UTILITY CLASSES
+   ========================================================================== */
+
+.glass-card {
+    background: var(--color-glass-surface);
+    backdrop-filter: blur(var(--blur-strength));
+    -webkit-backdrop-filter: blur(var(--blur-strength));
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    border-radius: var(--radius-md);
+    transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
+}
+
+/* ==========================================================================
+   4. BENTO GRID LAYOUT
+   ========================================================================== */
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.bento-item {
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hero Item - Spans 2 columns */
+.bento-item--hero {
+    grid-column: span 2;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.bento-item--hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(26, 26, 46, 0.85) 0%,
+            rgba(26, 26, 46, 0.4) 50%,
+            transparent 100%);
+    z-index: 1;
+}
+
+.bento-item--hero .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.bento-item--hero h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-sm);
+    color: #fff;
+}
+
+.bento-item--hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: var(--spacing-md);
+
+    /* ... existing content ... */
+    max-width: 500px;
+}
+
+.desktop-hero-bg {
+    background-image: url('assets/images/hero-desktop.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* Wisdom Item */
+.bento-item--wisdom {
+    background: linear-gradient(135deg, var(--color-mint-glow) 0%, var(--color-deep-teal) 100%);
+    color: #fff;
+}
+
+.bento-item--wisdom h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: #fff;
+}
+
+.bento-item--wisdom .wisdom-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-bottom: var(--spacing-xs);
+}
+
+.bento-item--wisdom .post-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.bento-item--wisdom a {
+    color: #fff;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.bento-item--wisdom a:hover {
+    opacity: 0.8;
+}
+
+/* Contact Item */
+.bento-item--contact {
+    background: linear-gradient(135deg, var(--color-amber-light) 0%, #e76f51 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.bento-item--contact h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+    color: #fff;
+}
+
+.bento-item--contact .whatsapp-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.bento-item--contact:hover {
+    transform: scale(1.02);
+}
+
+/* ==========================================================================
+   5. BUTTONS
+   ========================================================================== */
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--color-deep-teal);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+    background: #238b7e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(42, 157, 143, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   6. MOBILE RESPONSIVENESS
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bento-item--hero {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+
+    .bento-item--hero {
+        grid-column: span 1;
+        min-height: 300px;
+    }
+
+    .bento-item {
+        padding: var(--spacing-md);
+    }
+
+    .bento-item--hero h2 {
+        font-size: 1.75rem;
+    }
+}
+
+/* ==========================================================================
+   7. ANIMATIONS
+   ========================================================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bento-item {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.bento-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.bento-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.bento-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
