@@ -236,8 +236,9 @@
                 return;
             }
 
-            if (year < 1900 || year > 2025) {
-                alert("Please enter a valid birth year between 1900 and 2025.");
+            var currentYear = new Date().getFullYear();
+            if (year < 1900 || year > currentYear) {
+                alert("Please enter a valid birth year between 1900 and " + currentYear + ".");
                 $('#kua-year').focus();
                 return;
             }

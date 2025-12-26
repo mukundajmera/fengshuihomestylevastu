@@ -156,18 +156,12 @@ function fengshuihomestyle_vastu_preload_critical_resources()
     echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
     echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
     
-    // Preload hero images based on device type for LCP optimization
+    // Preload hero image for LCP optimization on the front page
     if (is_front_page()) {
-        if (wp_is_mobile()) {
-            // Preload mobile hero image
-            echo '<link rel="preload" as="image" href="' . esc_url(get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.webp') . '" fetchpriority="high">' . "\n";
-        } else {
-            // Preload desktop hero image
-            echo '<link rel="preload" as="image" href="' . esc_url(get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.webp') . '" fetchpriority="high">' . "\n";
-        }
+        echo '<link rel="preload" as="image" href="' . esc_url(get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.webp') . '" fetchpriority="high">' . "\n";
     }
 }
-add_action('wp_head', 'fengshuihomestyle_vastu_preload_critical_resources', 1);
+add_action('wp_head', 'fengshuihomestyle_vastu_preload_critical_resources', 0);
 
 /**
  * Add WhatsApp chat widget
@@ -221,6 +215,12 @@ add_action('init', 'fengshuihomestyle_vastu_optimize_performance');
 /**
  * Add Vary: User-Agent header to prevent mobile/desktop caching conflicts
  * Critical for wp_is_mobile() based adaptive rendering
+ * 
+ * Note: This header may reduce cache efficiency with some CDNs and caching plugins
+ * as it creates separate cache entries for each User-Agent string. However, it's
+ * necessary to prevent desktop HTML from being served to mobile users when using
+ * wp_is_mobile() for adaptive rendering. Consider CSS-only responsive design or
+ * JavaScript-based device detection for future iterations to improve cache hit rates.
  */
 function vastu_add_vary_user_agent_header()
 {
@@ -241,18 +241,19 @@ add_action('send_headers', 'vastu_add_vary_user_agent_header');
 function vastu_generate_alt_text($context = 'default', $post_id = null)
 {
     $site_name = get_bloginfo('name');
+    $site_suffix = $site_name !== '' ? ' - ' . $site_name : '';
     
     $alt_texts = [
-        'hero' => 'Serene living space designed with Vastu Shastra and Feng Shui principles - ' . $site_name,
-        'hero-mobile' => 'Harmonious home interior showcasing Vastu energy flow - ' . $site_name,
-        'hero-desktop' => 'Professional Vastu consultation space with balanced energy - ' . $site_name,
+        'hero' => 'Serene living space designed with Vastu Shastra and Feng Shui principles' . $site_suffix,
+        'hero-mobile' => 'Harmonious home interior showcasing Vastu energy flow' . $site_suffix,
+        'hero-desktop' => 'Professional Vastu consultation space with balanced energy' . $site_suffix,
         'kitchen' => 'Vibrant kitchen aligned with Vastu Fire element for family wellness',
         'bedroom' => 'Peaceful bedroom with Vastu South-West stability for relationships',
         'entrance' => 'Minimalist entrance foyer optimized for wealth and abundance',
         'office' => 'Modern office space with Vastu energy optimization for productivity',
         'retail' => 'Retail space designed for customer flow and sales excellence',
         'factory' => 'Industrial facility with Vastu operational flow optimization',
-        'default' => 'Vastu and Feng Shui harmonized space - ' . $site_name,
+        'default' => 'Vastu and Feng Shui harmonized space' . $site_suffix,
     ];
     
     if ($post_id && has_post_thumbnail($post_id)) {
@@ -263,25 +264,6 @@ function vastu_generate_alt_text($context = 'default', $post_id = null)
     }
     
     return isset($alt_texts[$context]) ? esc_attr($alt_texts[$context]) : esc_attr($alt_texts['default']);
-}
-
-/**
- * Add structured data for images to improve SEO
- *
- * @param string $image_url URL of the image
- * @param string $alt_text Alt text description
- * @param array $additional_props Additional ImageObject properties
- * @return array ImageObject schema
- */
-function vastu_get_image_schema($image_url, $alt_text, $additional_props = [])
-{
-    $schema = [
-        '@type' => 'ImageObject',
-        'url' => esc_url($image_url),
-        'description' => esc_attr($alt_text),
-    ];
-    
-    return array_merge($schema, $additional_props);
 }
 
 /**
