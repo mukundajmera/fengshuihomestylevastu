@@ -20,7 +20,7 @@ function fengshuihomestyle_vastu_enqueue_styles()
     // Enqueue parent theme style
     wp_enqueue_style('astra-theme-css', get_template_directory_uri() . '/style.css', array(), ASTRA_THEME_VERSION);
 
-    // Enqueue Google Fonts
+    // Enqueue Google Fonts with font-display: swap for performance
     wp_enqueue_style(
         'fengshuihomestyle-google-fonts',
         'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap',
@@ -111,25 +111,57 @@ add_filter('astra_the_title_enabled', 'fengshuihomestyle_vastu_disable_page_titl
  */
 function fengshuihomestyle_vastu_custom_meta_tags()
 {
+    // Critical viewport meta tag for responsive design
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">' . "\n";
+    
+    // Robots meta tag for SEO control
+    echo '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">' . "\n";
+    
+    // Canonical URL
+    $canonical_url = is_front_page() ? home_url('/') : get_permalink();
+    echo '<link rel="canonical" href="' . esc_url($canonical_url) . '">' . "\n";
+    
     if (is_front_page()) {
         echo '<meta name="description" content="Scientific Vastu & Feng Shui Consultations. 100% Remote. 0% Demolition. Over 25 years of expert guidance by Sanjay Jain.">' . "\n";
         echo '<meta name="keywords" content="Vastu Shastra, Feng Shui, Remote Consultation, AutoCAD Floor Plan, Satellite Mapping, Sanjay Jain">' . "\n";
+        
+        // Open Graph meta tags for social sharing
         echo '<meta property="og:title" content="Feng Shui Homestyle Vastu - Harmonize Your Space, Transform Your Life">' . "\n";
         echo '<meta property="og:description" content="Scientific Vastu: Harmony without Demolition. Remote consultations using True North Satellite Mapping and AutoCAD Floor Plan Analysis.">' . "\n";
         echo '<meta property="og:type" content="website">' . "\n";
+        echo '<meta property="og:url" content="' . esc_url(home_url('/')) . '">' . "\n";
+        
+        // OG Image for WhatsApp/LinkedIn preview
+        $og_image = get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg';
+        echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
+        echo '<meta property="og:image:width" content="1200">' . "\n";
+        echo '<meta property="og:image:height" content="630">' . "\n";
+        echo '<meta property="og:image:alt" content="Feng Shui Homestyle Vastu - Scientific Space Harmonization">' . "\n";
+        
+        // Twitter Card meta tags
+        echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+        echo '<meta name="twitter:title" content="Feng Shui Homestyle Vastu - Harmonize Your Space">' . "\n";
+        echo '<meta name="twitter:description" content="Scientific Vastu: Harmony without Demolition. 25+ years of expertise.">' . "\n";
+        echo '<meta name="twitter:image" content="' . esc_url($og_image) . '">' . "\n";
     }
 }
-add_action('wp_head', 'fengshuihomestyle_vastu_custom_meta_tags');
+add_action('wp_head', 'fengshuihomestyle_vastu_custom_meta_tags', 1);
 
 /**
- * Preload critical fonts for performance
+ * Preload critical resources for performance (fonts and LCP images)
  */
-function fengshuihomestyle_vastu_preload_fonts()
+function fengshuihomestyle_vastu_preload_critical_resources()
 {
+    // Preconnect to Google Fonts
     echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
     echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+    
+    // Preload hero image for LCP optimization on the front page
+    if (is_front_page()) {
+        echo '<link rel="preload" as="image" href="' . esc_url(get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.webp') . '" fetchpriority="high">' . "\n";
+    }
 }
-add_action('wp_head', 'fengshuihomestyle_vastu_preload_fonts', 1);
+add_action('wp_head', 'fengshuihomestyle_vastu_preload_critical_resources', 0);
 
 /**
  * Add WhatsApp chat widget
@@ -179,6 +211,60 @@ function fengshuihomestyle_vastu_optimize_performance()
     remove_action('wp_head', 'wp_generator');
 }
 add_action('init', 'fengshuihomestyle_vastu_optimize_performance');
+
+/**
+ * Add Vary: User-Agent header to prevent mobile/desktop caching conflicts
+ * Critical for wp_is_mobile() based adaptive rendering
+ * 
+ * Note: This header may reduce cache efficiency with some CDNs and caching plugins
+ * as it creates separate cache entries for each User-Agent string. However, it's
+ * necessary to prevent desktop HTML from being served to mobile users when using
+ * wp_is_mobile() for adaptive rendering. Consider CSS-only responsive design or
+ * JavaScript-based device detection for future iterations to improve cache hit rates.
+ */
+function vastu_add_vary_user_agent_header()
+{
+    if (!is_admin()) {
+        header('Vary: User-Agent');
+    }
+}
+add_action('send_headers', 'vastu_add_vary_user_agent_header');
+
+/**
+ * Generate dynamic alt text for featured images and background images
+ * Improves accessibility and SEO
+ *
+ * @param string $context The context where the image is used (e.g., 'hero', 'card', 'gallery')
+ * @param int|null $post_id Optional post ID for context-aware alt text
+ * @return string Generated alt text
+ */
+function vastu_generate_alt_text($context = 'default', $post_id = null)
+{
+    $site_name = get_bloginfo('name');
+    $site_suffix = $site_name !== '' ? ' - ' . $site_name : '';
+    
+    $alt_texts = [
+        'hero' => 'Serene living space designed with Vastu Shastra and Feng Shui principles' . $site_suffix,
+        'hero-mobile' => 'Harmonious home interior showcasing Vastu energy flow' . $site_suffix,
+        'hero-desktop' => 'Professional Vastu consultation space with balanced energy' . $site_suffix,
+        'kitchen' => 'Vibrant kitchen aligned with Vastu Fire element for family wellness',
+        'bedroom' => 'Peaceful bedroom with Vastu South-West stability for relationships',
+        'entrance' => 'Minimalist entrance foyer optimized for wealth and abundance',
+        'office' => 'Modern office space with Vastu energy optimization for productivity',
+        'retail' => 'Retail space designed for customer flow and sales excellence',
+        'factory' => 'Industrial facility with Vastu operational flow optimization',
+        'default' => 'Vastu and Feng Shui harmonized space' . $site_suffix,
+    ];
+    
+    if ($post_id && has_post_thumbnail($post_id)) {
+        $existing_alt = get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true);
+        if (!empty($existing_alt)) {
+            return esc_attr($existing_alt);
+        }
+    }
+    
+    return isset($alt_texts[$context]) ? esc_attr($alt_texts[$context]) : esc_attr($alt_texts['default']);
+}
 
 /**
  * ========================================
