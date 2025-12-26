@@ -52,7 +52,8 @@ if (!$wp_loaded) {
  * 
  * @return array ['url' => string, 'method' => string]
  */
-function pioneer_detect_image_base() {
+function pioneer_detect_image_base()
+{
     $candidates = [
         [
             'url' => get_stylesheet_directory_uri() . '/assets/images',
@@ -80,15 +81,15 @@ function pioneer_detect_image_base() {
     foreach ($candidates as $candidate) {
         if (file_exists($candidate['path']) && is_dir($candidate['path'])) {
             // Verify at least one expected image exists
-            $test_images = ['hero-bg.jpg', 'wellness.jpg', 'wealth.jpg', 'relationships.jpg'];
+            $test_images = ['hero-bg.png', 'wellness.png', 'wealth.png', 'relationships.png'];
             $found_count = 0;
-            
+
             foreach ($test_images as $img) {
                 if (file_exists($candidate['path'] . '/' . $img)) {
                     $found_count++;
                 }
             }
-            
+
             if ($found_count > 0) {
                 return [
                     'url' => $candidate['url'],
@@ -119,12 +120,13 @@ function pioneer_detect_image_base() {
  * @param string $img_base Base URL for images
  * @return string HTML content
  */
-function pioneer_generate_hero_html($img_base) {
+function pioneer_generate_hero_html($img_base)
+{
     return <<<HTML
 <!-- Pioneer Visuals - Hero Section -->
 <section class="hero-section" style="
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), 
-                url('{$img_base}/hero-bg.jpg');
+                url('{$img_base}/hero-bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -182,22 +184,23 @@ HTML;
  * @param string $img_base Base URL for images
  * @return string HTML content
  */
-function pioneer_generate_solution_grid($img_base) {
+function pioneer_generate_solution_grid($img_base)
+{
     $solutions = [
         [
-            'image' => 'wellness.jpg',
+            'image' => 'wellness.png',
             'title' => 'Health & Wellness',
             'description' => 'Optimize energy flow for vibrant health and peaceful living spaces',
             'gradient' => 'linear-gradient(135deg, #A8E6CF, #7ECBB5)'
         ],
         [
-            'image' => 'wealth.jpg',
+            'image' => 'wealth.png',
             'title' => 'Wealth & Prosperity',
             'description' => 'Activate abundance zones to attract financial success and growth',
             'gradient' => 'linear-gradient(135deg, #F4A261, #E76F51)'
         ],
         [
-            'image' => 'relationships.jpg',
+            'image' => 'relationships.png',
             'title' => 'Love & Relationships',
             'description' => 'Harmonize relationship corners for deeper connections and harmony',
             'gradient' => 'linear-gradient(135deg, #FFD6E8, #F4A7C7)'
@@ -312,9 +315,10 @@ HTML;
  * 
  * @return bool Success status
  */
-function pioneer_inject_css() {
+function pioneer_inject_css()
+{
     $existing_css = get_theme_mod('custom_css', '');
-    
+
     $new_css = <<<CSS
 
 /* ============================================
@@ -420,10 +424,10 @@ CSS;
     if (strpos($existing_css, 'PIONEER VISUALS - Phase 2') !== false) {
         return true; // Already injected, skip
     }
-    
+
     $combined_css = $existing_css . "\n" . $new_css;
     set_theme_mod('custom_css', $combined_css);
-    
+
     return true;
 }
 
@@ -436,18 +440,25 @@ ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pioneer Visuals - Deployment Report</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 40px 20px;
             min-height: 100vh;
         }
+
         .report-container {
             max-width: 800px;
             margin: 0 auto;
@@ -456,23 +467,28 @@ ob_start();
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
         }
+
         .report-header {
             background: linear-gradient(135deg, #A8E6CF, #7ECBB5);
             padding: 40px;
             text-align: center;
         }
+
         .report-header h1 {
             color: #1a1a1a;
             font-size: 2.5rem;
             margin-bottom: 10px;
         }
+
         .report-header p {
             color: #2a2a2a;
             font-size: 1.1rem;
         }
+
         .report-body {
             padding: 40px;
         }
+
         .status-item {
             background: #f8f9fa;
             border-left: 4px solid #A8E6CF;
@@ -480,26 +496,32 @@ ob_start();
             margin-bottom: 20px;
             border-radius: 8px;
         }
+
         .status-item.success {
             border-left-color: #28a745;
             background: #d4edda;
         }
+
         .status-item.warning {
             border-left-color: #ffc107;
             background: #fff3cd;
         }
+
         .status-item.error {
             border-left-color: #dc3545;
             background: #f8d7da;
         }
+
         .status-item h3 {
             margin-bottom: 10px;
             color: #1a1a1a;
         }
+
         .status-item p {
             color: #4a4a4a;
             line-height: 1.6;
         }
+
         .code-block {
             background: #2d2d2d;
             color: #f8f8f2;
@@ -510,6 +532,7 @@ ob_start();
             font-size: 0.9rem;
             margin: 10px 0;
         }
+
         .next-steps {
             background: linear-gradient(135deg, #F4A261, #E76F51);
             color: white;
@@ -517,13 +540,16 @@ ob_start();
             border-radius: 12px;
             margin-top: 30px;
         }
+
         .next-steps h2 {
             margin-bottom: 15px;
         }
+
         .next-steps ol {
             margin-left: 20px;
             line-height: 2;
         }
+
         .badge {
             display: inline-block;
             padding: 5px 12px;
@@ -532,61 +558,74 @@ ob_start();
             font-weight: 600;
             margin-left: 10px;
         }
-        .badge.success { background: #28a745; color: white; }
-        .badge.info { background: #17a2b8; color: white; }
-        .badge.warning { background: #ffc107; color: #1a1a1a; }
+
+        .badge.success {
+            background: #28a745;
+            color: white;
+        }
+
+        .badge.info {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .badge.warning {
+            background: #ffc107;
+            color: #1a1a1a;
+        }
     </style>
 </head>
+
 <body>
     <div class="report-container">
         <div class="report-header">
             <h1>🚀 Pioneer Visuals</h1>
             <p>Phase 2 Deployment Report - Visual Integration</p>
         </div>
-        
+
         <div class="report-body">
             <?php
             // Step 1: Asset Detection
             echo '<div class="status-item success">';
             echo '<h3>✓ Smart Asset Detection <span class="badge info">STEP 1</span></h3>';
-            
+
             $asset_info = pioneer_detect_image_base();
             echo '<p><strong>Detection Method:</strong> ' . esc_html($asset_info['method']) . '</p>';
             echo '<p><strong>Base URL:</strong> <code>' . esc_html($asset_info['url']) . '</code></p>';
             echo '<p><strong>File Path:</strong> <code>' . esc_html($asset_info['path']) . '</code></p>';
             echo '<p><strong>Images Found:</strong> ' . $asset_info['images_found'] . ' / 4 expected files</p>';
-            
+
             if ($asset_info['images_found'] === 0) {
                 echo '<p class="warning" style="color: #856404; margin-top: 10px;">⚠️ <strong>Warning:</strong> No images detected. Please upload images to the detected path.</p>';
             }
             echo '</div>';
-            
+
             $img_base = $asset_info['url'];
-            
+
             // Step 2: Content Generation
             echo '<div class="status-item success">';
             echo '<h3>✓ Content Generation <span class="badge info">STEP 2</span></h3>';
-            
+
             $hero_html = pioneer_generate_hero_html($img_base);
             $grid_html = pioneer_generate_solution_grid($img_base);
             $full_content = $hero_html . "\n\n" . $grid_html;
-            
+
             echo '<p><strong>Hero Section:</strong> Generated with background image overlay</p>';
             echo '<p><strong>Solution Grid:</strong> 3 cards with wellness, wealth, and relationships imagery</p>';
             echo '<p><strong>Total HTML Size:</strong> ' . number_format(strlen($full_content)) . ' characters</p>';
             echo '</div>';
-            
+
             // Step 3: Database Update
             echo '<div class="status-item success">';
             echo '<h3>✓ Database Update <span class="badge info">STEP 3</span></h3>';
-            
+
             // Get homepage
             $homepage = get_page_by_path('home');
             if (!$homepage) {
                 $homepage = get_posts(['post_type' => 'page', 'name' => 'home', 'numberposts' => 1]);
                 $homepage = $homepage ? $homepage[0] : null;
             }
-            
+
             if (!$homepage) {
                 // Try to find a page with "Home" in title
                 $homepage = get_posts([
@@ -596,13 +635,13 @@ ob_start();
                 ]);
                 $homepage = $homepage ? $homepage[0] : null;
             }
-            
+
             if ($homepage) {
                 $update_result = wp_update_post([
                     'ID' => $homepage->ID,
                     'post_content' => $full_content
                 ]);
-                
+
                 if ($update_result && !is_wp_error($update_result)) {
                     echo '<p><strong>Status:</strong> <span class="badge success">SUCCESS</span></p>';
                     echo '<p><strong>Page Updated:</strong> ' . esc_html($homepage->post_title) . ' (ID: ' . $homepage->ID . ')</p>';
@@ -616,13 +655,13 @@ ob_start();
                 echo '<p>Could not locate a "Home" page in the database. Please create one manually.</p>';
             }
             echo '</div>';
-            
+
             // Step 4: CSS Injection
             echo '<div class="status-item success">';
             echo '<h3>✓ CSS Injection <span class="badge info">STEP 4</span></h3>';
-            
+
             $css_result = pioneer_inject_css();
-            
+
             if ($css_result) {
                 echo '<p><strong>Status:</strong> <span class="badge success">INJECTED</span></p>';
                 echo '<p>Enhanced CSS has been added to WordPress Customizer</p>';
@@ -638,21 +677,24 @@ ob_start();
             }
             echo '</div>';
             ?>
-            
+
             <div class="next-steps">
                 <h2>📋 Next Steps</h2>
                 <ol>
-                    <li><strong>Verify Visual Output:</strong> Visit your homepage and confirm images are displaying correctly</li>
+                    <li><strong>Verify Visual Output:</strong> Visit your homepage and confirm images are displaying
+                        correctly</li>
                     <li><strong>Upload Missing Images:</strong> If images are missing, upload them to:
                         <div class="code-block"><?php echo esc_html($asset_info['path']); ?></div>
-                        Required files: hero-bg.jpg, wellness.jpg, wealth.jpg, relationships.jpg
+                        Required files: hero-bg.png, wellness.png, wealth.png, relationships.png
                     </li>
                     <li><strong>Test Responsiveness:</strong> Check mobile and tablet views for proper scaling</li>
-                    <li><strong>Security Cleanup:</strong> Delete this script file (pioneer-visuals.php) from your server</li>
-                    <li><strong>Cache Clear:</strong> Clear any caching plugins or CDN cache to see changes immediately</li>
+                    <li><strong>Security Cleanup:</strong> Delete this script file (pioneer-visuals.php) from your
+                        server</li>
+                    <li><strong>Cache Clear:</strong> Clear any caching plugins or CDN cache to see changes immediately
+                    </li>
                 </ol>
             </div>
-            
+
             <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
                 <p style="color: #4a4a4a; font-size: 0.9rem;">
                     <strong>Deployment Time:</strong> <?php echo date('Y-m-d H:i:s'); ?><br>
@@ -663,6 +705,7 @@ ob_start();
         </div>
     </div>
 </body>
+
 </html>
 <?php
 
