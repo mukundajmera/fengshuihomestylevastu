@@ -218,23 +218,14 @@ a:hover {
     justify-content: center;
     overflow: hidden;
     padding: var(--spacing-lg) var(--spacing-md);
-}
-
-.hero-image-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    background: linear-gradient(rgba(46,43,89,0.4), rgba(46,43,89,0.4)), url('assets/images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-    /* CLS Prevention: Reserve space with aspect-ratio */
-    aspect-ratio: 16 / 9;
-    /* Fallback gradient background for serene living space aesthetic */
-    background-image: linear-gradient(135deg, rgba(245, 234, 225, 0.95) 0%, rgba(100, 142, 123, 0.85) 100%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23F5EAE1" width="1920" height="1080"/><circle cx="1500" cy="300" r="200" fill="%23648E7B" opacity="0.1"/><rect x="100" y="700" width="400" height="300" fill="%232E2B59" opacity="0.05"/></svg>');
+}
+
+/* Deprecated: using background-image on parent now */
+.hero-image-bg {
+    display: none; 
 }
 
 .hero-overlay {
