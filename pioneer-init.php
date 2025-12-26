@@ -15,6 +15,8 @@
  */
 
 // Security: Define a secret key to prevent unauthorized execution
+// For enhanced security, consider setting this via environment variable
+// Example: define('PIONEER_SECRET_KEY', getenv('PIONEER_SECRET_KEY') ?: 'feng-shui-2026-pioneer');
 define('PIONEER_SECRET_KEY', 'feng-shui-2026-pioneer');
 
 // Security: Check if already executed
@@ -29,7 +31,11 @@ if (!isset($_GET['key']) || $_GET['key'] !== PIONEER_SECRET_KEY) {
 }
 
 // Load WordPress
-require_once __DIR__ . '/wp-load.php';
+$wp_load_path = __DIR__ . '/wp-load.php';
+if (!file_exists($wp_load_path)) {
+    die('Error: WordPress installation not found. Please ensure this script is in the WordPress root directory.');
+}
+require_once $wp_load_path;
 
 // Verify WordPress loaded successfully
 if (!function_exists('update_option')) {
@@ -191,22 +197,10 @@ section {
 }
 CSS;
 
-    // Get current theme mods
-    $theme_slug = get_option('stylesheet');
-    $theme_mods = get_theme_mods();
-    
-    // Inject custom CSS into theme mods
-    $theme_mods['custom_css'] = isset($theme_mods['custom_css']) 
-        ? $theme_mods['custom_css'] . "\n\n" . $custom_css 
-        : $custom_css;
-    
-    // Update theme mods
-    update_option('theme_mods_' . $theme_slug, $theme_mods);
-    $steps['custom_css'] = 'Injected ' . strlen($custom_css) . ' bytes of CSS';
-    
-    // Also set via wp_custom_css for compatibility
+    // Use WordPress standard method for custom CSS
     $post_id = wp_update_custom_css_post($custom_css);
     $steps['custom_css_post'] = 'Created/Updated custom CSS post ID: ' . $post_id;
+    $steps['custom_css'] = 'Injected ' . strlen($custom_css) . ' bytes of CSS';
     
     return $steps;
 }
@@ -382,10 +376,13 @@ try {
     echo "</ol>";
     echo "</div>";
     
-} catch (Exception $e) {
+} catch (Throwable $e) {
     echo "<div class='step error'>";
     echo "<h3>❌ Error During Execution</h3>";
-    echo "<p>" . htmlspecialchars($e->getMessage()) . "</p>";
+    echo "<p><strong>Error Type:</strong> " . htmlspecialchars(get_class($e)) . "</p>";
+    echo "<p><strong>Message:</strong> " . htmlspecialchars($e->getMessage()) . "</p>";
+    echo "<p><strong>File:</strong> " . htmlspecialchars($e->getFile()) . " (Line " . $e->getLine() . ")</p>";
+    echo "<p>Please check your WordPress installation and ensure all requirements are met.</p>";
     echo "</div>";
 }
 
