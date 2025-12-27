@@ -52,7 +52,7 @@ get_header();
                         <div class="service-cta glassmorphism-card">
                             <h3><?php esc_html_e('Ready to Transform Your Space?', 'fengshuihomestyle-vastu'); ?></h3>
                             <p><?php esc_html_e('Get personalized Vastu consultation for this service. Chat with Sanjay Jain now.', 'fengshuihomestyle-vastu'); ?></p>
-                            <a href="https://wa.me/919828088678?text=<?php echo urlencode('Hi Sanjay, I am interested in ' . get_the_title() . '. Please guide me.'); ?>" 
+                            <a href="<?php echo esc_url('https://wa.me/919828088678?text=' . urlencode('Hi Sanjay, I am interested in ' . get_the_title() . '. Please guide me.')); ?>" 
                                class="cta-primary" 
                                target="_blank" 
                                rel="noopener noreferrer">
@@ -63,7 +63,7 @@ get_header();
                         <!-- Service Benefits Section -->
                         <?php
                         $benefits = get_post_meta(get_the_ID(), 'service_benefits', true);
-                        if (!empty($benefits)) :
+                        if (!empty($benefits) && is_string($benefits)) :
                         ?>
                             <div class="service-benefits">
                                 <h3><?php esc_html_e('Key Benefits', 'fengshuihomestyle-vastu'); ?></h3>

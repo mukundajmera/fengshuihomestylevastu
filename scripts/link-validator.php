@@ -134,7 +134,7 @@ class LinkValidator
         $response = wp_remote_head($url, array(
             'timeout' => $this->timeout,
             'redirection' => 5,
-            'sslverify' => false,
+            'sslverify' => true,
         ));
         
         $elapsed_time = microtime(true) - $start_time;

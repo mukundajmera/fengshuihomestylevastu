@@ -1046,6 +1046,11 @@ add_action('wp_footer', 'vastu_load_compass_assets');
  */
 function fengshuihomestyle_vastu_handle_contact_form()
 {
+    // Ensure the form is only processed on POST requests
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        return;
+    }
+    
     if (!isset($_POST['submit_contact']) || !isset($_POST['contact_form_nonce'])) {
         return;
     }
@@ -1079,7 +1084,10 @@ function fengshuihomestyle_vastu_handle_contact_form()
     // If there are errors, redirect with error message
     if (!empty($errors)) {
         $error_message = implode(', ', $errors);
-        wp_redirect(add_query_arg(array('contact' => 'error', 'msg' => urlencode($error_message)), wp_get_referer()));
+        $redirect_url = wp_get_referer();
+        // Validate referrer and fall back to a safe internal URL to prevent open redirects
+        $safe_base_url = wp_validate_redirect($redirect_url, home_url('/contact'));
+        wp_safe_redirect(add_query_arg(array('contact' => 'error', 'msg' => urlencode($error_message)), $safe_base_url));
         exit;
     }
     
@@ -1111,11 +1119,11 @@ function fengshuihomestyle_vastu_handle_contact_form()
     // Send email
     $sent = wp_mail($to, $subject, $body, $headers);
     
-    // Redirect with success or error message
+    // Redirect with success or error message using safe redirect
     if ($sent) {
-        wp_redirect(add_query_arg('contact', 'success', home_url('/contact')));
+        wp_safe_redirect(add_query_arg('contact', 'success', home_url('/contact')));
     } else {
-        wp_redirect(add_query_arg('contact', 'error', home_url('/contact')));
+        wp_safe_redirect(add_query_arg('contact', 'error', home_url('/contact')));
     }
     exit;
 }

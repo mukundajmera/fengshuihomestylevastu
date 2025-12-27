@@ -138,8 +138,20 @@ function fengshuihomestyle_generate_xml_sitemap()
     // Close XML
     $sitemap .= "</urlset>";
 
-    // Write to file
+    // Write to file with error handling
     $file_path = ABSPATH . 'sitemap.xml';
+    
+    // Check if directory is writable
+    if (!is_writable(ABSPATH)) {
+        if (defined('WP_CLI') && WP_CLI) {
+            WP_CLI::error("Cannot write to WordPress root directory. Please check file permissions.");
+        } else {
+            echo "❌ Error: Cannot write to WordPress root directory.\n";
+            echo "Please ensure the web server has write permissions to: " . ABSPATH . "\n";
+        }
+        return;
+    }
+    
     $result = file_put_contents($file_path, $sitemap);
 
     if ($result !== false) {
