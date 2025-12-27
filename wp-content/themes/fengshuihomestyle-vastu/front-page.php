@@ -20,8 +20,8 @@ get_header();
 
         <!-- HERO SECTION - The Energy Foyer -->
         <section class="hero-section">
-            <!-- Static Cinematic Image Background - WebP for Speed -->
-            <div class="hero-image-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.webp' ); ?>');"></div>
+            <!-- Static Cinematic Image Background -->
+            <div class="hero-image-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/hero_energy_foyer.png' ); ?>');"></div>
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
@@ -47,7 +47,7 @@ get_header();
             <div class="residential-grid">
                 <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/vibrant-kitchen.webp' ); ?>"
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/wellness_kitchen.png' ); ?>"
                              alt="Family Wellness & Vitality - Clean vibrant kitchen" 
                              class="card-image" 
                              loading="lazy">
@@ -70,7 +70,7 @@ get_header();
 
                 <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/peaceful-bedroom.webp' ); ?>"
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/stability_bedroom.png' ); ?>"
                              alt="Relationship Sanctuary - Peaceful balanced bedroom" 
                              class="card-image" 
                              loading="lazy">
@@ -93,7 +93,7 @@ get_header();
 
                 <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="card-image-wrapper">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/minimalist-entrance.webp' ); ?>"
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/prosperity_entrance.png' ); ?>"
                              alt="The Gateway to Abundance - Minimalist entrance foyer" 
                              class="card-image" 
                              loading="lazy">
