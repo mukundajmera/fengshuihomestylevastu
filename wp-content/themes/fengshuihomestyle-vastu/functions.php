@@ -1037,3 +1037,105 @@ function vastu_load_compass_assets()
     );
 }
 add_action('wp_footer', 'vastu_load_compass_assets');
+
+/**
+ * ========================================
+ * Contact Form Handler
+ * ========================================
+ * Handles contact form submissions with proper sanitization and validation
+ */
+function fengshuihomestyle_vastu_handle_contact_form()
+{
+    if (!isset($_POST['submit_contact']) || !isset($_POST['contact_form_nonce'])) {
+        return;
+    }
+    
+    // Verify nonce for security
+    if (!wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_submit')) {
+        wp_die('Security check failed. Please try again.');
+    }
+    
+    // Sanitize and validate inputs
+    $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
+    $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
+    $phone = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
+    $message = isset($_POST['message']) ? sanitize_textarea_field($_POST['message']) : '';
+    
+    // Validate required fields
+    $errors = array();
+    
+    if (empty($name)) {
+        $errors[] = 'Name is required';
+    }
+    
+    if (empty($email) || !is_email($email)) {
+        $errors[] = 'Valid email is required';
+    }
+    
+    if (empty($message)) {
+        $errors[] = 'Message is required';
+    }
+    
+    // If there are errors, redirect with error message
+    if (!empty($errors)) {
+        $error_message = implode(', ', $errors);
+        wp_redirect(add_query_arg(array('contact' => 'error', 'msg' => urlencode($error_message)), wp_get_referer()));
+        exit;
+    }
+    
+    // Prepare email
+    $to = get_option('admin_email');
+    $subject = 'New Contact Form Submission - Feng Shui Homestyle Vastu';
+    
+    $body = "New contact form submission:\n\n";
+    $body .= "Name: $name\n";
+    $body .= "Email: $email\n";
+    
+    if (!empty($phone)) {
+        $body .= "Phone: $phone\n";
+    }
+    
+    $body .= "\nMessage:\n$message\n\n";
+    $body .= "---\n";
+    $body .= "Submitted from: " . home_url('/contact') . "\n";
+    $body .= "IP Address: " . $_SERVER['REMOTE_ADDR'] . "\n";
+    $body .= "Time: " . current_time('mysql') . "\n";
+    
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: ' . get_bloginfo('name') . ' <' . get_option('admin_email') . '>',
+        'Reply-To: ' . $name . ' <' . $email . '>',
+    );
+    
+    // Send email
+    $sent = wp_mail($to, $subject, $body, $headers);
+    
+    // Redirect with success or error message
+    if ($sent) {
+        wp_redirect(add_query_arg('contact', 'success', home_url('/contact')));
+    } else {
+        wp_redirect(add_query_arg('contact', 'error', home_url('/contact')));
+    }
+    exit;
+}
+add_action('init', 'fengshuihomestyle_vastu_handle_contact_form');
+
+/**
+ * Display contact form messages
+ */
+function fengshuihomestyle_vastu_contact_form_messages()
+{
+    if (!is_page('contact')) {
+        return;
+    }
+    
+    if (isset($_GET['contact'])) {
+        if ($_GET['contact'] === 'success') {
+            echo '<div class="contact-message success">Thank you for your message! We will get back to you soon.</div>';
+        } elseif ($_GET['contact'] === 'error') {
+            $msg = isset($_GET['msg']) ? urldecode($_GET['msg']) : 'There was an error sending your message. Please try again.';
+            echo '<div class="contact-message error">' . esc_html($msg) . '</div>';
+        }
+    }
+}
+add_action('wp_footer', 'fengshuihomestyle_vastu_contact_form_messages');
