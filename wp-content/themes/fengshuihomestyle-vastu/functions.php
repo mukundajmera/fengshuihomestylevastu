@@ -1098,7 +1098,8 @@ function fengshuihomestyle_vastu_handle_contact_form()
     $body .= "\nMessage:\n$message\n\n";
     $body .= "---\n";
     $body .= "Submitted from: " . home_url('/contact') . "\n";
-    $body .= "IP Address: " . $_SERVER['REMOTE_ADDR'] . "\n";
+    $ip_address = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field($_SERVER['REMOTE_ADDR']) : 'Unknown';
+    $body .= "IP Address: " . $ip_address . "\n";
     $body .= "Time: " . current_time('mysql') . "\n";
     
     $headers = array(
@@ -1130,10 +1131,13 @@ function fengshuihomestyle_vastu_contact_form_messages()
     }
     
     if (isset($_GET['contact'])) {
-        if ($_GET['contact'] === 'success') {
+        $contact_status = sanitize_text_field(wp_unslash($_GET['contact']));
+        if ('success' === $contact_status) {
             echo '<div class="contact-message success">Thank you for your message! We will get back to you soon.</div>';
-        } elseif ($_GET['contact'] === 'error') {
-            $msg = isset($_GET['msg']) ? urldecode($_GET['msg']) : 'There was an error sending your message. Please try again.';
+        } elseif ('error' === $contact_status) {
+            $msg = isset($_GET['msg'])
+                ? sanitize_text_field(wp_unslash($_GET['msg']))
+                : 'There was an error sending your message. Please try again.';
             echo '<div class="contact-message error">' . esc_html($msg) . '</div>';
         }
     }

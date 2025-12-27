@@ -20,7 +20,7 @@ get_header();
                 <h1 class="page-title">
                     <?php
                     /* translators: %s: search query. */
-                    printf(esc_html__('Search Results for: %s', 'fengshuihomestyle-vastu'), '<span>' . get_search_query() . '</span>');
+                    printf(esc_html__('Search Results for: %s', 'fengshuihomestyle-vastu'), '<span>' . esc_html(get_search_query()) . '</span>');
                     ?>
                 </h1>
             </div>
@@ -104,8 +104,14 @@ get_header();
                             <a href="<?php echo esc_url(home_url('/')); ?>" class="cta-primary">
                                 <?php esc_html_e('Return to Homepage', 'fengshuihomestyle-vastu'); ?>
                             </a>
-                            
-                            <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20couldn%27t%20find%20information%20about%20<?php echo urlencode(get_search_query()); ?>." 
+                            <?php
+                            $whatsapp_message = sprintf(
+                                "Hello Sanjay, I couldn't find information about %s.",
+                                get_search_query()
+                            );
+                            $whatsapp_url = 'https://wa.me/919828088678?text=' . rawurlencode($whatsapp_message);
+                            ?>
+                            <a href="<?php echo esc_url($whatsapp_url); ?>" 
                                class="cta-secondary" 
                                target="_blank" 
                                rel="noopener noreferrer"
