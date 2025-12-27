@@ -737,7 +737,7 @@ function fengshuihomestyle_vastu_schema_markup()
             '@context' => 'https://schema.org',
             '@type' => 'ProfessionalService',
             'name' => 'Feng Shui Homestyle Vastu',
-            'image' => get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg',
+            'image' => get_stylesheet_directory_uri() . '/assets/images/hero_energy_foyer.png',
             '@id' => home_url(),
             'url' => home_url(),
             'telephone' => '+919828088678',
