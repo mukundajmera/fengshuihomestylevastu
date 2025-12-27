@@ -64,10 +64,97 @@ add_filter('body_class', 'fengshuihomestyle_vastu_body_classes');
 function fengshuihomestyle_vastu_register_menus()
 {
     register_nav_menus(array(
+        'primary' => __('Primary Menu (Header)', 'fengshuihomestyle-vastu'),
+        'footer' => __('Footer Menu', 'fengshuihomestyle-vastu'),
         'mobile-menu' => __('Mobile Menu', 'fengshuihomestyle-vastu'),
     ));
 }
 add_action('init', 'fengshuihomestyle_vastu_register_menus');
+
+/**
+ * Custom walker for responsive navigation menu
+ */
+class Mobile_Walker_Nav_Menu extends Walker_Nav_Menu
+{
+    /**
+     * Starts the list before the elements are added.
+     *
+     * @param string   $output Used to append additional content.
+     * @param int      $depth  Depth of menu item.
+     * @param stdClass $args   An object of wp_nav_menu() arguments.
+     */
+    public function start_lvl(&$output, $depth = 0, $args = null)
+    {
+        if (isset($args->item_spacing) && 'discard' === $args->item_spacing) {
+            $t = '';
+            $n = '';
+        } else {
+            $t = "\t";
+            $n = "\n";
+        }
+        $indent = str_repeat($t, $depth);
+        $classes = array('sub-menu');
+        $class_names = implode(' ', apply_filters('nav_menu_submenu_css_class', $classes, $args, $depth));
+        $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+        $output .= "{$n}{$indent}<ul$class_names data-depth=\"{$depth}\">{$n}";
+    }
+}
+
+/**
+ * Register custom post types
+ */
+function fengshuihomestyle_vastu_register_post_types()
+{
+    // Services Custom Post Type
+    register_post_type('service', array(
+        'labels' => array(
+            'name' => __('Services', 'fengshuihomestyle-vastu'),
+            'singular_name' => __('Service', 'fengshuihomestyle-vastu'),
+            'add_new' => __('Add New Service', 'fengshuihomestyle-vastu'),
+            'add_new_item' => __('Add New Service', 'fengshuihomestyle-vastu'),
+            'edit_item' => __('Edit Service', 'fengshuihomestyle-vastu'),
+            'new_item' => __('New Service', 'fengshuihomestyle-vastu'),
+            'view_item' => __('View Service', 'fengshuihomestyle-vastu'),
+            'search_items' => __('Search Services', 'fengshuihomestyle-vastu'),
+            'not_found' => __('No services found', 'fengshuihomestyle-vastu'),
+            'not_found_in_trash' => __('No services found in trash', 'fengshuihomestyle-vastu'),
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'services'),
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+        'menu_icon' => 'dashicons-admin-multisite',
+        'menu_position' => 5,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+    ));
+
+    // Testimonials Custom Post Type
+    register_post_type('testimonial', array(
+        'labels' => array(
+            'name' => __('Testimonials', 'fengshuihomestyle-vastu'),
+            'singular_name' => __('Testimonial', 'fengshuihomestyle-vastu'),
+            'add_new' => __('Add New Testimonial', 'fengshuihomestyle-vastu'),
+            'add_new_item' => __('Add New Testimonial', 'fengshuihomestyle-vastu'),
+            'edit_item' => __('Edit Testimonial', 'fengshuihomestyle-vastu'),
+            'new_item' => __('New Testimonial', 'fengshuihomestyle-vastu'),
+            'view_item' => __('View Testimonial', 'fengshuihomestyle-vastu'),
+            'search_items' => __('Search Testimonials', 'fengshuihomestyle-vastu'),
+            'not_found' => __('No testimonials found', 'fengshuihomestyle-vastu'),
+            'not_found_in_trash' => __('No testimonials found in trash', 'fengshuihomestyle-vastu'),
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'menu_icon' => 'dashicons-star-filled',
+        'menu_position' => 6,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+    ));
+}
+add_action('init', 'fengshuihomestyle_vastu_register_post_types');
 
 /**
  * Customize Astra theme settings
@@ -122,8 +209,8 @@ function fengshuihomestyle_vastu_custom_meta_tags()
     echo '<link rel="canonical" href="' . esc_url($canonical_url) . '">' . "\n";
     
     if (is_front_page()) {
-        echo '<meta name="description" content="Scientific Vastu & Feng Shui Consultations. 100% Remote. 0% Demolition. Over 25 years of expert guidance by Sanjay Jain.">' . "\n";
-        echo '<meta name="keywords" content="Vastu Shastra, Feng Shui, Remote Consultation, AutoCAD Floor Plan, Satellite Mapping, Sanjay Jain">' . "\n";
+        echo '<meta name="description" content="Expert Feng Shui and Vastu consultancy services. Harmonize your living and workspace with ancient wisdom for prosperity, health, and peace. 25+ years experience. Free consultation available.">' . "\n";
+        echo '<meta name="keywords" content="Feng Shui consultant, Vastu Shastra, Remote Consultation, Home Energy, Office Vastu, AutoCAD Floor Plan, Satellite Mapping, Sanjay Jain">' . "\n";
         
         // Open Graph meta tags for social sharing
         echo '<meta property="og:title" content="Feng Shui Homestyle Vastu - Harmonize Your Space, Transform Your Life">' . "\n";
@@ -144,6 +231,46 @@ function fengshuihomestyle_vastu_custom_meta_tags()
         echo '<meta name="twitter:description" content="Scientific Vastu: Harmony without Demolition. 25+ years of expertise.">' . "\n";
         echo '<meta name="twitter:image" content="' . esc_url($og_image) . '">' . "\n";
     }
+    
+    // Enhanced meta tags for singular posts and pages
+    if (is_singular() && !is_front_page()) {
+        global $post;
+        
+        // Generate description from post content
+        $description = has_excerpt() ? get_the_excerpt() : wp_trim_words(strip_tags($post->post_content), 30);
+        echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
+        
+        // Open Graph tags for posts/pages
+        echo '<meta property="og:title" content="' . esc_attr(get_the_title()) . ' - Feng Shui Homestyle Vastu">' . "\n";
+        echo '<meta property="og:description" content="' . esc_attr($description) . '">' . "\n";
+        echo '<meta property="og:type" content="article">' . "\n";
+        echo '<meta property="og:url" content="' . esc_url(get_permalink()) . '">' . "\n";
+        echo '<meta property="og:site_name" content="Feng Shui Homestyle Vastu">' . "\n";
+        
+        // OG Image from featured image or fallback
+        if (has_post_thumbnail()) {
+            $og_image = get_the_post_thumbnail_url(null, 'large');
+            echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
+        } else {
+            $og_image = get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg';
+            echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
+        }
+        
+        // Article specific tags
+        if (is_single()) {
+            echo '<meta property="article:published_time" content="' . esc_attr(get_the_date('c')) . '">' . "\n";
+            echo '<meta property="article:modified_time" content="' . esc_attr(get_the_modified_date('c')) . '">' . "\n";
+            echo '<meta property="article:author" content="Sanjay Jain">' . "\n";
+        }
+        
+        // Twitter Card tags
+        echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+        echo '<meta name="twitter:title" content="' . esc_attr(get_the_title()) . '">' . "\n";
+        echo '<meta name="twitter:description" content="' . esc_attr($description) . '">' . "\n";
+        if (has_post_thumbnail()) {
+            echo '<meta name="twitter:image" content="' . esc_url(get_the_post_thumbnail_url(null, 'large')) . '">' . "\n";
+        }
+    }
 }
 add_action('wp_head', 'fengshuihomestyle_vastu_custom_meta_tags', 1);
 
@@ -162,6 +289,28 @@ function fengshuihomestyle_vastu_preload_critical_resources()
     }
 }
 add_action('wp_head', 'fengshuihomestyle_vastu_preload_critical_resources', 0);
+
+/**
+ * Remove unnecessary WordPress features for better performance
+ */
+function fengshuihomestyle_vastu_remove_unnecessary_features()
+{
+    // Remove WordPress version from head (already done in optimize_performance)
+    remove_action('wp_head', 'wp_generator');
+    
+    // Remove Windows Live Writer manifest link
+    remove_action('wp_head', 'wlwmanifest_link');
+    
+    // Remove Really Simple Discovery (RSD) link
+    remove_action('wp_head', 'rsd_link');
+    
+    // Remove shortlink
+    remove_action('wp_head', 'wp_shortlink_wp_head', 10);
+    
+    // Remove REST API link (if not needed for front-end)
+    // remove_action('wp_head', 'rest_output_link_wp_head', 10);
+}
+add_action('init', 'fengshuihomestyle_vastu_remove_unnecessary_features');
 
 /**
  * Add WhatsApp chat widget
@@ -265,6 +414,45 @@ function vastu_generate_alt_text($context = 'default', $post_id = null)
     
     return isset($alt_texts[$context]) ? esc_attr($alt_texts[$context]) : esc_attr($alt_texts['default']);
 }
+
+/**
+ * Optimized image output helper
+ * 
+ * Outputs an image tag with proper WordPress paths, lazy loading, and alt text.
+ *
+ * @param string $image_name The image filename (e.g., 'hero-image.webp')
+ * @param string $alt_text Optional custom alt text
+ * @param string $loading Optional loading attribute ('lazy' or 'eager')
+ * @param string $size Optional image size ('thumbnail', 'medium', 'large', 'full')
+ * @param array  $additional_attrs Optional additional HTML attributes
+ */
+function optimized_image($image_name, $alt_text = '', $loading = 'lazy', $size = 'full', $additional_attrs = array())
+{
+    $image_url = get_stylesheet_directory_uri() . '/assets/images/' . $image_name;
+    
+    // If no alt text provided, use empty string for decorative images
+    $alt_attr = !empty($alt_text) ? 'alt="' . esc_attr($alt_text) . '"' : 'alt=""';
+    
+    // Build additional attributes string
+    $attrs_string = '';
+    foreach ($additional_attrs as $key => $value) {
+        $attrs_string .= ' ' . esc_attr($key) . '="' . esc_attr($value) . '"';
+    }
+    
+    // Output the image tag with optimizations
+    echo '<img src="' . esc_url($image_url) . '" ' . $alt_attr . ' loading="' . esc_attr($loading) . '" decoding="async"' . $attrs_string . '>';
+}
+
+/**
+ * Add lazy loading to images in content
+ */
+function fengshuihomestyle_vastu_add_lazy_loading_to_images($content)
+{
+    // Add loading="lazy" to images in the content that don't already have it
+    $content = preg_replace('/<img((?![^>]*loading=)[^>]*)>/i', '<img$1 loading="lazy">', $content);
+    return $content;
+}
+add_filter('the_content', 'fengshuihomestyle_vastu_add_lazy_loading_to_images');
 
 /**
  * ========================================
@@ -849,3 +1037,117 @@ function vastu_load_compass_assets()
     );
 }
 add_action('wp_footer', 'vastu_load_compass_assets');
+
+/**
+ * ========================================
+ * Contact Form Handler
+ * ========================================
+ * Handles contact form submissions with proper sanitization and validation
+ */
+function fengshuihomestyle_vastu_handle_contact_form()
+{
+    // Ensure the form is only processed on POST requests
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        return;
+    }
+    
+    if (!isset($_POST['submit_contact']) || !isset($_POST['contact_form_nonce'])) {
+        return;
+    }
+    
+    // Verify nonce for security
+    if (!wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_submit')) {
+        wp_die('Security check failed. Please try again.');
+    }
+    
+    // Sanitize and validate inputs
+    $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
+    $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
+    $phone = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
+    $message = isset($_POST['message']) ? sanitize_textarea_field($_POST['message']) : '';
+    
+    // Validate required fields
+    $errors = array();
+    
+    if (empty($name)) {
+        $errors[] = 'Name is required';
+    }
+    
+    if (empty($email) || !is_email($email)) {
+        $errors[] = 'Valid email is required';
+    }
+    
+    if (empty($message)) {
+        $errors[] = 'Message is required';
+    }
+    
+    // If there are errors, redirect with error message
+    if (!empty($errors)) {
+        $error_message = implode(', ', $errors);
+        $redirect_url = wp_get_referer();
+        // Validate referrer and fall back to a safe internal URL to prevent open redirects
+        $safe_base_url = wp_validate_redirect($redirect_url, home_url('/contact'));
+        wp_safe_redirect(add_query_arg(array('contact' => 'error', 'msg' => urlencode($error_message)), $safe_base_url));
+        exit;
+    }
+    
+    // Prepare email
+    $to = get_option('admin_email');
+    $subject = 'New Contact Form Submission - Feng Shui Homestyle Vastu';
+    
+    $body = "New contact form submission:\n\n";
+    $body .= "Name: $name\n";
+    $body .= "Email: $email\n";
+    
+    if (!empty($phone)) {
+        $body .= "Phone: $phone\n";
+    }
+    
+    $body .= "\nMessage:\n$message\n\n";
+    $body .= "---\n";
+    $body .= "Submitted from: " . home_url('/contact') . "\n";
+    $ip_address = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field($_SERVER['REMOTE_ADDR']) : 'Unknown';
+    $body .= "IP Address: " . $ip_address . "\n";
+    $body .= "Time: " . current_time('mysql') . "\n";
+    
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: ' . get_bloginfo('name') . ' <' . get_option('admin_email') . '>',
+        'Reply-To: ' . $name . ' <' . $email . '>',
+    );
+    
+    // Send email
+    $sent = wp_mail($to, $subject, $body, $headers);
+    
+    // Redirect with success or error message using safe redirect
+    if ($sent) {
+        wp_safe_redirect(add_query_arg('contact', 'success', home_url('/contact')));
+    } else {
+        wp_safe_redirect(add_query_arg('contact', 'error', home_url('/contact')));
+    }
+    exit;
+}
+add_action('init', 'fengshuihomestyle_vastu_handle_contact_form');
+
+/**
+ * Display contact form messages
+ */
+function fengshuihomestyle_vastu_contact_form_messages()
+{
+    if (!is_page('contact')) {
+        return;
+    }
+    
+    if (isset($_GET['contact'])) {
+        $contact_status = sanitize_text_field(wp_unslash($_GET['contact']));
+        if ('success' === $contact_status) {
+            echo '<div class="contact-message success">Thank you for your message! We will get back to you soon.</div>';
+        } elseif ('error' === $contact_status) {
+            $msg = isset($_GET['msg'])
+                ? sanitize_text_field(wp_unslash($_GET['msg']))
+                : 'There was an error sending your message. Please try again.';
+            echo '<div class="contact-message error">' . esc_html($msg) . '</div>';
+        }
+    }
+}
+add_action('wp_footer', 'fengshuihomestyle_vastu_contact_form_messages');
