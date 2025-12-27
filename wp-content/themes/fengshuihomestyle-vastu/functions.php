@@ -64,10 +64,97 @@ add_filter('body_class', 'fengshuihomestyle_vastu_body_classes');
 function fengshuihomestyle_vastu_register_menus()
 {
     register_nav_menus(array(
+        'primary' => __('Primary Menu (Header)', 'fengshuihomestyle-vastu'),
+        'footer' => __('Footer Menu', 'fengshuihomestyle-vastu'),
         'mobile-menu' => __('Mobile Menu', 'fengshuihomestyle-vastu'),
     ));
 }
 add_action('init', 'fengshuihomestyle_vastu_register_menus');
+
+/**
+ * Custom walker for responsive navigation menu
+ */
+class Mobile_Walker_Nav_Menu extends Walker_Nav_Menu
+{
+    /**
+     * Starts the list before the elements are added.
+     *
+     * @param string   $output Used to append additional content.
+     * @param int      $depth  Depth of menu item.
+     * @param stdClass $args   An object of wp_nav_menu() arguments.
+     */
+    public function start_lvl(&$output, $depth = 0, $args = null)
+    {
+        if (isset($args->item_spacing) && 'discard' === $args->item_spacing) {
+            $t = '';
+            $n = '';
+        } else {
+            $t = "\t";
+            $n = "\n";
+        }
+        $indent = str_repeat($t, $depth);
+        $classes = array('sub-menu');
+        $class_names = implode(' ', apply_filters('nav_menu_submenu_css_class', $classes, $args, $depth));
+        $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+        $output .= "{$n}{$indent}<ul$class_names data-depth=\"{$depth}\">{$n}";
+    }
+}
+
+/**
+ * Register custom post types
+ */
+function fengshuihomestyle_vastu_register_post_types()
+{
+    // Services Custom Post Type
+    register_post_type('service', array(
+        'labels' => array(
+            'name' => __('Services', 'fengshuihomestyle-vastu'),
+            'singular_name' => __('Service', 'fengshuihomestyle-vastu'),
+            'add_new' => __('Add New Service', 'fengshuihomestyle-vastu'),
+            'add_new_item' => __('Add New Service', 'fengshuihomestyle-vastu'),
+            'edit_item' => __('Edit Service', 'fengshuihomestyle-vastu'),
+            'new_item' => __('New Service', 'fengshuihomestyle-vastu'),
+            'view_item' => __('View Service', 'fengshuihomestyle-vastu'),
+            'search_items' => __('Search Services', 'fengshuihomestyle-vastu'),
+            'not_found' => __('No services found', 'fengshuihomestyle-vastu'),
+            'not_found_in_trash' => __('No services found in trash', 'fengshuihomestyle-vastu'),
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'services'),
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+        'menu_icon' => 'dashicons-admin-multisite',
+        'menu_position' => 5,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+    ));
+
+    // Testimonials Custom Post Type
+    register_post_type('testimonial', array(
+        'labels' => array(
+            'name' => __('Testimonials', 'fengshuihomestyle-vastu'),
+            'singular_name' => __('Testimonial', 'fengshuihomestyle-vastu'),
+            'add_new' => __('Add New Testimonial', 'fengshuihomestyle-vastu'),
+            'add_new_item' => __('Add New Testimonial', 'fengshuihomestyle-vastu'),
+            'edit_item' => __('Edit Testimonial', 'fengshuihomestyle-vastu'),
+            'new_item' => __('New Testimonial', 'fengshuihomestyle-vastu'),
+            'view_item' => __('View Testimonial', 'fengshuihomestyle-vastu'),
+            'search_items' => __('Search Testimonials', 'fengshuihomestyle-vastu'),
+            'not_found' => __('No testimonials found', 'fengshuihomestyle-vastu'),
+            'not_found_in_trash' => __('No testimonials found in trash', 'fengshuihomestyle-vastu'),
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'menu_icon' => 'dashicons-star-filled',
+        'menu_position' => 6,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+    ));
+}
+add_action('init', 'fengshuihomestyle_vastu_register_post_types');
 
 /**
  * Customize Astra theme settings
@@ -265,6 +352,45 @@ function vastu_generate_alt_text($context = 'default', $post_id = null)
     
     return isset($alt_texts[$context]) ? esc_attr($alt_texts[$context]) : esc_attr($alt_texts['default']);
 }
+
+/**
+ * Optimized image output helper
+ * 
+ * Outputs an image tag with proper WordPress paths, lazy loading, and alt text.
+ *
+ * @param string $image_name The image filename (e.g., 'hero-image.webp')
+ * @param string $alt_text Optional custom alt text
+ * @param string $loading Optional loading attribute ('lazy' or 'eager')
+ * @param string $size Optional image size ('thumbnail', 'medium', 'large', 'full')
+ * @param array  $additional_attrs Optional additional HTML attributes
+ */
+function optimized_image($image_name, $alt_text = '', $loading = 'lazy', $size = 'full', $additional_attrs = array())
+{
+    $image_url = get_stylesheet_directory_uri() . '/assets/images/' . $image_name;
+    
+    // If no alt text provided, use empty string for decorative images
+    $alt_attr = !empty($alt_text) ? 'alt="' . esc_attr($alt_text) . '"' : 'alt=""';
+    
+    // Build additional attributes string
+    $attrs_string = '';
+    foreach ($additional_attrs as $key => $value) {
+        $attrs_string .= ' ' . esc_attr($key) . '="' . esc_attr($value) . '"';
+    }
+    
+    // Output the image tag with optimizations
+    echo '<img src="' . esc_url($image_url) . '" ' . $alt_attr . ' loading="' . esc_attr($loading) . '" decoding="async"' . $attrs_string . '>';
+}
+
+/**
+ * Add lazy loading to images in content
+ */
+function fengshuihomestyle_vastu_add_lazy_loading_to_images($content)
+{
+    // Add loading="lazy" to images in the content that don't already have it
+    $content = preg_replace('/<img((?![^>]*loading=)[^>]*)>/i', '<img$1 loading="lazy">', $content);
+    return $content;
+}
+add_filter('the_content', 'fengshuihomestyle_vastu_add_lazy_loading_to_images');
 
 /**
  * ========================================
