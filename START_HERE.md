@@ -25,7 +25,19 @@ Download from this repository:
 1. `vastu-config.php` - Automated configuration script
 2. `validate-theme.php` - Health check tool
 
-### Step 2: Upload to Your Server
+### Step 2: Configure Security (CRITICAL!)
+
+**Before uploading `vastu-config.php`:**
+
+1. Open the file in a text editor
+2. Find line 35: `define('VASTU_CONFIG_KEY', 'CHANGE_THIS_SECRET_KEY_BEFORE_USE');`
+3. Replace `CHANGE_THIS_SECRET_KEY_BEFORE_USE` with a unique secret key
+4. Generate a secure key at: https://api.wordpress.org/secret-key/1.1/salt/
+5. Save the file
+
+**⚠️ NEVER use the default key or share your secret key!**
+
+### Step 3: Upload to Your Server
 
 Upload both files to your WordPress root directory:
 ```
@@ -39,14 +51,19 @@ Upload both files to your WordPress root directory:
 - **Hostinger:** Files > File Manager > public_html > Upload
 - **FTP:** Use FileZilla, upload to /public_html/
 
-### Step 3: Run Configuration Script
+### Step 4: Run Configuration Script
+
+**Important:** Log in to WordPress admin panel first!
 
 Visit this URL in your browser:
 ```
-https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=vastu2026
+https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=YOUR_SECRET_KEY
 ```
 
-⚠️ **Use the exact URL above** (includes `?run=true&key=vastu2026`)
+⚠️ **Important:**
+- Replace `YOUR_SECRET_KEY` with the actual key you set in Step 2
+- You must be logged in to WordPress as an administrator
+- The script will not run without admin authentication
 
 ### Step 4: Verify Success
 
@@ -301,7 +318,7 @@ After deployment, verify:
 
 **Configuration URL:**
 ```
-https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=vastu2026
+https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=YOUR_SECRET_KEY
 ```
 
 **Validation URL:**

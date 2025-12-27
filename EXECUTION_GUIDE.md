@@ -37,12 +37,21 @@ Upload these two files to your WordPress root directory via FTP or Hostinger Fil
 
 ### STEP 2: Run Configuration Script (1 minute)
 
+**BEFORE running: Configure the secret key!**
+
+1. Open `vastu-config.php` in a text editor
+2. Line 35: Change `CHANGE_THIS_SECRET_KEY_BEFORE_USE` to a unique secret key
+3. Save the file
+
 **URL to visit:**
 ```
-https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=vastu2026
+https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=YOUR_SECRET_KEY
 ```
 
-**⚠️ IMPORTANT:** Use the exact URL above with `?run=true&key=vastu2026`
+**⚠️ IMPORTANT:** 
+- Replace `YOUR_SECRET_KEY` with the secret key you set in the file
+- You must be logged in to WordPress as an administrator first
+- The script requires admin authentication to run
 
 **What this script does:**
 - ✅ Activates fengshuihomestyle-vastu theme
@@ -367,7 +376,7 @@ You've successfully deployed a professional, fully-functional Vastu consultation
 │  .com                                   │
 │                                         │
 │  Configuration Script:                  │
-│  /vastu-config.php?run=true&key=vastu2026│
+│  /vastu-config.php?run=true&key=YOUR_SECRET_KEY│
 │                                         │
 │  Validation Script:                     │
 │  /validate-theme.php                    │

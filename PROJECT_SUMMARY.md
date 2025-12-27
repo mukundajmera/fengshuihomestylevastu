@@ -75,7 +75,7 @@ wp-content/themes/fengshuihomestyle-vastu/
 
 **Usage:**
 ```
-https://your-domain.com/vastu-config.php?run=true&key=vastu2026
+https://your-domain.com/vastu-config.php?run=true&key=YOUR_SECRET_KEY
 ```
 
 ### 4. Validation Tools ✅
@@ -335,7 +335,7 @@ Upload to WordPress root:
 
 **Step 2:** Run configuration
 ```
-Visit: /vastu-config.php?run=true&key=vastu2026
+Visit: /vastu-config.php?run=true&key=YOUR_SECRET_KEY
 ```
 
 **Step 3:** Validate
@@ -441,7 +441,7 @@ The Feng Shui Homestyle Vastu website is now:
 
 **Configuration URL:**
 ```
-https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=vastu2026
+https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=YOUR_SECRET_KEY
 ```
 
 **Validation URL:**

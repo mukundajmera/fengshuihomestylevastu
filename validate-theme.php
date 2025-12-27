@@ -5,7 +5,14 @@
  * Quick diagnostic tool to verify theme configuration and assets.
  * This helps identify issues before deployment.
  * 
- * USAGE: Place in WordPress root and visit: your-domain.com/validate-theme.php
+ * USAGE: 
+ * 1. Place in WordPress root directory
+ * 2. Log in to WordPress as an administrator
+ * 3. Visit: your-domain.com/validate-theme.php
+ * 4. Review the validation report
+ * 5. Delete this file after use (contains sensitive information)
+ * 
+ * SECURITY: Requires WordPress administrator login
  * 
  * @package Feng_Shui_Homestyle_Vastu
  */
@@ -16,6 +23,24 @@ if (!file_exists($wp_load)) {
     die('WordPress not found. Place this file in WordPress root directory.');
 }
 require_once $wp_load;
+
+// Ensure authentication helpers are available
+if (!function_exists('is_user_logged_in')) {
+    if (defined('ABSPATH')) {
+        @require_once ABSPATH . 'wp-includes/pluggable.php';
+    }
+}
+
+// Restrict access to logged-in administrators only
+if (!function_exists('is_user_logged_in') || !function_exists('current_user_can') || !is_user_logged_in() || !current_user_can('manage_options')) {
+    if (!headers_sent()) {
+        header('HTTP/1.1 403 Forbidden');
+        header('Content-Type: text/plain; charset=utf-8');
+    }
+    echo "Access denied. This diagnostic report is only available to site administrators.\n\n";
+    echo "Please log in to WordPress as an administrator first, then access this script.";
+    exit;
+}
 
 // HTML Header
 ?>
@@ -75,7 +100,15 @@ require_once $wp_load;
         echo '<table>';
         echo '<tr><th>Page</th><th>Status</th><th>ID</th></tr>';
         foreach ($required_pages as $page_title) {
-            $page = get_page_by_title($page_title);
+            $query = new WP_Query(
+                array(
+                    'post_type'      => 'page',
+                    'post_status'    => 'any',
+                    'title'          => $page_title,
+                    'posts_per_page' => 1,
+                )
+            );
+            $page = $query->have_posts() ? $query->posts[0] : null;
             if ($page) {
                 echo '<tr>';
                 echo '<td>' . esc_html($page_title) . '</td>';

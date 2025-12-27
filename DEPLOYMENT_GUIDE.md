@@ -17,7 +17,7 @@ This guide provides step-by-step instructions to deploy and configure the Feng S
 ### Step 1: Upload Configuration Script
 
 1. Upload `vastu-config.php` to your WordPress root directory (same level as wp-config.php)
-2. Access it via browser: `https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=vastu2026`
+2. Access it via browser: `https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=YOUR_SECRET_KEY`
 3. Review the configuration report
 4. **Important:** Delete `vastu-config.php` after successful execution for security
 

@@ -16,15 +16,18 @@
  * ✅ Runs comprehensive health check
  * 
  * USAGE:
- * 1. Upload this file to your WordPress root directory
- * 2. Visit: https://your-domain.com/vastu-config.php?run=true&key=vastu2026
- * 3. Review the configuration report
- * 4. Delete this file after successful execution
+ * 1. Edit this file and change the secret key on line 35
+ * 2. Upload this file to your WordPress root directory
+ * 3. Log in to WordPress as an administrator
+ * 4. Visit: https://your-domain.com/vastu-config.php?run=true&key=YOUR_SECRET_KEY
+ * 5. Review the configuration report
+ * 6. Delete this file after successful execution
  * 
  * SECURITY:
- * - Requires secret key parameter
+ * - Requires WordPress administrator login
+ * - Requires unique secret key (must be changed before use!)
  * - Can only run once (creates execution marker)
- * - Logs all actions
+ * - Logs all actions to server error log
  * 
  * @package Feng_Shui_Homestyle_Vastu
  * @version 2.0.0
@@ -32,8 +35,10 @@
  */
 
 // Configuration
-define('VASTU_CONFIG_KEY', 'vastu2026');
-define('EXECUTION_MARKER', __DIR__ . '/.vastu-configured');
+// IMPORTANT: Change this secret key before uploading to your server!
+// Generate a unique key at: https://api.wordpress.org/secret-key/1.1/salt/
+define('VASTU_CONFIG_KEY', getenv('VASTU_SECRET_KEY') ?: 'CHANGE_THIS_SECRET_KEY_BEFORE_USE');
+define('EXECUTION_MARKER', __DIR__ . '/wp-content/.vastu-configured');
 
 // HTML Output Helper
 function output_html_header() {
@@ -209,7 +214,20 @@ function check_security() {
         echo '<h2>🔒 Already Configured</h2>';
         echo '<p>This script has already been executed successfully.</p>';
         echo '<p>For security reasons, it can only run once.</p>';
-        echo '<p>If you need to reconfigure, delete the marker file: <span class="code">.vastu-configured</span></p>';
+        echo '<p>If you need to reconfigure, delete the marker file: <span class="code">wp-content/.vastu-configured</span></p>';
+        echo '</div>';
+        output_html_footer(false);
+        exit;
+    }
+    
+    // Warn if using default key
+    if (VASTU_CONFIG_KEY === 'CHANGE_THIS_SECRET_KEY_BEFORE_USE') {
+        output_html_header();
+        echo '<div class="section error">';
+        echo '<h2>⚠️ Security Warning</h2>';
+        echo '<p><strong>You must change the secret key before using this script!</strong></p>';
+        echo '<p>Edit line 35 of this file and replace <code>CHANGE_THIS_SECRET_KEY_BEFORE_USE</code> with a unique secret key.</p>';
+        echo '<p>Generate a secure key at: <a href="https://api.wordpress.org/secret-key/1.1/salt/" target="_blank">WordPress Secret Key Generator</a></p>';
         echo '</div>';
         output_html_footer(false);
         exit;
@@ -221,8 +239,9 @@ function check_security() {
         echo '<div class="section info">';
         echo '<h2>⏸️ Ready to Configure</h2>';
         echo '<p>This script will configure your entire Feng Shui Homestyle Vastu website.</p>';
-        echo '<p>Click the button below to start:</p>';
-        echo '<p style="margin-top: 20px;"><a href="?run=true&key=' . VASTU_CONFIG_KEY . '" class="btn">🚀 Start Configuration</a></p>';
+        echo '<p><strong>Before starting:</strong> Ensure you have changed the secret key in the script file!</p>';
+        echo '<p style="margin-top: 20px;"><a href="?run=true&key=YOUR_SECRET_KEY" class="btn">🚀 Start Configuration</a></p>';
+        echo '<p style="margin-top: 10px; font-size: 0.9em; color: #666;">Replace YOUR_SECRET_KEY with your actual secret key in the URL</p>';
         echo '</div>';
         output_html_footer(false);
         exit;
@@ -260,6 +279,18 @@ function load_wordpress() {
         echo '<div class="section error">';
         echo '<h2>❌ WordPress Failed to Load</h2>';
         echo '<p>WordPress environment could not be initialized.</p>';
+        echo '</div>';
+        output_html_footer(false);
+        exit;
+    }
+    
+    // Verify user is logged in as administrator
+    if (!is_user_logged_in() || !current_user_can('manage_options')) {
+        output_html_header();
+        echo '<div class="section error">';
+        echo '<h2>🚫 Access Denied</h2>';
+        echo '<p>You must be logged in as an administrator to run this configuration script.</p>';
+        echo '<p><a href="' . esc_url(admin_url()) . '">Log in to WordPress</a></p>';
         echo '</div>';
         output_html_footer(false);
         exit;
@@ -325,7 +356,14 @@ function create_pages() {
     );
     
     foreach ($pages as $title => $config) {
-        $existing = get_page_by_title($title);
+        // Use WP_Query instead of deprecated get_page_by_title
+        $existing_pages = get_posts(array(
+            'post_type'      => 'page',
+            'title'          => $title,
+            'post_status'    => 'any',
+            'posts_per_page' => 1,
+        ));
+        $existing = !empty($existing_pages) ? $existing_pages[0] : null;
         
         if (!$existing) {
             $page_id = wp_insert_post(array(
@@ -372,15 +410,34 @@ function setup_menus() {
     $primary_menu_name = 'Primary Menu';
     $primary_menu_id = wp_create_nav_menu($primary_menu_name);
     
+    // Handle case where menu already exists
+    if (is_wp_error($primary_menu_id) && 'menu_exists' === $primary_menu_id->get_error_code()) {
+        $existing_menu = wp_get_nav_menu_object($primary_menu_name);
+        if ($existing_menu && !is_wp_error($existing_menu)) {
+            $primary_menu_id = (int) $existing_menu->term_id;
+        }
+    }
+    
     if (!is_wp_error($primary_menu_id)) {
         $results['primary_menu'] = 'Created (ID: ' . $primary_menu_id . ')';
         
+        // Helper function to get page by title using WP_Query
+        $get_page = function($title) {
+            $pages = get_posts(array(
+                'post_type'      => 'page',
+                'title'          => $title,
+                'post_status'    => 'publish',
+                'posts_per_page' => 1,
+            ));
+            return !empty($pages) ? $pages[0] : null;
+        };
+        
         // Add menu items
-        $home_page = get_page_by_title('Home');
-        $about_page = get_page_by_title('About');
-        $services_page = get_page_by_title('Services');
-        $blog_page = get_page_by_title('Blog');
-        $contact_page = get_page_by_title('Contact');
+        $home_page = $get_page('Home');
+        $about_page = $get_page('About');
+        $services_page = $get_page('Services');
+        $blog_page = $get_page('Blog');
+        $contact_page = $get_page('Contact');
         
         if ($home_page) {
             wp_update_nav_menu_item($primary_menu_id, 0, array(
@@ -653,10 +710,13 @@ try {
     echo '</div>';
     
     // Create execution marker
-    file_put_contents(EXECUTION_MARKER, json_encode(array(
+    $markerData = json_encode(array(
         'executed_at' => date('Y-m-d H:i:s'),
         'success' => true
-    )));
+    ));
+    if (file_put_contents(EXECUTION_MARKER, $markerData) === false) {
+        throw new Exception('Failed to create execution marker file. Please check file permissions in wp-content directory.');
+    }
     
     echo '<div class="section success">';
     echo '<h2>🎉 Configuration Complete!</h2>';
@@ -674,11 +734,24 @@ try {
     output_html_footer(true);
     
 } catch (Exception $e) {
+    // Log detailed error information server-side instead of exposing it to the browser
+    $log_message = sprintf(
+        '[Vastu Config Error] %s in %s on line %d%sStack trace:%s%s',
+        $e->getMessage(),
+        $e->getFile(),
+        $e->getLine(),
+        PHP_EOL,
+        PHP_EOL,
+        $e->getTraceAsString()
+    );
+    error_log($log_message);
+
+    // Show a generic error message to the user
     echo '<div class="section error">';
     echo '<h2>❌ Configuration Error</h2>';
+    echo '<p>An unexpected error occurred while running the configuration script.</p>';
     echo '<p><strong>Error:</strong> ' . htmlspecialchars($e->getMessage()) . '</p>';
-    echo '<p><strong>File:</strong> ' . htmlspecialchars($e->getFile()) . ' (Line ' . $e->getLine() . ')</p>';
-    echo '<pre>' . htmlspecialchars($e->getTraceAsString()) . '</pre>';
+    echo '<p>Please check the server error logs for more details, or contact your site administrator.</p>';
     echo '</div>';
     output_html_footer(false);
 }

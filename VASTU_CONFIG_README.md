@@ -20,6 +20,18 @@ This script automatically:
 
 ## 🎯 How to Use
 
+### Step 0: Configure Secret Key (IMPORTANT!)
+
+**Before uploading the script:**
+
+1. Open `vastu-config.php` in a text editor
+2. Find line 35: `define('VASTU_CONFIG_KEY', 'CHANGE_THIS_SECRET_KEY_BEFORE_USE');`
+3. Replace `CHANGE_THIS_SECRET_KEY_BEFORE_USE` with a unique, strong secret key
+4. Generate a secure key at: https://api.wordpress.org/secret-key/1.1/salt/
+5. Save the file
+
+**⚠️ CRITICAL:** Never use the default key or share your secret key publicly!
+
 ### Step 1: Upload the File
 
 Upload `vastu-config.php` to your WordPress root directory (same folder as wp-config.php).
@@ -44,10 +56,13 @@ Upload `vastu-config.php` to your WordPress root directory (same folder as wp-co
 Open your browser and visit:
 
 ```
-https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=vastu2026
+https://honeydew-cormorant-288039.hostingersite.com/vastu-config.php?run=true&key=YOUR_SECRET_KEY
 ```
 
-**Important:** Use the exact URL with `?run=true&key=vastu2026` parameters
+**Important:** 
+- Replace `YOUR_SECRET_KEY` with the actual secret key you set in Step 0
+- You must be logged in to WordPress as an administrator
+- The script will not run without proper authentication
 
 ### Step 3: Review the Report
 
@@ -107,7 +122,7 @@ The script creates a marker file (`.vastu-configured`) to prevent re-execution.
 
 **Solution:** Ensure you're using the complete URL with the key parameter:
 ```
-https://your-domain.com/vastu-config.php?run=true&key=vastu2026
+https://your-domain.com/vastu-config.php?run=true&key=YOUR_SECRET_KEY
 ```
 
 ### Issue: "Already configured" message
@@ -212,8 +227,8 @@ The manual process takes about 30 minutes vs. 30 seconds with this script.
 ## Quick Reference
 
 **Upload To:** WordPress root (same as wp-config.php)  
-**Access URL:** `https://your-domain.com/vastu-config.php?run=true&key=vastu2026`  
+**Access URL:** `https://your-domain.com/vastu-config.php?run=true&key=YOUR_SECRET_KEY`  
 **Execution Time:** ~5-10 seconds  
 **After Success:** DELETE the script file  
 **Marker File:** `.vastu-configured` (auto-created)  
-**Security Key:** `vastu2026`
+**Security Key:** Generate your own unique key
