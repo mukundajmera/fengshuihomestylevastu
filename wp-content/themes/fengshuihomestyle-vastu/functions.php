@@ -209,8 +209,8 @@ function fengshuihomestyle_vastu_custom_meta_tags()
     echo '<link rel="canonical" href="' . esc_url($canonical_url) . '">' . "\n";
     
     if (is_front_page()) {
-        echo '<meta name="description" content="Scientific Vastu & Feng Shui Consultations. 100% Remote. 0% Demolition. Over 25 years of expert guidance by Sanjay Jain.">' . "\n";
-        echo '<meta name="keywords" content="Vastu Shastra, Feng Shui, Remote Consultation, AutoCAD Floor Plan, Satellite Mapping, Sanjay Jain">' . "\n";
+        echo '<meta name="description" content="Expert Feng Shui and Vastu consultancy services. Harmonize your living and workspace with ancient wisdom for prosperity, health, and peace. 25+ years experience. Free consultation available.">' . "\n";
+        echo '<meta name="keywords" content="Feng Shui consultant, Vastu Shastra, Remote Consultation, Home Energy, Office Vastu, AutoCAD Floor Plan, Satellite Mapping, Sanjay Jain">' . "\n";
         
         // Open Graph meta tags for social sharing
         echo '<meta property="og:title" content="Feng Shui Homestyle Vastu - Harmonize Your Space, Transform Your Life">' . "\n";
@@ -231,6 +231,46 @@ function fengshuihomestyle_vastu_custom_meta_tags()
         echo '<meta name="twitter:description" content="Scientific Vastu: Harmony without Demolition. 25+ years of expertise.">' . "\n";
         echo '<meta name="twitter:image" content="' . esc_url($og_image) . '">' . "\n";
     }
+    
+    // Enhanced meta tags for singular posts and pages
+    if (is_singular() && !is_front_page()) {
+        global $post;
+        
+        // Generate description from post content
+        $description = has_excerpt() ? get_the_excerpt() : wp_trim_words(strip_tags($post->post_content), 30);
+        echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
+        
+        // Open Graph tags for posts/pages
+        echo '<meta property="og:title" content="' . esc_attr(get_the_title()) . ' - Feng Shui Homestyle Vastu">' . "\n";
+        echo '<meta property="og:description" content="' . esc_attr($description) . '">' . "\n";
+        echo '<meta property="og:type" content="article">' . "\n";
+        echo '<meta property="og:url" content="' . esc_url(get_permalink()) . '">' . "\n";
+        echo '<meta property="og:site_name" content="Feng Shui Homestyle Vastu">' . "\n";
+        
+        // OG Image from featured image or fallback
+        if (has_post_thumbnail()) {
+            $og_image = get_the_post_thumbnail_url(null, 'large');
+            echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
+        } else {
+            $og_image = get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg';
+            echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
+        }
+        
+        // Article specific tags
+        if (is_single()) {
+            echo '<meta property="article:published_time" content="' . esc_attr(get_the_date('c')) . '">' . "\n";
+            echo '<meta property="article:modified_time" content="' . esc_attr(get_the_modified_date('c')) . '">' . "\n";
+            echo '<meta property="article:author" content="Sanjay Jain">' . "\n";
+        }
+        
+        // Twitter Card tags
+        echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+        echo '<meta name="twitter:title" content="' . esc_attr(get_the_title()) . '">' . "\n";
+        echo '<meta name="twitter:description" content="' . esc_attr($description) . '">' . "\n";
+        if (has_post_thumbnail()) {
+            echo '<meta name="twitter:image" content="' . esc_url(get_the_post_thumbnail_url(null, 'large')) . '">' . "\n";
+        }
+    }
 }
 add_action('wp_head', 'fengshuihomestyle_vastu_custom_meta_tags', 1);
 
@@ -249,6 +289,28 @@ function fengshuihomestyle_vastu_preload_critical_resources()
     }
 }
 add_action('wp_head', 'fengshuihomestyle_vastu_preload_critical_resources', 0);
+
+/**
+ * Remove unnecessary WordPress features for better performance
+ */
+function fengshuihomestyle_vastu_remove_unnecessary_features()
+{
+    // Remove WordPress version from head (already done in optimize_performance)
+    remove_action('wp_head', 'wp_generator');
+    
+    // Remove Windows Live Writer manifest link
+    remove_action('wp_head', 'wlwmanifest_link');
+    
+    // Remove Really Simple Discovery (RSD) link
+    remove_action('wp_head', 'rsd_link');
+    
+    // Remove shortlink
+    remove_action('wp_head', 'wp_shortlink_wp_head', 10);
+    
+    // Remove REST API link (if not needed for front-end)
+    // remove_action('wp_head', 'rest_output_link_wp_head', 10);
+}
+add_action('init', 'fengshuihomestyle_vastu_remove_unnecessary_features');
 
 /**
  * Add WhatsApp chat widget
