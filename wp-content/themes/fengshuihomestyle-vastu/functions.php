@@ -219,7 +219,7 @@ function fengshuihomestyle_vastu_custom_meta_tags()
         echo '<meta property="og:url" content="' . esc_url(home_url('/')) . '">' . "\n";
         
         // OG Image for WhatsApp/LinkedIn preview
-        $og_image = get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg';
+        $og_image = get_stylesheet_directory_uri() . '/assets/images/hero_energy_foyer.png';
         echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
         echo '<meta property="og:image:width" content="1200">' . "\n";
         echo '<meta property="og:image:height" content="630">' . "\n";
@@ -252,7 +252,7 @@ function fengshuihomestyle_vastu_custom_meta_tags()
             $og_image = get_the_post_thumbnail_url(null, 'large');
             echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
         } else {
-            $og_image = get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg';
+            $og_image = get_stylesheet_directory_uri() . '/assets/images/hero_energy_foyer.png';
             echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
         }
         
@@ -285,7 +285,7 @@ function fengshuihomestyle_vastu_preload_critical_resources()
     
     // Preload hero image for LCP optimization on the front page
     if (is_front_page()) {
-        echo '<link rel="preload" as="image" href="' . esc_url(get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.webp') . '" fetchpriority="high">' . "\n";
+        echo '<link rel="preload" as="image" href="' . esc_url(get_stylesheet_directory_uri() . '/assets/images/hero_energy_foyer.png') . '" fetchpriority="high">' . "\n";
     }
 }
 add_action('wp_head', 'fengshuihomestyle_vastu_preload_critical_resources', 0);
@@ -737,7 +737,7 @@ function fengshuihomestyle_vastu_schema_markup()
             '@context' => 'https://schema.org',
             '@type' => 'ProfessionalService',
             'name' => 'Feng Shui Homestyle Vastu',
-            'image' => get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg',
+            'image' => get_stylesheet_directory_uri() . '/assets/images/hero_energy_foyer.png',
             '@id' => home_url(),
             'url' => home_url(),
             'telephone' => '+919828088678',

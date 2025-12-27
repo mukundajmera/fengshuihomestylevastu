@@ -161,7 +161,7 @@ class Vastu_Schema_Generator
                 'width' => 600,
                 'height' => 60,
             ],
-            'image' => get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg',
+            'image' => get_stylesheet_directory_uri() . '/assets/images/hero_energy_foyer.png',
             'telephone' => self::PHONE,
             'email' => 'contact@fengshuihomestylevastu.com',
             'founder' => $this->get_founder_schema(),
@@ -243,7 +243,7 @@ class Vastu_Schema_Generator
 
         $thumbnail_url = get_the_post_thumbnail_url($post->ID, 'large');
         if (!$thumbnail_url) {
-            $thumbnail_url = get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg';
+            $thumbnail_url = get_stylesheet_directory_uri() . '/assets/images/hero_energy_foyer.png';
         }
 
         // Calculate word count for reading time
@@ -346,7 +346,7 @@ class Vastu_Schema_Generator
             '@type' => 'LocalBusiness',
             '@id' => home_url('/#localbusiness'),
             'name' => self::ORG_NAME,
-            'image' => get_stylesheet_directory_uri() . '/assets/images/hero-serene-living-space.jpg',
+            'image' => get_stylesheet_directory_uri() . '/assets/images/hero_energy_foyer.png',
             'telephone' => self::PHONE,
             'priceRange' => '$$',
             'address' => [
