@@ -72,31 +72,15 @@ function fengshuihomestyle_vastu_register_menus()
 add_action('init', 'fengshuihomestyle_vastu_register_menus');
 
 /**
- * Custom walker for responsive navigation menu
+ * Simplified custom walker for mobile navigation
+ * Adds data-depth attribute for responsive menu styling
  */
 class Mobile_Walker_Nav_Menu extends Walker_Nav_Menu
 {
-    /**
-     * Starts the list before the elements are added.
-     *
-     * @param string   $output Used to append additional content.
-     * @param int      $depth  Depth of menu item.
-     * @param stdClass $args   An object of wp_nav_menu() arguments.
-     */
     public function start_lvl(&$output, $depth = 0, $args = null)
     {
-        if (isset($args->item_spacing) && 'discard' === $args->item_spacing) {
-            $t = '';
-            $n = '';
-        } else {
-            $t = "\t";
-            $n = "\n";
-        }
-        $indent = str_repeat($t, $depth);
-        $classes = array('sub-menu');
-        $class_names = implode(' ', apply_filters('nav_menu_submenu_css_class', $classes, $args, $depth));
-        $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
-        $output .= "{$n}{$indent}<ul$class_names data-depth=\"{$depth}\">{$n}";
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n{$indent}<ul class=\"sub-menu\" data-depth=\"{$depth}\">\n";
     }
 }
 
