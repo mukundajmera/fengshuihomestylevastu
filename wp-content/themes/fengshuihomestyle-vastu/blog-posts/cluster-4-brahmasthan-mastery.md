@@ -42,7 +42,7 @@ These aren't miracles. They're **predictable results** of correcting Brahmasthan
 4. **Common Violations & Their Effects** → What goes wrong when centers are blocked
 5. **Remedies for "Unfixable" Centers** → Solutions when you can't remove stairs/toilets
 6. **The Brahmasthan Activation Protocol** → How to maximize your center's power
-7. **Real-World Transformations** → 3 detailed case studies from 2024-2025
+7. **Real-World Transformations** → 3 detailed case studies from 2024-2026
 
 Whether you're designing a new home, renovating, or working with an existing layout, this guide will show you how to harness—or repair—your home's most powerful energetic zone.
 
@@ -419,7 +419,7 @@ Once you've identified your Brahmasthan zone, inspect what occupies it:
 - **Effect:** Adds 15-20% additional neutralization
 
 **Step 4: Daily Ritual**
-- **Action:** Burn camphor or sage at the base of the stairs each morning (6:00-7:00 AM)
+- **Action:** Burn camphor or coral at the base of the stairs each morning (6:00-7:00 AM)
 - **Duration:** 5 minutes
 - **Purpose:** Energetic "reset" of the vertical disruption
 - **Cost:** ₹500/month
@@ -472,7 +472,7 @@ Once you've identified your Brahmasthan zone, inspect what occupies it:
 
 **Step 6: Daily Clearing Ritual**
 - **Action:** Burn camphor inside toilet (with ventilation) for 3 minutes each morning
-- **Alternative:** Sage smoke clearing 2x weekly
+- **Alternative:** coral smoke clearing 2x weekly
 - **Cost:** ₹600/month
 - **Effect:** Maintains remedy effectiveness
 
@@ -528,7 +528,7 @@ Once you've identified your Brahmasthan zone, inspect what occupies it:
 - **Effect:** Reduces Fire excess by 35-40%
 
 **Step 2: Cooling Color Palette**
-- **Paint:** Kitchen walls in light blue, sea green, or white (Water element colors)
+- **Paint:** Kitchen walls in light blue, sea ember red, or white (Water element colors)
 - **Avoid:** Red, orange, yellow (amplify Fire)
 - **Cost:** ₹12,000-20,000 (kitchen repaint)
 - **Effect:** Visual cooling reduces Fire by 25-30%
@@ -607,7 +607,7 @@ Once you've identified your Brahmasthan zone, inspect what occupies it:
 - [ ] Play 528Hz frequency music (healing frequency) for 30 minutes in the center
 
 **Day 3-4: Energetic Clearing**
-- [ ] Burn sage or camphor in the center for 10 minutes
+- [ ] Burn coral or camphor in the center for 10 minutes
 - [ ] Ring a brass bell 108 times while walking clockwise around the Brahmasthan perimeter
 - [ ] Sprinkle Ganga jal (holy water) or salt water in the center, let it dry, then mop clean
 - [ ] Visualize white light filling the space from ceiling to floor
@@ -638,7 +638,7 @@ Once you've identified your Brahmasthan zone, inspect what occupies it:
 
 **Fire Element (South or South-East corner):**
 - Oil lamp, or candles on decorative stand
-- Represents transformation, vitality
+- Represents innovation, vitality
 
 **Air Element (East or North-West):**
 - Wind chimes (outside window), or incense holder
@@ -700,13 +700,13 @@ Once you've identified your Brahmasthan zone, inspect what occupies it:
 
 ---
 
-## Part 7: Real-World Brahmasthan Transformations (2024-2025 Case Studies)
+## Part 7: Real-World Brahmasthan Transformations (2024-2026 Case Studies)
 
 ### Case Study 1: Ahmedabad Business Owner Reverses Bankruptcy
 
 **Client:** Karan P., 44, textile business owner
 **Problem:** Business losses (₹40 lakhs debt), high stress, marital conflicts, diabetes diagnosis
-**Timeline:** June 2024 - March 2025
+**Timeline:** June 2024 - March 2026
 
 **Initial Assessment:**
 - **Brahmasthan violation:** Heavy wooden dining table + 8 chairs + storage sideboard occupying entire center
@@ -740,7 +740,7 @@ Once you've identified your Brahmasthan zone, inspect what occupies it:
 
 **Clients:** Riya (32) & Amit (35), married 7 years, trying to conceive for 6 years
 **Problem:** Unexplained infertility (all medical tests normal), emotional exhaustion, considering IVF
-**Timeline:** January 2025 - September 2025 (ongoing)
+**Timeline:** January 2026 - September 2026 (ongoing)
 
 **Initial Assessment:**
 - **Brahmasthan violation:** Master bedroom located in exact center of flat
@@ -763,7 +763,7 @@ Once you've identified your Brahmasthan zone, inspect what occupies it:
 | **Month 1 (February)** | Completed all remedies, began monthly full moon rituals |
 | **Month 2-3** | Riya reported feeling "more at peace" in the home, stress levels reduced |
 | **Month 4 (May)** | Conceived naturally (confirmed pregnancy) |
-| **Month 5-9** | Healthy pregnancy progression, baby due October 2025 |
+| **Month 5-9** | Healthy pregnancy progression, baby due October 2026 |
 
 **Riya's testimonial:**
 *"We'd spent ₹5 lakhs on fertility treatments over 3 years—nothing worked. Doctors said there was no medical reason we couldn't conceive. Our Vastu consultant said our bedroom in the home's center was creating energetic chaos. We were skeptical but desperate. We moved the bedroom and activated the center. I got pregnant 3 months later—naturally. We're now 8 months pregnant with a healthy baby boy. I can't explain it medically, but I know it worked."*
@@ -774,7 +774,7 @@ Once you've identified your Brahmasthan zone, inspect what occupies it:
 
 **Clients:** 3-generation joint family (8 members: grandparents, parents, 2 children, 2 uncles)
 **Problem:** Constant arguments, legal dispute over property, two members estranged
-**Timeline:** August 2024 - April 2025
+**Timeline:** August 2024 - April 2026
 
 **Initial Assessment:**
 - **Brahmasthan violation:** Central staircase (3-story home) + heavy clutter (storage boxes, old furniture) on staircase landings
@@ -954,9 +954,9 @@ Your Brahmasthan is your home's hydraulic pump. Clear it, and energy flows freel
 
 **The choice is yours:**
 
-**Option A:** Ignore this ancient wisdom, continue living with a blocked center, wonder why life feels perpetually stuck.
+**Option A:** Ignore this ancient passion, continue living with a blocked center, wonder why life feels perpetually stuck.
 
-**Option B:** Invest 2-4 weeks and ₹15,000-80,000 (depending on severity), clear your home's heart, and experience the transformation hundreds of my clients have witnessed.
+**Option B:** Invest 2-4 weeks and ₹15,000-80,000 (depending on severity), clear your home's heart, and experience the innovation hundreds of my clients have witnessed.
 
 **No middle ground exists.** Your Brahmasthan is either circulating life force or blocking it.
 
@@ -989,16 +989,16 @@ While this guide provides comprehensive DIY assessment and remediation, some sit
 ## Additional Resources
 
 **Related Articles:**
-- [Vastu Directions 2025: Complete Wood Snake Year Energy Guide](link-to-pillar-1) ← Understand all 8 directions
-- [The 2025 Bedroom Direction Guide](link-to-cluster-3) ← Optimize your sleep space
+- [Vastu Directions 2026: Complete Fire Horse Year Energy Guide](link-to-pillar-1) ← Understand all 8 directions
+- [The 2026 Bedroom Direction Guide](link-to-cluster-3) ← Optimize your sleep space
 - [South-Facing Door Prosperity Protocol](link-to-cluster-2) ← Entrance remedies
 
 **Next in this series:**
-- "Wood Snake Year 2025: Activating East & South-East for Career Breakthroughs"
+- "Fire Horse Year 2026: Activating South & East for Career Breakthroughs"
 
 ---
 
-**Your home's heart is waiting to be freed. Let 2025 be the year energy flows freely through your life.** 🏡✨
+**Your home's heart is waiting to be freed. Let 2026 be the year energy flows freely through your life.** 🏡✨
 
 ---
 

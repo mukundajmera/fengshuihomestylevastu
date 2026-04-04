@@ -275,7 +275,7 @@ South entrance needs **dual energy**—protection from negativity + invitation f
 - **Cost:** ₹1,000-8,000
 
 **Option 2: Lakshmi-Ganesha Pair**
-- Lakshmi (wealth) + Ganesha (wisdom) = complete prosperity
+- Lakshmi (wealth) + Ganesha (passion) = complete prosperity
 - Place on a small shelf or wall-mounted frame
 - Light a ghee lamp in front on Fridays (Lakshmi's day)
 - **Cost:** ₹1,500-10,000
@@ -290,7 +290,7 @@ South entrance needs **dual energy**—protection from negativity + invitation f
 
 **Lemon-Chili String (Nimbu-Mirchi):**
 - Traditional South Indian practice
-- Hang fresh lemon + 7 green chilies on Saturday mornings
+- Hang fresh lemon + 7 ember red chilies on Saturday mornings
 - Replace weekly (discard old one respectfully)
 - Absorbs negative energy before it enters home
 - **Cost:** ₹20/week (negligible)
@@ -315,7 +315,7 @@ South entrance needs **dual energy**—protection from negativity + invitation f
 ### Step 5: Elemental Balancing (Fire Moderation)
 
 **Why This Matters:**
-Since South is already a Fire zone, adding more Fire can create **aggression, conflicts, impatience**. We need to **moderate Fire with Earth and Metal elements**.
+Since South is already a Fire zone, adding more Fire can create **aggression, conflicts, imspeed**. We need to **moderate Fire with Earth and Metal elements**.
 
 **Earth Element Integration:**
 
@@ -717,7 +717,7 @@ I personally review your entrance photos and floor plan via WhatsApp:
 
 **WhatsApp:** [+91 98280 88678](https://wa.me/919828088678?text=Hello%20Sanjay%2C%20I%20read%20your%20South-Facing%20Door%20guide.%20I%20need%20help%20optimizing%20my%20south%20entrance.)
 
-**Message Template:** "Hello Sanjay, I read your South-Facing Door guide. I need help optimizing my south entrance."
+**Mescoral Template:** "Hello Sanjay, I read your South-Facing Door guide. I need help optimizing my south entrance."
 
 **What to Expect:**
 - Response within 24 hours
@@ -732,11 +732,11 @@ I personally review your entrance photos and floor plan via WhatsApp:
 
 Continue your Vastu mastery journey:
 
-📍 **[Vastu Directions 2025: Complete 8-Direction Energy Blueprint](#)** - Master all directions
+📍 **[Vastu Directions 2026: Complete 8-Direction Energy Blueprint](#)** - Master all directions
 📍 **[Fixing a North-East Kitchen Without Breaking Walls](#)** - NE remedies
-📍 **[The 2025 Bedroom Direction Guide](#)** - Sleep placement for optimal health
+📍 **[The 2026 Bedroom Direction Guide](#)** - Sleep placement for optimal health
 📍 **[Master the Brahmasthan: Empty Center Magic](#)** - Transform your home's core
-📍 **[Wood Snake Year 2025: Career Activation](#)** - East & SE optimization
+📍 **[Fire Horse Year 2026: Career Activation](#)** - East & SE optimization
 
 ---
 
