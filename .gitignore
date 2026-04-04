@@ -1,0 +1,17 @@
+# Archive directory - pioneer scripts and deprecated themes
+/scripts/archive/
+
+# WordPress core files
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/backup-db/
+
+# Log files
+*.log
+error_log
+debug.log
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -36,11 +36,27 @@ function fengshuihomestyle_vastu_enqueue_styles()
         wp_get_theme()->get('Version')
     );
 
+    // Enqueue AOS (Animate on Scroll) library
+    wp_enqueue_style(
+        'aos-css',
+        'https://unpkg.com/aos@2.3.4/dist/aos.css',
+        array(),
+        '2.3.4'
+    );
+
+    wp_enqueue_script(
+        'aos-js',
+        'https://unpkg.com/aos@2.3.4/dist/aos.js',
+        array(),
+        '2.3.4',
+        true
+    );
+
     // Enqueue custom JavaScript
     wp_enqueue_script(
         'fengshuihomestyle-vastu-script',
         get_stylesheet_directory_uri() . '/assets/js/custom.js',
-        array('jquery'),
+        array('jquery', 'aos-js'),
         wp_get_theme()->get('Version'),
         true
     );
@@ -52,7 +68,7 @@ add_action('wp_enqueue_scripts', 'fengshuihomestyle_vastu_enqueue_styles', 15);
  */
 function fengshuihomestyle_vastu_body_classes($classes)
 {
-    $classes[] = 'digital-zen';
+    $classes[] = 'fire-horse-2026';
     $classes[] = 'feng-shui-theme';
     return $classes;
 }
@@ -72,31 +88,15 @@ function fengshuihomestyle_vastu_register_menus()
 add_action('init', 'fengshuihomestyle_vastu_register_menus');
 
 /**
- * Custom walker for responsive navigation menu
+ * Simplified custom walker for mobile navigation
+ * Adds data-depth attribute for responsive menu styling
  */
 class Mobile_Walker_Nav_Menu extends Walker_Nav_Menu
 {
-    /**
-     * Starts the list before the elements are added.
-     *
-     * @param string   $output Used to append additional content.
-     * @param int      $depth  Depth of menu item.
-     * @param stdClass $args   An object of wp_nav_menu() arguments.
-     */
     public function start_lvl(&$output, $depth = 0, $args = null)
     {
-        if (isset($args->item_spacing) && 'discard' === $args->item_spacing) {
-            $t = '';
-            $n = '';
-        } else {
-            $t = "\t";
-            $n = "\n";
-        }
-        $indent = str_repeat($t, $depth);
-        $classes = array('sub-menu');
-        $class_names = implode(' ', apply_filters('nav_menu_submenu_css_class', $classes, $args, $depth));
-        $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
-        $output .= "{$n}{$indent}<ul$class_names data-depth=\"{$depth}\">{$n}";
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n{$indent}<ul class=\"sub-menu\" data-depth=\"{$depth}\">\n";
     }
 }
 
@@ -1151,3 +1151,56 @@ function fengshuihomestyle_vastu_contact_form_messages()
     }
 }
 add_action('wp_footer', 'fengshuihomestyle_vastu_contact_form_messages');
+
+/**
+ * Fire Horse 2026 Dark Mode Toggle
+ * Add dark mode toggle button and JavaScript for theme switching
+ */
+function fengshuihomestyle_vastu_dark_mode_toggle()
+{
+    ?>
+    <button class="dark-mode-toggle" aria-label="Toggle dark mode" id="darkModeToggle">
+        <span class="toggle-icon">🌙</span>
+    </button>
+    <script>
+    (function() {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const toggleIcon = darkModeToggle.querySelector('.toggle-icon');
+        
+        // Check for saved dark mode preference or system preference
+        const isDarkMode = localStorage.getItem('darkMode') === 'true' || 
+                          (localStorage.getItem('darkMode') === null && 
+                           window.matchMedia('(prefers-color-scheme: dark)').matches);
+        
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            toggleIcon.textContent = '☀️';
+        }
+        
+        darkModeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            toggleIcon.textContent = isDark ? '☀️' : '🌙';
+            
+            // Fire Horse energy: smooth transition announcement
+            if (isDark) {
+                console.log('🔥 Fire Horse Dark Mode Activated');
+            } else {
+                console.log('🌅 Fire Horse Light Mode Activated');
+            }
+        });
+        
+        // Listen for system dark mode changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (localStorage.getItem('darkMode') === null) {
+                body.classList.toggle('dark-mode', e.matches);
+                toggleIcon.textContent = e.matches ? '☀️' : '🌙';
+            }
+        });
+    })();
+    </script>
+    <?php
+}
+add_action('wp_footer', 'fengshuihomestyle_vastu_dark_mode_toggle');
