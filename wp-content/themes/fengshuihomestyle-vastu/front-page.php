@@ -25,14 +25,16 @@ get_header();
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
-                <h1 class="hero-headline">Harmonize Your Space, Transform Your Life.</h1>
-                <p class="hero-subheadline">
+                <h1 class="hero-headline" data-aos="fade-down" data-aos-duration="1000">Harmonize Your Space, Transform Your Life.</h1>
+                <p class="hero-subheadline" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                     Experience Scientific Vastu & Feng Shui that solves Health, Wealth, and Relationship challenges—without breaking a single brick. Over 25 years of mastery brought to your doorstep via 100% Remote Consultations.
                 </p>
-                
-                <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space." 
-                   class="cta-primary ripple-effect" 
-                   target="_blank" 
+
+                <a href="https://wa.me/919828088678?text=Hello%20Sanjay,%20I%20would%20like%20to%20consult%20regarding%20my%20space."
+                   class="cta-primary ripple-effect fire-glow"
+                   data-aos="zoom-in"
+                   data-aos-delay="400"
+                   target="_blank"
                    rel="noopener noreferrer">
                     📱 Chat with Sanjay Jain on WhatsApp
                 </a>
@@ -41,8 +43,8 @@ get_header();
 
         <!-- RESIDENTIAL SOLUTIONS - Interactive Grid -->
         <section class="residential-solutions-section">
-            <h2 class="section-title">Life Solutions</h2>
-            <p class="section-subtitle">Transform every space in your home into a sanctuary of harmony and prosperity</p>
+            <h2 class="section-title" data-aos="fade-up">Life Solutions</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Transform every space in your home into a sanctuary of harmony and prosperity</p>
             
             <div class="residential-grid">
                 <div class="glass-card residential-card" data-aos="fade-up" data-aos-delay="100">

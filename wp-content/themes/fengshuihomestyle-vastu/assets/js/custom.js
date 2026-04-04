@@ -345,3 +345,226 @@
     });
 
 })(jQuery);
+
+/**
+ * Fire Horse 2026 - AOS (Animate on Scroll) Initialization
+ */
+(function() {
+    'use strict';
+
+    // Initialize AOS when DOM is ready
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100,
+            delay: 0,
+            disable: function() {
+                // Respect prefers-reduced-motion
+                return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            }
+        });
+
+        // Fire Horse console message
+        console.log('%c🔥🐴 Fire Horse 2026 Animations Active', 'font-size: 16px; color: #C44536; font-weight: bold;');
+    }
+
+    // Refresh AOS on dynamic content load
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    });
+})();
+
+/**
+ * Fire Horse 2026 - Advanced Micro-interactions
+ */
+(function($) {
+    'use strict';
+
+    $(document).ready(function() {
+
+        // Card glow effect on hover (Fire Horse energy)
+        $('.glass-card, .residential-card, .commercial-card').hover(
+            function() {
+                $(this).css({
+                    'box-shadow': '0 15px 40px rgba(196, 69, 54, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6)',
+                    'border-color': 'rgba(231, 111, 81, 0.5)'
+                });
+            },
+            function() {
+                $(this).css({
+                    'box-shadow': '',
+                    'border-color': ''
+                });
+            }
+        );
+
+        // Button lift animation with Fire Horse energy
+        $('.cta-primary, .cta-secondary').hover(
+            function() {
+                $(this).css('transform', 'translateY(-5px) scale(1.02)');
+            },
+            function() {
+                $(this).css('transform', '');
+            }
+        );
+
+        // Icon pulse animation for important elements
+        $('.trust-icon, .proof-icon, .service-icon').each(function(index) {
+            $(this).css('animation-delay', (index * 0.1) + 's');
+        });
+
+        // Loading state for forms
+        $('form').on('submit', function() {
+            var $submitBtn = $(this).find('button[type="submit"], input[type="submit"]');
+            var originalText = $submitBtn.text();
+            
+            $submitBtn.prop('disabled', true)
+                      .html('<span class="spinner"></span> ' + originalText + '...')
+                      .css('opacity', '0.7');
+        });
+
+        // Focus trap for modals (accessibility)
+        var $modal = $('.modal, .popup, .dialog');
+        if ($modal.length) {
+            $modal.on('show', function() {
+                var $firstFocusable = $(this).find('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])').first();
+                $firstFocusable.focus();
+            });
+
+            // Trap focus within modal
+            $modal.on('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    var $focusable = $(this).find('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    var $first = $focusable.first();
+                    var $last = $focusable.last();
+
+                    if (e.shiftKey) {
+                        if (document.activeElement === $first[0]) {
+                            $last.focus();
+                            e.preventDefault();
+                        }
+                    } else {
+                        if (document.activeElement === $last[0]) {
+                            $first.focus();
+                            e.preventDefault();
+                        }
+                    }
+                }
+
+                // Close on Escape
+                if (e.key === 'Escape') {
+                    $(this).trigger('hide');
+                }
+            });
+        }
+
+        // High contrast mode detection and application
+        if (window.matchMedia('(prefers-contrast: high)').matches) {
+            $('body').addClass('high-contrast-mode');
+            console.log('🔲 High Contrast Mode Detected');
+        }
+
+        // Parallax effect for hero background (Fire Horse dynamic energy)
+        var $heroSection = $('.hero-section');
+        if ($heroSection.length) {
+            $(window).on('scroll', function() {
+                var scrolled = $(window).scrollTop();
+                var parallax = scrolled * 0.5;
+                $heroSection.css('background-position', 'center ' + parallax + 'px');
+            });
+        }
+
+        // Stagger animation for lists
+        $('.feature-list li, .service-list li').each(function(index) {
+            $(this).css({
+                'opacity': '0',
+                'transform': 'translateX(-20px)'
+            });
+            
+            setTimeout(() => {
+                $(this).css({
+                    'opacity': '1',
+                    'transform': 'translateX(0)',
+                    'transition': 'all 0.5s ease-out ' + (index * 0.1) + 's'
+                });
+            }, 100);
+        });
+
+        // Number counter animation for stats
+        $('.proof-number, .stat-number').each(function() {
+            var $this = $(this);
+            var countTo = parseInt($this.text().replace(/[^0-9]/g, ''));
+            
+            if (countTo) {
+                $({ countNum: 0 }).animate({
+                    countNum: countTo
+                },
+                {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function() {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                        $this.text(countTo + ($this.text().includes('+') ? '+' : ''));
+                    }
+                });
+            }
+        });
+
+        console.log('%c✨ Fire Horse Micro-interactions Active', 'font-size: 14px; color: #E76F51;');
+    });
+
+})(jQuery);
+
+/**
+ * Accessibility Enhancements - WCAG 2.1 AAA
+ */
+(function($) {
+    'use strict';
+
+    $(document).ready(function() {
+
+        // Announce form errors to screen readers
+        $('form').on('submit', function(e) {
+            var $form = $(this);
+            var $errors = $form.find('.error, .invalid');
+            
+            if ($errors.length > 0) {
+                var errorMessage = $errors.length + ' error' + ($errors.length > 1 ? 's' : '') + ' found. Please correct them.';
+                
+                // Create or update ARIA live region
+                var $liveRegion = $('#form-errors-live');
+                if ($liveRegion.length === 0) {
+                    $liveRegion = $('<div id="form-errors-live" role="alert" aria-live="assertive" style="position: absolute; left: -9999px;"></div>');
+                    $('body').append($liveRegion);
+                }
+                $liveRegion.text(errorMessage);
+            }
+        });
+
+        // Add required field indicators
+        $('input[required], textarea[required], select[required]').each(function() {
+            var $field = $(this);
+            var $label = $('label[for="' + $field.attr('id') + '"]');
+            
+            if ($label.length && !$label.find('.required-indicator').length) {
+                $label.append(' <span class="required-indicator" aria-label="required">*</span>');
+            }
+        });
+
+        // Enhanced keyboard navigation feedback
+        $('a, button, input, select, textarea').on('focus', function() {
+            $(this).addClass('keyboard-focus');
+        }).on('blur', function() {
+            $(this).removeClass('keyboard-focus');
+        });
+
+        console.log('%c♿ Accessibility Enhancements Active', 'font-size: 14px; color: #2A9D8F;');
+    });
+
+})(jQuery);

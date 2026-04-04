@@ -36,11 +36,27 @@ function fengshuihomestyle_vastu_enqueue_styles()
         wp_get_theme()->get('Version')
     );
 
+    // Enqueue AOS (Animate on Scroll) library
+    wp_enqueue_style(
+        'aos-css',
+        'https://unpkg.com/aos@2.3.4/dist/aos.css',
+        array(),
+        '2.3.4'
+    );
+
+    wp_enqueue_script(
+        'aos-js',
+        'https://unpkg.com/aos@2.3.4/dist/aos.js',
+        array(),
+        '2.3.4',
+        true
+    );
+
     // Enqueue custom JavaScript
     wp_enqueue_script(
         'fengshuihomestyle-vastu-script',
         get_stylesheet_directory_uri() . '/assets/js/custom.js',
-        array('jquery'),
+        array('jquery', 'aos-js'),
         wp_get_theme()->get('Version'),
         true
     );

@@ -3092,3 +3092,229 @@ body.dark-mode .cta-primary {
         font-size: 1.2rem;
     }
 }
+
+/* ========================================
+   Fire Horse 2026 - Advanced Animations & Micro-interactions
+   ======================================== */
+
+/* Loading Spinner */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Icon Pulse Animation */
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.trust-icon, .proof-icon, .service-icon {
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+/* Keyboard Focus Indicators - Enhanced */
+.keyboard-focus {
+    outline: 3px solid var(--fire-sunset) !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(231, 111, 81, 0.2);
+}
+
+/* Required Field Indicator */
+.required-indicator {
+    color: var(--fire-ember);
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+/* Form Error States */
+.error, .invalid {
+    border-color: var(--fire-ember) !important;
+    background-color: rgba(196, 69, 54, 0.05);
+}
+
+.error-message {
+    color: var(--fire-ember);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error-message::before {
+    content: '⚠️';
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    body.high-contrast-mode {
+        --fire-ember: #FF0000;
+        --fire-sunset: #FF6600;
+        --fire-charcoal: #000000;
+        --balance-cloud: #FFFFFF;
+    }
+
+    body.high-contrast-mode .cta-primary {
+        border: 3px solid #000000;
+    }
+
+    body.high-contrast-mode a {
+        text-decoration: underline;
+    }
+
+    body.high-contrast-mode .glass-card {
+        border: 2px solid #000000;
+        background: #FFFFFF;
+    }
+}
+
+/* Stagger Animation for Lists */
+.feature-list li, .service-list li {
+    transition: all 0.5s ease-out;
+}
+
+/* Parallax Effect */
+.hero-section {
+    background-attachment: scroll;
+    will-change: background-position;
+}
+
+/* Number Counter Animation */
+.proof-number, .stat-number {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Modal Animations */
+.modal, .popup, .dialog {
+    animation: fadeInScale 0.3s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Card Glow on Hover - Fire Horse Energy */
+.glass-card:hover,
+.residential-card:hover,
+.commercial-card:hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Button Active State */
+.cta-primary:active,
+.cta-secondary:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Accessibility: Skip Links */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--fire-ember);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 10000;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* Form Loading State */
+button[disabled], input[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, select, textarea, .card {
+    transition: var(--transition-base);
+}
+
+/* Reduced Motion Support - Override animations */
+@media (prefers-reduced-motion: reduce) {
+    .trust-icon, .proof-icon, .service-icon {
+        animation: none;
+    }
+    
+    .modal, .popup, .dialog {
+        animation: none;
+    }
+    
+    .hero-section {
+        background-attachment: fixed;
+    }
+}
+
+/* ========================================
+   AOS Animation Overrides - Fire Horse Theme
+   ======================================== */
+
+[data-aos] {
+    pointer-events: none;
+}
+
+[data-aos].aos-animate {
+    pointer-events: auto;
+}
+
+/* Custom AOS fade-in with Fire Horse energy */
+[data-aos="fade-up"] {
+    transform: translate3d(0, 40px, 0);
+}
+
+[data-aos="fade-down"] {
+    transform: translate3d(0, -40px, 0);
+}
+
+[data-aos="fade-left"] {
+    transform: translate3d(40px, 0, 0);
+}
+
+[data-aos="fade-right"] {
+    transform: translate3d(-40px, 0, 0);
+}
+
+[data-aos="zoom-in"] {
+    transform: scale(0.8);
+}
+
+/* Fire Horse glow animation for special elements */
+@keyframes fireGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(196, 69, 54, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(231, 111, 81, 0.5);
+    }
+}
+
+.fire-glow {
+    animation: fireGlow 2s ease-in-out infinite;
+}
+
+/* Accessibility: Focus Visible */
+*:focus-visible {
+    outline: 3px solid var(--fire-sunset);
+    outline-offset: 2px;
+}
