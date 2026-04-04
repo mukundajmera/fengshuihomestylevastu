@@ -1135,3 +1135,56 @@ function fengshuihomestyle_vastu_contact_form_messages()
     }
 }
 add_action('wp_footer', 'fengshuihomestyle_vastu_contact_form_messages');
+
+/**
+ * Fire Horse 2026 Dark Mode Toggle
+ * Add dark mode toggle button and JavaScript for theme switching
+ */
+function fengshuihomestyle_vastu_dark_mode_toggle()
+{
+    ?>
+    <button class="dark-mode-toggle" aria-label="Toggle dark mode" id="darkModeToggle">
+        <span class="toggle-icon">🌙</span>
+    </button>
+    <script>
+    (function() {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const toggleIcon = darkModeToggle.querySelector('.toggle-icon');
+        
+        // Check for saved dark mode preference or system preference
+        const isDarkMode = localStorage.getItem('darkMode') === 'true' || 
+                          (localStorage.getItem('darkMode') === null && 
+                           window.matchMedia('(prefers-color-scheme: dark)').matches);
+        
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            toggleIcon.textContent = '☀️';
+        }
+        
+        darkModeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            toggleIcon.textContent = isDark ? '☀️' : '🌙';
+            
+            // Fire Horse energy: smooth transition announcement
+            if (isDark) {
+                console.log('🔥 Fire Horse Dark Mode Activated');
+            } else {
+                console.log('🌅 Fire Horse Light Mode Activated');
+            }
+        });
+        
+        // Listen for system dark mode changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (localStorage.getItem('darkMode') === null) {
+                body.classList.toggle('dark-mode', e.matches);
+                toggleIcon.textContent = e.matches ? '☀️' : '🌙';
+            }
+        });
+    })();
+    </script>
+    <?php
+}
+add_action('wp_footer', 'fengshuihomestyle_vastu_dark_mode_toggle');

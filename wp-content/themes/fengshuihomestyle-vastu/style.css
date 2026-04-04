@@ -14,7 +14,24 @@ Text Domain: fengshuihomestyle-vastu
 /* ========================================
    Fire Horse Design System - 2026
    Modern, Responsive, Accessible
+   Glassmorphism, Neomorphism, Dynamic Animations
    ======================================== */
+
+/* Smooth Scrolling with Reduced Motion Support */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
 
 /* 
  * Google Fonts are loaded via wp_enqueue_style in functions.php for better performance
@@ -103,7 +120,7 @@ Text Domain: fengshuihomestyle-vastu
    ======================================== */
 .vastu-tools-section {
     padding: var(--spacing-xl) var(--spacing-md);
-    background: linear-gradient(135deg, var(--color-deep-indigo) 0%, var(--color-sage-green) 100%);
+    background: linear-gradient(135deg, var(--fire-charcoal) 0%, var(--balance-ocean) 100%);
     color: var(--color-zen-white);
 }
 
@@ -142,7 +159,7 @@ select {
     border: 1px solid rgba(255, 255, 255, 0.3);
     background: rgba(255, 255, 255, 0.9);
     margin-bottom: var(--spacing-sm);
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     font-family: var(--font-sans);
 }
 
@@ -172,7 +189,7 @@ body {
     font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.7;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     background-color: var(--color-warm-sand);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -188,7 +205,7 @@ h6 {
     font-family: var(--font-serif);
     font-weight: 600;
     line-height: 1.3;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -210,13 +227,13 @@ p {
 }
 
 a {
-    color: var(--color-sage-green);
+    color: var(--fire-sunset);
     text-decoration: none;
     transition: var(--transition-base);
 }
 
 a:hover {
-    color: var(--color-deep-indigo);
+    color: var(--fire-ember);
 }
 
 /* ========================================
@@ -264,26 +281,28 @@ a:hover {
 .hero-headline {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 700;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     margin-bottom: var(--spacing-sm);
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+    animation: fadeInUp 1s ease-out;
 }
 
 .hero-subheadline {
     font-size: clamp(1.1rem, 2vw, 1.5rem);
-    color: var(--color-earth-brown);
+    color: var(--fire-terracotta);
     margin-bottom: var(--spacing-lg);
     font-weight: 300;
     line-height: 1.6;
+    animation: fadeInUp 1s ease-out 0.2s backwards;
 }
 
 /* ========================================
-   CTA Buttons
+   CTA Buttons - Fire Horse Neomorphism
    ======================================== */
 .cta-primary {
     display: inline-block;
     padding: 1.2rem 3rem;
-    background-color: var(--color-deep-indigo);
+    background: linear-gradient(145deg, var(--fire-ember), var(--fire-sunset));
     color: var(--color-zen-white);
     font-size: 1.1rem;
     font-weight: 700;
@@ -293,7 +312,9 @@ a:hover {
     transition: var(--transition-base);
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 10px 30px rgba(46, 43, 89, 0.3);
+    box-shadow:
+        0 10px 30px rgba(196, 69, 54, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -318,7 +339,17 @@ a:hover {
 
 .cta-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(46, 43, 89, 0.4);
+    box-shadow:
+        0 15px 40px rgba(196, 69, 54, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    background: linear-gradient(145deg, var(--fire-sunset), var(--fire-ember));
+}
+
+.cta-primary:active {
+    transform: translateY(-1px);
+    box-shadow:
+        0 8px 20px rgba(196, 69, 54, 0.3),
+        inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .cta-sticky {
@@ -364,43 +395,38 @@ a:hover {
     align-items: center;
     gap: var(--spacing-xs);
     font-weight: 700;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
 }
 
 .trust-icon {
     font-size: 1.5rem;
-    color: var(--color-sage-green);
+    color: var(--fire-sunset);
 }
 
 /* ========================================
-   Glassmorphism Cards
+   Glassmorphism Cards - Fire Horse Enhanced
    ======================================== */
-/* 
- * ELEMENTOR STYLING PARAMETERS:
- * Background Type: Gradient
- * First Color: rgba(255, 255, 255, 0.7)
- * Second Color: rgba(255, 255, 255, 0.8)
- * CSS Filters: backdrop-filter: blur(10px)
- * Border: 1px solid rgba(255, 255, 255, 0.3)
- * Border Radius: 20px
- * Box Shadow: 0 8px 32px 0 rgba(46, 43, 89, 0.1)
- * Hover Transform: translateY(-5px)
- * Hover Box Shadow: 0 15px 40px 0 rgba(46, 43, 89, 0.15)
- */
 .glass-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.7),
+        rgba(237, 242, 244, 0.6));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(231, 111, 81, 0.2);
     padding: var(--spacing-lg);
-    box-shadow: 0 8px 32px rgba(46, 43, 89, 0.1);
+    box-shadow:
+        0 8px 32px rgba(196, 69, 54, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
     transition: var(--transition-base);
 }
 
 .glass-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(46, 43, 89, 0.15);
+    box-shadow:
+        0 15px 40px rgba(196, 69, 54, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-color: rgba(231, 111, 81, 0.4);
 }
 
 /* ========================================
@@ -414,7 +440,7 @@ a:hover {
 .section-subtitle {
     text-align: center;
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: var(--color-earth-brown);
+    color: var(--fire-terracotta);
     margin-bottom: var(--spacing-lg);
     font-weight: 300;
     max-width: 800px;
@@ -480,7 +506,7 @@ a:hover {
     display: inline-block;
     margin-top: auto;
     padding: 0.8rem 1.5rem;
-    background-color: var(--color-sage-green);
+    background-color: var(--fire-ember);
     color: var(--color-zen-white);
     font-weight: 600;
     border-radius: 30px;
@@ -489,7 +515,7 @@ a:hover {
 }
 
 .card-cta:hover {
-    background-color: var(--color-deep-indigo);
+    background-color: var(--fire-charcoal);
     transform: translateX(5px);
     color: var(--color-zen-white);
 }
@@ -499,7 +525,7 @@ a:hover {
    ======================================== */
 .commercial-growth-section {
     padding: var(--spacing-xl) var(--spacing-md);
-    background: var(--color-deep-indigo);
+    background: var(--fire-charcoal);
     color: var(--color-zen-white);
 }
 
@@ -523,11 +549,11 @@ a:hover {
 
 .commercial-card:hover {
     background: rgba(255, 255, 255, 0.15);
-    border-color: var(--color-sage-green);
+    border-color: var(--fire-sunset);
 }
 
 .commercial-card .service-icon {
-    color: var(--color-sage-green);
+    color: var(--fire-gold);
 }
 
 .commercial-card .service-title {
@@ -559,7 +585,7 @@ a:hover {
    ======================================== */
 .social-proof-section {
     padding: var(--spacing-xl) var(--spacing-md);
-    background: var(--color-sage-green);
+    background: var(--balance-forest);
 }
 
 .proof-strip {
@@ -641,7 +667,7 @@ a:hover {
 .about-intro {
     font-size: clamp(1.25rem, 2.5vw, 1.5rem);
     font-weight: 600;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     margin-bottom: var(--spacing-md);
     line-height: 1.6;
 }
@@ -725,7 +751,7 @@ a:hover {
 .tab-button {
     padding: 1rem 2rem;
     background: var(--color-zen-white);
-    border: 2px solid var(--color-sage-green);
+    border: 2px solid var(--fire-ember);
     color: var(--color-sage-green);
     font-family: var(--font-serif);
     font-size: 1rem;
@@ -737,7 +763,7 @@ a:hover {
 
 .tab-button:hover,
 .tab-button.active {
-    background: var(--color-sage-green);
+    background: var(--balance-forest);
     color: var(--color-zen-white);
     transform: scale(1.05);
 }
@@ -927,7 +953,7 @@ img {
 
 /* Wisdom Hub Hero */
 .wisdom-hub-hero {
-    background: linear-gradient(135deg, var(--color-deep-indigo) 0%, var(--color-sage-green) 100%);
+    background: linear-gradient(135deg, var(--fire-charcoal) 0%, var(--balance-ocean) 100%);
     color: var(--color-zen-white);
     padding: var(--spacing-xl) var(--spacing-md);
     text-align: center;
@@ -969,7 +995,7 @@ img {
 .filter-tab:hover,
 .filter-tab.active {
     background: var(--color-zen-white);
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
 }
 
 /* Blog Grid Layout */
@@ -1067,7 +1093,7 @@ img {
 }
 
 .blog-card-title a {
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
 }
 
 .blog-card-title a:hover {
@@ -1091,7 +1117,7 @@ img {
 
 .read-more-link:hover {
     gap: 10px;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
 }
 
 /* Sidebar Widgets */
@@ -1137,7 +1163,7 @@ img {
 }
 
 .popular-posts-list a {
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     font-size: 0.95rem;
     font-weight: 500;
     transition: var(--transition-base);
@@ -1236,14 +1262,14 @@ img {
     padding: var(--spacing-lg);
     background: linear-gradient(135deg, rgba(100, 142, 123, 0.1) 0%, rgba(46, 43, 89, 0.05) 100%);
     backdrop-filter: blur(20px);
-    border: 2px solid var(--color-sage-green);
+    border: 2px solid var(--fire-ember);
     border-radius: 20px;
     text-align: center;
 }
 
 .cta-inner h3 {
     font-size: clamp(1.5rem, 3vw, 2rem);
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1289,7 +1315,7 @@ img {
 
 .tags-label {
     font-weight: 600;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     margin-right: var(--spacing-sm);
 }
 
@@ -1305,7 +1331,7 @@ img {
 }
 
 .tag-badge:hover {
-    background: var(--color-sage-green);
+    background: var(--balance-forest);
     color: var(--color-zen-white);
 }
 
@@ -1365,7 +1391,7 @@ img {
 }
 
 .related-post-title a {
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
 }
 
 .related-post-title a:hover {
@@ -1379,7 +1405,7 @@ img {
 }
 
 .related-post-link:hover {
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
 }
 
 /* Pagination */
@@ -1403,14 +1429,14 @@ img {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(100, 142, 123, 0.2);
     border-radius: 8px;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     font-weight: 600;
     transition: var(--transition-base);
 }
 
 .blog-pagination a:hover,
 .blog-pagination .current {
-    background: var(--color-sage-green);
+    background: var(--balance-forest);
     color: var(--color-zen-white);
 }
 
@@ -1590,7 +1616,7 @@ img {
 .result-challenge p,
 .result-solution p {
     font-size: 1.125rem;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     font-weight: 600;
     line-height: 1.4;
 }
@@ -1606,7 +1632,7 @@ img {
     font-family: var(--font-serif);
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     margin-bottom: var(--spacing-xs);
     display: block;
 }
@@ -1651,7 +1677,7 @@ img {
    ======================================== */
 .legacy-counter-section {
     padding: var(--spacing-xl) var(--spacing-md);
-    background: linear-gradient(135deg, var(--color-deep-indigo) 0%, var(--color-sage-green) 100%);
+    background: linear-gradient(135deg, var(--fire-charcoal) 0%, var(--balance-ocean) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -2194,12 +2220,12 @@ img {
 }
 
 .pioneer-section--indigo {
-    background: var(--color-deep-indigo);
+    background: var(--fire-charcoal);
     color: var(--color-zen-white);
 }
 
 .pioneer-section--sage {
-    background: var(--color-sage-green);
+    background: var(--balance-forest);
     color: var(--color-zen-white);
 }
 
@@ -2311,7 +2337,7 @@ img {
     gap: 12px;
     padding: 16px 32px;
     background: var(--color-amber-light);
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     font-family: var(--font-sans);
     font-size: 1.1rem;
     font-weight: 700;
@@ -2331,7 +2357,7 @@ img {
 .hero-fab:hover {
     transform: translateX(-50%) scale(1.05);
     box-shadow: 0 12px 40px rgba(255, 179, 71, 0.6);
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
 }
 
 .hero-fab svg {
@@ -2402,7 +2428,7 @@ img {
     font-family: var(--font-serif);
     font-size: clamp(2.5rem, 4vw, 4rem);
     font-weight: 700;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     margin: 0;
     line-height: 1.15;
     text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
@@ -2425,7 +2451,7 @@ img {
     gap: 10px;
     padding: 16px 36px;
     background: transparent;
-    color: var(--color-deep-indigo);
+    color: var(--fire-charcoal);
     font-family: var(--font-sans);
     font-size: 1rem;
     font-weight: 600;
@@ -2441,7 +2467,7 @@ img {
 }
 
 .glass-button:hover {
-    background: var(--color-deep-indigo);
+    background: var(--fire-charcoal);
     color: var(--color-zen-white);
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(46, 43, 89, 0.3);
@@ -2903,5 +2929,166 @@ img {
     h1, h2, h3, h4, h5, h6 {
         page-break-after: avoid;
         page-break-inside: avoid;
+    }
+}
+/* ========================================
+   Dark Mode - Fire Horse 2026
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Dark Fire Horse Palette */
+        --color-warm-sand: #1a1a1a;
+        --color-soft-cream: #2b2b2b;
+        --color-zen-white: #e0e0e0;
+        --color-shadow: rgba(255, 255, 255, 0.1);
+
+        /* Fire colors remain vibrant in dark mode */
+        --fire-ember: #E76F51;        /* Slightly brighter for dark backgrounds */
+        --fire-sunset: #F4A261;       /* Warmer for visibility */
+        --fire-terracotta: #D4845C;   /* Enhanced for contrast */
+        --fire-gold: #E9C46A;         /* More luminous */
+        --fire-charcoal: #f5f5f5;     /* Inverted for text */
+
+        /* Balance colors adjusted for dark */
+        --balance-sage: #a8b5c4;
+        --balance-cloud: #2b2d42;     /* Darkened */
+        --balance-ocean: #3a5a6b;     /* Lighter for visibility */
+        --balance-forest: #3db5a1;    /* Brighter for dark backgrounds */
+    }
+
+    body {
+        background-color: #0a0a0a;
+        color: var(--color-zen-white);
+    }
+
+    /* Glassmorphism in dark mode */
+    .glass-card {
+        background: linear-gradient(135deg,
+            rgba(43, 45, 66, 0.7),
+            rgba(30, 30, 30, 0.6));
+        border: 1px solid rgba(231, 111, 81, 0.3);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .glass-card:hover {
+        box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        border-color: rgba(231, 111, 81, 0.5);
+    }
+
+    /* Hero section dark mode */
+    .hero-section {
+        background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.8)), url('assets/images/hero-bg.jpg');
+    }
+
+    .hero-overlay {
+        background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(43, 45, 66, 0.7) 100%);
+    }
+
+    /* Cards and surfaces */
+    .residential-card,
+    .commercial-card {
+        background: rgba(30, 30, 30, 0.8);
+        border-color: rgba(231, 111, 81, 0.2);
+    }
+
+    /* Trust markers */
+    .trust-strip {
+        background: rgba(43, 45, 66, 0.6);
+        border: 1px solid rgba(231, 111, 81, 0.2);
+    }
+
+    /* Buttons maintain Fire Horse energy */
+    .cta-primary {
+        background: linear-gradient(145deg, var(--fire-ember), var(--fire-sunset));
+        box-shadow:
+            0 10px 30px rgba(231, 111, 81, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .cta-primary:hover {
+        box-shadow:
+            0 15px 40px rgba(231, 111, 81, 0.6),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    /* Form inputs */
+    input, textarea, select {
+        background-color: rgba(43, 45, 66, 0.5);
+        color: var(--color-zen-white);
+        border-color: rgba(231, 111, 81, 0.3);
+    }
+
+    input:focus, textarea:focus, select:focus {
+        background-color: rgba(43, 45, 66, 0.7);
+        border-color: var(--fire-sunset);
+    }
+
+    /* Footer */
+    .site-footer {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2b2d42 100%);
+        border-top: 1px solid rgba(231, 111, 81, 0.2);
+    }
+}
+
+/* ========================================
+   Dark Mode Toggle (JavaScript-controlled)
+   ======================================== */
+
+body.dark-mode {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .glass-card {
+    background: linear-gradient(135deg,
+        rgba(43, 45, 66, 0.7),
+        rgba(30, 30, 30, 0.6));
+    border: 1px solid rgba(231, 111, 81, 0.3);
+}
+
+body.dark-mode .cta-primary {
+    box-shadow:
+        0 10px 30px rgba(231, 111, 81, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--fire-ember), var(--fire-sunset));
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    box-shadow: 0 4px 15px rgba(196, 69, 54, 0.4);
+    transition: var(--transition-base);
+}
+
+.dark-mode-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(196, 69, 54, 0.5);
+}
+
+@media (max-width: 768px) {
+    .dark-mode-toggle {
+        top: 80px;
+        right: 15px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
     }
 }
