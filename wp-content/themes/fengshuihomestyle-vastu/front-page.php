@@ -1,9 +1,9 @@
 <?php
 /**
  * Template Name: Feng Shui Home Page
- * 
+ *
  * The front page template for Feng Shui Homestyle Vastu
- * Pioneer 2025 Digital Zen Design
+ * 2026 Fire Horse Revolution - Bold Action. Passionate Innovation.
  *
  * @package Feng_Shui_Homestyle_Vastu
  */

@@ -40,6 +40,17 @@ Text Domain: fengshuihomestyle-vastu
     /* Power/Influence Zone */
     --color-shadow: rgba(46, 43, 89, 0.1);
 
+    /* 2026 Fire Horse Colors - Dynamic, Passionate, Innovative */
+    --fire-ember: #C44536;        /* Primary CTA, Fire element activation */
+    --fire-sunset: #E76F51;       /* Secondary accents, energy zones */
+    --fire-terracotta: #BC6C25;   /* Grounding, Earth-Fire balance */
+    --fire-gold: #D4A574;         /* Prosperity, wealth activation */
+    --fire-charcoal: #2B2D42;     /* Depth, premium feel */
+    --balance-sage: #8D99AE;      /* Cooling Water element balance */
+    --balance-cloud: #EDF2F4;     /* Space, clarity */
+    --balance-ocean: #264653;     /* Stability, grounding */
+    --balance-forest: #2A9D8F;    /* Wood element, growth support */
+
     /* Typography */
     --font-serif: 'Cinzel', serif;
     --font-sans: 'Lato', sans-serif;

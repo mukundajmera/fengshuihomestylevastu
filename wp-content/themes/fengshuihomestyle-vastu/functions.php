@@ -52,7 +52,7 @@ add_action('wp_enqueue_scripts', 'fengshuihomestyle_vastu_enqueue_styles', 15);
  */
 function fengshuihomestyle_vastu_body_classes($classes)
 {
-    $classes[] = 'digital-zen';
+    $classes[] = 'fire-horse-2026';
     $classes[] = 'feng-shui-theme';
     return $classes;
 }
